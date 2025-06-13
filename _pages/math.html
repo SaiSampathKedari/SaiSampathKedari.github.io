@@ -52,21 +52,32 @@ author_profile: true
     </div>
 
     <div class="math-tile">
-      <img src="/assets/img/dummy-cover-5.jpg" alt="Fourier Transform">
-      <div class="math-content">
-        <h3>Fourier Transform</h3>
-        <p>Stanford EE261 — Fourier series, spectral representation, convolution, filters. A deep grasp of transforms aids processing sensor data and images.</p>
-        <a href="https://github.com/SaiSampathKedari/Stanford-EE261-The-Fourier-Transform-and-its-Applications" target="_blank">View Repository →</a>
-      </div>
-    </div>
-
-    <div class="math-tile">
-      <img src="/assets/img/dummy-cover-6.jpg" alt="Signals and Systems">
-      <div class="math-content">
-        <h3>Signals and Systems</h3>
-        <p>Oppenheim — LTI systems, Laplace/Z/Fourier transforms, convolution, system stability. Understanding signals lays the groundwork for reliable dynamic models.</p>
-        <a href="https://github.com/SaiSampathKedari/Signals-and-Systems" target="_blank">View Repository →</a>
-      </div>
+    background: linear-gradient(135deg, #fafafa, #f0f4f9);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    padding: 0 .5rem;
+    background: #fff;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    height: 180px;
+  @media (min-width: 600px) {
+    .math-tile img {
+      height: 220px;
+    }
+  }
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    font-size: 1.25rem;
+    font-family: 'Roboto Slab', 'Cambria', 'Times New Roman', serif;
+    line-height: 1.55;
+    flex: 1;
+    margin-top: 0.75rem;
+    color: #3366cc;
+    color: #224499;
     </div>
 
   </div>
