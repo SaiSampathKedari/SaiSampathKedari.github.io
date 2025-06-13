@@ -15,7 +15,7 @@ author_profile: true
   <div class="math-showcase">
 
     <div class="math-tile">
-      <img src="../images/CommonDistributions.png" alt="Cover for Probability and Distribution Theory">
+      <img src="{{ '/images/CommonDistributions.png' | relative_url }}" alt="Cover for Probability and Distribution Theory">
       <div class="math-content">
         <h3>Probability and Distribution Theory</h3>
         <p>Casella & Berger — Random variables, expectation, exponential family, convergence theorems. Working through every problem strengthens my intuition for handling uncertainty in robotics.</p>
@@ -24,7 +24,7 @@ author_profile: true
     </div>
 
     <div class="math-tile">
-      <img src="../images/Statistical-Inference-Theory.jpg" alt="Cover for Statistical Inference Theory">
+      <img src="{{ '/images/Statistical-Inference-Theory.jpg' | relative_url }}" alt="Cover for Statistical Inference Theory">
       <div class="math-content">
         <h3>Statistical Inference Theory</h3>
         <p>Casella & Berger — Estimation, MLE, Bayesian inference, hypothesis testing. These exercises train the statistical thinking required for perception algorithms.</p>
@@ -51,7 +51,7 @@ author_profile: true
     </div>
 
     <div class="math-tile">
-      <img src="../images/Fourier-Transform.jpg" alt="Cover for Fourier Transform">
+      <img src="{{ '/images/Fourier-Transform.jpg' | relative_url }}" alt="Cover for Fourier Transform">
       <div class="math-content">
         <h3>Fourier Transform</h3>
         <p>Stanford EE261 — Fourier series, spectral representation, convolution, filters. A deep grasp of transforms aids processing sensor data and images.</p>
@@ -74,7 +74,7 @@ author_profile: true
 <style>
   #math-intelligence {
     padding: 3rem 1rem;
-    background: linear-gradient(135deg, #fafafa, #f0f4f9);
+    background: var(--global-bg-color);
   }
   .intro {
     max-width: 720px;
@@ -137,9 +137,15 @@ author_profile: true
     font-weight: 600;
     color: #3366cc;
     text-decoration: none;
-    transition: color 0.2s;
+    padding: 0.45rem 0.9rem;
+    border-radius: 10px;
+    background: #f5f7fa;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background 0.2s, box-shadow 0.2s, color 0.2s;
   }
   .math-content a:hover {
     color: #224499;
+    background: #eef1f5;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.12);
   }
 </style>
