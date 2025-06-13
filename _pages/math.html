@@ -15,57 +15,56 @@ author_profile: true
   <div class="math-showcase">
 
     <div class="math-tile">
-      <img src="/assets/img/dummy-cover-1.jpg" alt="Probability and Distribution Theory">
+      <img src="/assets/img/dummy-cover-1.jpg" alt="Cover for Probability and Distribution Theory">
       <div class="math-content">
         <h3>Probability and Distribution Theory</h3>
         <p>Casella & Berger — Random variables, expectation, exponential family, convergence theorems. Working through every problem strengthens my intuition for handling uncertainty in robotics.</p>
-
-        <a href="https://github.com/SaiSampathKedari/Probability-and-Distribution-Theory" target="_blank">View Repository →</a>
+        <a href="https://github.com/SaiSampathKedari/Probability-and-Distribution-Theory" target="_blank">View on GitHub →</a>
       </div>
     </div>
 
     <div class="math-tile">
-      <img src="/assets/img/dummy-cover-2.jpg" alt="Statistical Inference Theory">
+      <img src="/assets/img/dummy-cover-2.jpg" alt="Cover for Statistical Inference Theory">
       <div class="math-content">
         <h3>Statistical Inference Theory</h3>
         <p>Casella & Berger — Estimation, MLE, Bayesian inference, hypothesis testing. These exercises train the statistical thinking required for perception algorithms.</p>
-        <a href="https://github.com/SaiSampathKedari/Statistical-Inference-Theory" target="_blank">View Repository →</a>
+        <a href="https://github.com/SaiSampathKedari/Statistical-Inference-Theory" target="_blank">View on GitHub →</a>
       </div>
     </div>
 
     <div class="math-tile">
-      <img src="/assets/img/dummy-cover-3.jpg" alt="Real Analysis">
+      <img src="/assets/img/dummy-cover-3.jpg" alt="Cover for Real Analysis">
       <div class="math-content">
         <h3>Real Analysis</h3>
         <p>Kenneth Ross — Sequences, limits, continuity, uniform convergence, compactness. Building rigor here lets me prove convergence and stability of algorithms.</p>
-        <a href="https://github.com/SaiSampathKedari/Real-Analysis" target="_blank">View Repository →</a>
+        <a href="https://github.com/SaiSampathKedari/Real-Analysis" target="_blank">View on GitHub →</a>
       </div>
     </div>
 
     <div class="math-tile">
-      <img src="/assets/img/dummy-cover-4.jpg" alt="Convex Optimization">
+      <img src="/assets/img/dummy-cover-4.jpg" alt="Cover for Convex Optimization">
       <div class="math-content">
         <h3>Convex Optimization</h3>
         <p>Stephen Boyd — Convex sets, functions, duality, gradient and interior-point methods. Solving problems equips me with tools for efficient planning and control.</p>
-        <a href="https://github.com/SaiSampathKedari/UMich-IOE611-Convex-Optimization" target="_blank">View Repository →</a>
+        <a href="https://github.com/SaiSampathKedari/UMich-IOE611-Convex-Optimization" target="_blank">View on GitHub →</a>
       </div>
     </div>
 
     <div class="math-tile">
-      <img src="/assets/img/dummy-cover-5.jpg" alt="Fourier Transform">
+      <img src="/assets/img/dummy-cover-5.jpg" alt="Cover for Fourier Transform">
       <div class="math-content">
         <h3>Fourier Transform</h3>
         <p>Stanford EE261 — Fourier series, spectral representation, convolution, filters. A deep grasp of transforms aids processing sensor data and images.</p>
-        <a href="https://github.com/SaiSampathKedari/Stanford-EE261-The-Fourier-Transform-and-its-Applications" target="_blank">View Repository →</a>
+        <a href="https://github.com/SaiSampathKedari/Stanford-EE261-The-Fourier-Transform-and-its-Applications" target="_blank">View on GitHub →</a>
       </div>
     </div>
 
     <div class="math-tile">
-      <img src="/assets/img/dummy-cover-6.jpg" alt="Signals and Systems">
+      <img src="/assets/img/dummy-cover-6.jpg" alt="Cover for Signals and Systems">
       <div class="math-content">
         <h3>Signals and Systems</h3>
         <p>Oppenheim — LTI systems, Laplace/Z/Fourier transforms, convolution, system stability. Understanding signals lays the groundwork for reliable dynamic models.</p>
-        <a href="https://github.com/SaiSampathKedari/Signals-and-Systems" target="_blank">View Repository →</a>
+        <a href="https://github.com/SaiSampathKedari/Signals-and-Systems" target="_blank">View on GitHub →</a>
       </div>
     </div>
 
@@ -75,7 +74,7 @@ author_profile: true
 <style>
   #math-intelligence {
     padding: 3rem 1rem;
-    background: #fdfdfd;
+    background: linear-gradient(135deg, #fafafa, #f0f4f9);
   }
   .intro {
     max-width: 720px;
@@ -86,50 +85,61 @@ author_profile: true
   }
   .math-showcase {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    padding: 0 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    padding: 0 .5rem;
   }
   .math-tile {
-    background: white;
+    background: #fff;
     border-radius: 12px;
+    border: 1px solid #eee;
     overflow: hidden;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
   }
   .math-tile:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   }
   .math-tile img {
     width: 100%;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
+  }
+  @media (min-width: 600px) {
+    .math-tile img {
+      height: 220px;
+    }
   }
   .math-content {
     padding: 1rem 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
   .math-content h3 {
     margin-top: 0;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     color: #222;
+    font-family: 'Roboto Slab', 'Cambria', 'Times New Roman', serif;
   }
   .math-content p {
     color: #555;
     font-size: 0.95rem;
-    line-height: 1.5;
+    line-height: 1.55;
+    flex: 1;
   }
   .math-content a {
-    margin-top: 1rem;
+    margin-top: 0.75rem;
     display: inline-block;
     font-weight: 600;
-    color: #0066cc;
+    color: #3366cc;
     text-decoration: none;
     transition: color 0.2s;
   }
   .math-content a:hover {
-    color: #004a99;
+    color: #224499;
   }
 </style>
