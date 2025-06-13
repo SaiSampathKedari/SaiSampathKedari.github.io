@@ -5,6 +5,10 @@ permalink: /math/
 author_profile: true
 ---
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
 <section id="math-intelligence">
   <p class="intro">
     I believe that mastering and developing an intuitive understanding of mathematical foundations is the key to building truly intelligent systems.
@@ -19,7 +23,7 @@ author_profile: true
       <div class="math-content">
         <h3>Probability and Distribution Theory</h3>
         <p>Casella & Berger — Random variables, expectation, exponential family, convergence theorems. Working through every problem strengthens my intuition for handling uncertainty in robotics.</p>
-        <a href="https://github.com/SaiSampathKedari/Probability-and-Distribution-Theory" target="_blank">View on GitHub →</a>
+        <a class="view-btn" href="https://github.com/SaiSampathKedari/Probability-and-Distribution-Theory" target="_blank" aria-label="Probability and Distribution Theory repository on GitHub">View on GitHub <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
 
@@ -28,7 +32,7 @@ author_profile: true
       <div class="math-content">
         <h3>Statistical Inference Theory</h3>
         <p>Casella & Berger — Estimation, MLE, Bayesian inference, hypothesis testing. These exercises train the statistical thinking required for perception algorithms.</p>
-        <a href="https://github.com/SaiSampathKedari/Statistical-Inference-Theory" target="_blank">View on GitHub →</a>
+        <a class="view-btn" href="https://github.com/SaiSampathKedari/Statistical-Inference-Theory" target="_blank" aria-label="Statistical Inference Theory repository on GitHub">View on GitHub <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
 
@@ -37,7 +41,7 @@ author_profile: true
       <div class="math-content">
         <h3>Real Analysis</h3>
         <p>Kenneth Ross — Sequences, limits, continuity, uniform convergence, compactness. Building rigor here lets me prove convergence and stability of algorithms.</p>
-        <a href="https://github.com/SaiSampathKedari/Real-Analysis" target="_blank">View on GitHub →</a>
+        <a class="view-btn" href="https://github.com/SaiSampathKedari/Real-Analysis" target="_blank" aria-label="Real Analysis repository on GitHub">View on GitHub <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
 
@@ -46,7 +50,7 @@ author_profile: true
       <div class="math-content">
         <h3>Convex Optimization</h3>
         <p>Stephen Boyd — Convex sets, functions, duality, gradient and interior-point methods. Solving problems equips me with tools for efficient planning and control.</p>
-        <a href="https://github.com/SaiSampathKedari/UMich-IOE611-Convex-Optimization" target="_blank">View on GitHub →</a>
+        <a class="view-btn" href="https://github.com/SaiSampathKedari/UMich-IOE611-Convex-Optimization" target="_blank" aria-label="Convex Optimization repository on GitHub">View on GitHub <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
 
@@ -55,7 +59,7 @@ author_profile: true
       <div class="math-content">
         <h3>Fourier Transform</h3>
         <p>Stanford EE261 — Fourier series, spectral representation, convolution, filters. A deep grasp of transforms aids processing sensor data and images.</p>
-        <a href="https://github.com/SaiSampathKedari/Stanford-EE261-The-Fourier-Transform-and-its-Applications" target="_blank">View on GitHub →</a>
+        <a class="view-btn" href="https://github.com/SaiSampathKedari/Stanford-EE261-The-Fourier-Transform-and-its-Applications" target="_blank" aria-label="Fourier Transform repository on GitHub">View on GitHub <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
 
@@ -64,7 +68,7 @@ author_profile: true
       <div class="math-content">
         <h3>Signals and Systems</h3>
         <p>Oppenheim — LTI systems, Laplace/Z/Fourier transforms, convolution, system stability. Understanding signals lays the groundwork for reliable dynamic models.</p>
-        <a href="https://github.com/SaiSampathKedari/Signals-and-Systems" target="_blank">View on GitHub →</a>
+        <a class="view-btn" href="https://github.com/SaiSampathKedari/Signals-and-Systems" target="_blank" aria-label="Signals and Systems repository on GitHub">View on GitHub <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
 
@@ -73,7 +77,7 @@ author_profile: true
       <div class="math-content">
         <h3>Differential Equations</h3>
         <p>MIT 18.03 & Edwards-Penney — Lecture notes and solved problems on first- and second-order ODEs, Laplace transforms, linear systems, and nonlinear dynamics. Essential for modeling real-world robotics and control systems.</p>
-        <a href="https://github.com/SaiSampathKedari/Differential-Equations" target="_blank">View on GitHub →</a>
+        <a class="view-btn" href="https://github.com/SaiSampathKedari/Differential-Equations" target="_blank" aria-label="Differential Equations repository on GitHub">View on GitHub <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
   </div>
@@ -82,42 +86,52 @@ author_profile: true
 <style>
   #math-intelligence {
     padding: 3rem 1rem;
-    background: var(--global-bg-color);
+    background: linear-gradient(to bottom right, #f9fafe, #ffffff);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
   }
   .intro {
     max-width: 720px;
-    margin: 0 auto 2rem;
+    margin: 0 auto 2.5rem;
     text-align: center;
-    font-size: 1.1rem;
-    color: #444;
+    font-size: 1.2rem;
   }
   .math-showcase {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
     padding: 0 .5rem;
   }
   .math-tile {
-    background: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
     overflow: hidden;
-    backdrop-filter: blur(8px);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6),
-                0 2px 8px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
     display: flex;
     flex-direction: column;
   }
+  .math-tile:nth-child(1){animation-delay:.05s;}
+  .math-tile:nth-child(2){animation-delay:.1s;}
+  .math-tile:nth-child(3){animation-delay:.15s;}
+  .math-tile:nth-child(4){animation-delay:.2s;}
+  .math-tile:nth-child(5){animation-delay:.25s;}
+  .math-tile:nth-child(6){animation-delay:.3s;}
+  .math-tile:nth-child(7){animation-delay:.35s;}
   .math-tile:hover {
     transform: translateY(-6px);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7),
-                0 8px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12), 0 0 0 2px rgba(0, 0, 0, 0.05);
   }
   .math-tile img {
     width: 100%;
     height: 180px;
     object-fit: cover;
+    transition: transform 0.35s ease;
+  }
+  .math-tile:hover img {
+    transform: scale(1.03);
   }
   @media (min-width: 600px) {
     .math-tile img {
@@ -125,40 +139,52 @@ author_profile: true
     }
   }
   .math-content {
-    padding: 1rem 1.25rem 1.5rem;
+    padding: 1.2rem 1.5rem 1.6rem;
     display: flex;
     flex-direction: column;
     flex: 1;
   }
   .math-content h3 {
-    margin-top: 0;
-    font-size: 1.25rem;
-    color: #222;
-    font-family: 'Roboto Slab', 'Cambria', 'Times New Roman', serif;
+    margin: 0 0 0.4rem;
+    font-size: 1.35rem;
+    font-weight: 600;
   }
   .math-content p {
-    color: #555;
-    font-size: 0.95rem;
-    line-height: 1.55;
+    font-size: 1rem;
+    line-height: 1.6;
     flex: 1;
+    margin: 0;
   }
-  .math-content a {
-    margin-top: 0.75rem;
+  .view-btn {
+    position: relative;
+    margin-top: 0.85rem;
     display: inline-block;
-    font-weight: 600;
-    color: var(--global-link-color);
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #cfe0ff;
     text-decoration: none;
-    padding: 0.45rem 0.9rem;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(6px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: background 0.3s, box-shadow 0.3s, color 0.3s;
+    padding: 0.55rem 1.25rem;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #007aff, #0051c7);
+    transition: background 0.3s, box-shadow 0.3s, transform 0.1s;
   }
-  .math-content a:hover {
-    color: var(--global-link-color-hover);
-    background: rgba(255, 255, 255, 0.35);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 4px 10px rgba(0, 0, 0, 0.15);
+  .view-btn:hover {
+    background: linear-gradient(90deg, #0058e0, #0044b3);
+    box-shadow: 0 8px 24px rgba(0, 82, 204, 0.3);
+  }
+  .view-btn:active {
+    transform: translateY(2px);
+  }
+  .view-btn .arrow {
+    display: inline-block;
+    margin-left: 2px;
+    transition: transform 0.3s ease;
+  }
+  .view-btn:hover .arrow {
+    transform: translateX(4px);
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 </style>
