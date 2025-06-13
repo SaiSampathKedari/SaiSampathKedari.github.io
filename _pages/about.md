@@ -17,3 +17,44 @@ My interests lie in solving core challenges in robotics, particularly state esti
 
 You can find my work at: github.com/SaiSampathKedari
 I also share insights on control, robotics, and statistics at: x.com/SSampathKedari
+
+# Research Interests 🤖
+
+# Education :mortar_board:
+### University of Michigan, Ann Arbor  
+*Master of Science in Mechanical Engineering (Robotics)*  
+Jan 2023 – Apr 2024 · GPA: 3.66/4.0  
+
+### University of Michigan, Ann Arbor**  
+*Master of Science in Automotive Engineering (Controls & Dynamics)*  
+Aug 2021 – Dec 2022 · GPA: 3.64/4.0  
+
+### National Institute of Technology, Rourkela, India**  
+*Bachelor of Technology in Mechanical Engineering*  
+Jul 2015 – May 2019 · GPA: 8.22/10
+
+# Work & Research Experience 💻
+
+### Research Assistant  
+*University of Michigan, Ann Arbor – Prof. Vasileios Tzoumas*  
+**Aug 2024 – Present** · Ann Arbor, MI  
+Developing algorithms for learning-based control of agile quadrotors using Koopman operator theory to model aerodynamic effects and enhance data-driven controllers.
+
+### Research Study – ROAHM Lab  
+*University of Michigan, Ann Arbor – Prof. Ram Vasudevan*  
+**May 2022 – Aug 2022** · Ann Arbor, MI  
+Performed system identification of Fetch Robot dynamic parameters (link friction, mass, inertia) using open-loop testing, regression, and phase-plane analysis.
+
+### Teaching Assistant – Physics 151/241/360 (Electromagnetism, Relativity)  
+*University of Michigan, Ann Arbor*  
+**Aug 2022 – May 2024**
+
+### CATIA R&D Software Developer  
+*Dassault Systèmes – CATIA R&D Team*  
+**Sep 2020 – Aug 2021** · Pune, India  
+Developed the Functional Tolerance & Annotations Workbench in CATIA using advanced C++, integrating latest ISO standards.
+
+### Software Developer 
+*Altair Engineering*  
+**Sep 2019 – Sep 2020** · Bangalore, India  
+Worked on C++ APIs for HyperMesh and MotionView tools. Built force visualization features and modeled two-wheeler dynamics with stability analysis using MDL.
