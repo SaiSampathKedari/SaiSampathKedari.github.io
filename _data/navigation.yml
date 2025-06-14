@@ -29,8 +29,11 @@ main:
   - title: "Projects"
     url: /projects/
 
-  - title: "Mathematical Foundations"
+  - title: "Math Foundations"
     url: /math/
+
+  - title: "Experience"
+    url: /experience/
     
   - title: "Resume"
     url: /cvpdf/
