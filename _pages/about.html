@@ -38,18 +38,27 @@ author_profile: true
       <i class="fas fa-university"></i>
       <span>Education</span>
     </div>
-    <ul>
-      <li>
-        <span class="edu-school"><strong>University of Michigan, Ann Arbor</strong></span><br />
-        <span class="edu-degree">M.S. Mechanical Engineering (Robotics), Jan 2023 – Apr 2024 (GPA: 3.66/4.0)</span>
+    <ul class="education-list">
+      <li class="edu-item">
+        <img class="edu-logo" src="{{ '/images/um_logo.png' | relative_url }}" alt="UMich logo" />
+        <div>
+          <span class="edu-school"><strong>University of Michigan, Ann Arbor</strong></span><br />
+          <span class="edu-degree">M.S. Mechanical Engineering (Robotics), Jan 2023 – Apr 2024</span>
+        </div>
       </li>
-      <li>
-        <span class="edu-school"><strong>University of Michigan, Ann Arbor</strong></span><br />
-        <span class="edu-degree">M.S. Automotive Engineering, Aug 2021 – Dec 2022 (GPA: 3.64/4.0)</span>
+      <li class="edu-item">
+        <img class="edu-logo" src="{{ '/images/um_logo.png' | relative_url }}" alt="UMich logo" />
+        <div>
+          <span class="edu-school"><strong>University of Michigan, Ann Arbor</strong></span><br />
+          <span class="edu-degree">M.S. Automotive Engineering, Aug 2021 – Dec 2022</span>
+        </div>
       </li>
-      <li>
-        <span class="edu-school"><strong>National Institute of Technology, Rourkela, India</strong></span><br />
-        <span class="edu-degree">B.Tech. Mechanical Engineering, Jul 2015 – May 2019 (GPA: 8.22/10)</span>
+      <li class="edu-item">
+        <img class="edu-logo" src="{{ '/images/nit_logo.png' | relative_url }}" alt="NIT Rourkela logo" />
+        <div>
+          <span class="edu-school"><strong>National Institute of Technology, Rourkela, India</strong></span><br />
+          <span class="edu-degree">B.Tech. Mechanical Engineering, Jul 2015 – May 2019</span>
+        </div>
       </li>
     </ul>
   </section>
@@ -128,6 +137,23 @@ body {
 
 .section ul li {
   margin-bottom: 1rem;
+}
+
+.education-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.edu-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.edu-logo {
+  width: 32px;
+  height: auto;
 }
 
 .icon-heading {
