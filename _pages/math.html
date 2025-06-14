@@ -108,11 +108,16 @@ author_profile: true
   }
   .math-showcase {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: 1fr;
     gap: 40px;
     padding: 3rem 2rem;
     max-width: 1100px;
     margin: 0 auto;
+  }
+  @media (min-width: 769px) {
+    .math-showcase {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
   .math-tile {
     background: #fff;
@@ -134,9 +139,6 @@ author_profile: true
     background: #f8f9fa;
   }
   @media (max-width: 768px) {
-    .math-showcase {
-      grid-template-columns: 1fr;
-    }
     .math-tile img {
       height: 200px;
     }
