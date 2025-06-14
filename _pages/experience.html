@@ -1,0 +1,169 @@
+---
+layout: single
+title: "Experience"
+permalink: /experience/
+author_profile: true
+---
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<header class="experience-header">
+  <h1><i class="fas fa-briefcase"></i> Experience</h1>
+</header>
+
+<section class="experience-list">
+  <div class="experience-item">
+    <div class="experience-logo">
+      <img src="{{ '/images/Dassault.png' | relative_url }}" alt="Dassault Systèmes logo">
+    </div>
+    <div class="experience-content">
+      <h3 class="experience-title"><span class="company-name dassault">Dassault Systèmes</span></h3>
+      <p class="role">CATIA R&amp;D Software Developer – Functional Tolerancing &amp; Annotation (FTA)</p>
+      <p class="experience-location"><i class="fas fa-map-marker-alt"></i> Sep 2020 – Aug 2021 · Pune, India</p>
+      <ul>
+        <li>Contributed to the development of the Functional Tolerancing and Annotation (FTA) workbench in CATIA, a key module for managing 3D manufacturing data.</li>
+        <li>Implemented optimizations for numerical methods and geometric computations to enhance the speed and robustness of the FTA module.</li>
+        <li>Worked extensively on build systems and development tooling for large-scale C++ codebases, streamlining continuous integration and delivery pipelines.</li>
+      </ul>
+      <div class="tags">
+        <span>C++</span><span>Geometric Computation</span><span>Build Systems</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="experience-item">
+    <div class="experience-logo">
+      <img src="{{ '/images/altair.png' | relative_url }}" alt="Altair Engineering logo">
+    </div>
+    <div class="experience-content">
+      <h3 class="experience-title altair">Altair Engineering</h3>
+      <p class="role">HyperMesh &amp; MotionView Software Developer</p>
+      <p class="experience-location"><i class="fas fa-map-marker-alt"></i> Sep 2019 – Sep 2020 · Bangalore, India</p>
+      <ul>
+        <li>Designed multibody dynamic (MBD) models of two- and four-wheelers using various suspension and powertrain architectures for the MotionView library; developed tire force visualization and a dynamic bicycle model for stability analysis.</li>
+        <li>Improved solver performance in MotionView by optimizing core numerical methods and integrating C++ APIs with TCL/TK scripting for user customization.</li>
+        <li>Contributed to HyperMesh development by creating and extending Commands (APIs) for pre-processing workflows and enabling deeper interaction between C++ and TCL/TK.</li>
+      </ul>
+      <div class="tags">
+        <span>C++</span><span>Python</span><span>TCL/TK</span><span>Multibody Dynamics</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.experience-header {
+  text-align: center;
+  margin-top: 1rem;
+}
+.experience-header h1 {
+  font-size: 1.75rem;
+  margin: 0;
+  color: #2b6cb0;
+  font-family: 'Inter', sans-serif;
+}
+
+.experience-list {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.experience-item {
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  gap: 1rem;
+}
+
+.experience-logo {
+  flex: 0 0 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.experience-logo img {
+  max-width: 160px;
+  height: auto;
+}
+
+.experience-content {
+  flex: 1;
+  font-family: 'Inter', sans-serif;
+}
+
+.experience-title {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #333;
+  font-weight: 600;
+}
+.role {
+  font-weight: 600;
+  margin: 0.25rem 0;
+}
+.experience-location {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.4rem 0 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.experience-content ul {
+  padding-left: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+.experience-content li {
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tags span {
+  background-color: #e6f0fa;
+  color: #2b6cb0;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+
+.company-name {
+  font-weight: 700;
+}
+
+.dassault {
+  color: #005386;
+  font-weight: 700;
+}
+
+.experience-title.altair {
+  color: #FF6A13;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .experience-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  .experience-logo {
+    flex: none;
+  }
+}
+</style>
+
