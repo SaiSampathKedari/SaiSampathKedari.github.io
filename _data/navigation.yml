@@ -27,7 +27,7 @@ main:
   #   url: /year-archive/
 
   - title: "Projects"
-    url: /math/
+    url: /projects/
 
   - title: "Mathematical Foundations"
     url: /math/
