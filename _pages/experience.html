@@ -19,7 +19,7 @@ author_profile: true
     </div>
     <div class="experience-content">
       <h3 class="experience-title"><span class="company-name dassault">Dassault Systèmes</span></h3>
-      <p class="role">CATIA R&amp;D Software Developer – Functional Tolerancing &amp; Annotation (FTA)</p>
+      <p class="role dassault-role">CATIA R&amp;D Software Developer – Functional Tolerancing &amp; Annotation (FTA)</p>
       <p class="experience-location"><i class="fas fa-map-marker-alt"></i> Sep 2020 – Aug 2021 · Pune, India</p>
       <ul>
         <li>Contributed to the development of the Functional Tolerancing and Annotation (FTA) workbench in CATIA, a key module for managing 3D manufacturing data.</li>
@@ -38,7 +38,7 @@ author_profile: true
     </div>
     <div class="experience-content">
       <h3 class="experience-title altair">Altair Engineering</h3>
-      <p class="role">HyperMesh &amp; MotionView Software Developer</p>
+      <p class="role altair-role">HyperMesh &amp; MotionView Software Developer</p>
       <p class="experience-location"><i class="fas fa-map-marker-alt"></i> Sep 2019 – Sep 2020 · Bangalore, India</p>
       <ul>
         <li>Designed multibody dynamic (MBD) models of two- and four-wheelers using various suspension and powertrain architectures for the MotionView library; developed tire force visualization and a dynamic bicycle model for stability analysis.</li>
@@ -110,6 +110,14 @@ author_profile: true
   font-weight: 600;
   margin: 0.25rem 0;
 }
+.dassault-role {
+  color: #005386;
+  font-weight: 600;
+}
+.altair-role {
+  color: #0D6E83;
+  font-weight: 600;
+}
 .experience-location {
   font-size: 0.9rem;
   color: #666;
@@ -119,13 +127,21 @@ author_profile: true
   gap: 6px;
 }
 .experience-content ul {
-  padding-left: 1.2rem;
+  list-style: none;
+  padding-left: 1.5rem;
   margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+.experience-content ul li::before {
+  content: "\25B8";
+  color: #2b6cb0;
+  display: inline-block;
+  width: 1rem;
+  margin-left: -1rem;
 }
 .experience-content li {
   margin-bottom: 0.4rem;
   font-size: 0.9rem;
-  line-height: 1.6;
 }
 .tags {
   display: flex;
