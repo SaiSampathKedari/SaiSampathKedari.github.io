@@ -108,6 +108,30 @@ author_profile: true
       </div>
     </div>
   </div>
+
+  <!-- Project 5 -->
+  <div class="project-card">
+    <div class="carousel" id="carousel5">
+      <img src="{{ '/images/EECS553_FINNArchitecture.png' | relative_url }}" class="active" />
+      <img src="{{ '/images/EECS553_harmonicOscillator.gif' | relative_url }}" />
+      <img src="{{ '/images/EECS553_TCN_ConvLSTM.png' | relative_url }}" />
+      <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+      <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div class="project-card-content">
+      <h3>Reproducibility Study of Physics-Aware Neural Networks for PDEs</h3>
+      <p>We replicated the FINN architecture to solve spatiotemporal partial differential equations, confirming its strong generalization and robustness. Experiments on Burgers', Allen–Cahn and diffusion-sorption systems showed FINN outperforming ConvLSTM, TCN and other baselines even with noisy data and longer prediction horizons.</p>
+      <div class="project-footer">
+        <div class="tags">
+          <span>physics-informed-ml</span><span>neural-ode</span><span>pde-simulation</span>
+        </div>
+        <div class="project-buttons">
+          <a href="https://github.com/SaiSampathKedari/EECS553-finn-reproducibility" target="_blank" aria-label="GitHub">GitHub <i class="fab fa-github"></i></a>
+          <a href="https://github.com/SaiSampathKedari/EECS553-finn-reproducibility/blob/master/FinalReport_EECS553_Group10.pdf" target="_blank">Report</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <script>
@@ -135,6 +159,7 @@ setupCarousel('carousel1');
 setupCarousel('carousel2');
 setupCarousel('carousel3');
 setupCarousel('carousel4');
+setupCarousel('carousel5');
 </script>
 
 <style>
