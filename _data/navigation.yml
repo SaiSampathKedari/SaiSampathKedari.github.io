@@ -33,7 +33,7 @@ main:
     url: /math/
     
   - title: "Resume"
-    url: /cv/
+    url: /cvpdf/
     
   # - title: "CV"
   #   url: /cv-json/
