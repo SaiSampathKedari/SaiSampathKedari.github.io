@@ -75,9 +75,16 @@ body,
   line-height: 1.4;
 }
 
-.page__content,
-.sidebar {
+.page__content {
   font-size: 0.95rem;
+}
+
+.sidebar {
+  font-size: 1rem;
+}
+
+.layout--single .page {
+  padding: 1rem 1.25rem;
 }
 
 .page__content p,
