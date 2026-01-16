@@ -68,9 +68,13 @@ $sidebar-fixed-width: 260px;
   line-height: 1.4;
 }
 
+.layout--single .page__inner-wrap {
+  padding: 1.25rem 1.5rem;
+}
+
 @include breakpoint($large) {
   .layout--single .page__inner-wrap {
-    padding: 1rem 1.25rem;
+    padding: 1.75rem 2rem;
   }
 }
 
