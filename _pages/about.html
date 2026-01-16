@@ -6,6 +6,7 @@ author_profile: true
 ---
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap" rel="stylesheet" />
 
 <div class="container">
   <section class="section">
@@ -16,26 +17,6 @@ author_profile: true
     <p>I work at the intersection of Robotics and AI, with a strong focus on mathematical and statistical approaches to robot learning and inference. I hold dual master’s degrees from the University of Michigan, where my training emphasized probabilistic modeling, estimation, and optimization.</p>
     <p>My current work centers on building and understanding learning and inference algorithms from first principles, with particular attention to uncertainty, identifiability, and failure modes. Rather than relying on off-the-shelf tools, I focus on developing a deep, mechanistic understanding of how algorithms behave and why they succeed or fail.</p>
     <p>Prior to graduate school, I worked as a C++ software developer at Dassault Systèmes and Altair Engineering, contributing to large-scale engineering software. This background strongly influences my approach today, with an emphasis on rigor, structure, and implementation clarity.</p>
-  </section>
-
-  <section class="section">
-    <div class="icon-heading">
-      <i class="fas fa-brain"></i>
-      <span>Research Interests</span>
-    </div>
-    <p>My primary interest is in robot learning grounded in mathematics and statistical inference, especially in settings where uncertainty and limited information play a central role.</p>
-    <p>My current strengths and focus areas include:</p>
-    <ul>
-      <li><strong>Bayesian Inference and Filtering for Robotics:</strong> State, parameter, and belief estimation using Bayesian methods, Monte Carlo sampling, and probabilistic filtering.</li>
-      <li><strong>Statistical Foundations of Learning:</strong> Understanding learning algorithms through the lens of estimation theory, uncertainty quantification, and probabilistic modeling.</li>
-      <li><strong>Sampling-Based and Probabilistic Algorithms:</strong> Monte Carlo methods, particle methods, and diagnostics for reliability and robustness.</li>
-    </ul>
-    <p>I am also strongly interested in expanding into the following areas, where my mathematical background allows me to ramp up quickly:</p>
-    <ul>
-      <li><strong>Learning-Based Control:</strong> Revisiting control and optimization-based methods through modern, data-driven and probabilistic perspectives.</li>
-      <li><strong>Reinforcement Learning for Robotics:</strong> Developing a principled understanding of RL, particularly where it intersects with model-based methods, uncertainty-aware learning, and control.</li>
-    </ul>
-    <p>My long-term goal is to contribute to robotic systems that learn, reason, and act under uncertainty, with methods that are interpretable, reliable, and grounded in strong mathematical foundations.</p>
   </section>
 
   <section class="section">
@@ -67,6 +48,302 @@ author_profile: true
       </li>
     </ul>
   </section>
+
+  <section class="section">
+    <div class="icon-heading">
+      <i class="fas fa-brain"></i>
+      <span>Research Interests</span>
+    </div>
+    <p>My primary interest is in robot learning grounded in mathematics and statistical inference, especially in settings where uncertainty and limited information play a central role.</p>
+    <p>My current strengths and focus areas include:</p>
+    <ul>
+      <li><strong>Bayesian Inference and Filtering for Robotics:</strong> State, parameter, and belief estimation using Bayesian methods, Monte Carlo sampling, and probabilistic filtering.</li>
+      <li><strong>Statistical Foundations of Learning:</strong> Understanding learning algorithms through the lens of estimation theory, uncertainty quantification, and probabilistic modeling.</li>
+      <li><strong>Sampling-Based and Probabilistic Algorithms:</strong> Monte Carlo methods, particle methods, and diagnostics for reliability and robustness.</li>
+    </ul>
+    <p>I am also strongly interested in expanding into the following areas, where my mathematical background allows me to ramp up quickly:</p>
+    <ul>
+      <li><strong>Learning-Based Control:</strong> Revisiting control and optimization-based methods through modern, data-driven and probabilistic perspectives.</li>
+      <li><strong>Reinforcement Learning for Robotics:</strong> Developing a principled understanding of RL, particularly where it intersects with model-based methods, uncertainty-aware learning, and control.</li>
+    </ul>
+    <p>My long-term goal is to contribute to robotic systems that learn, reason, and act under uncertainty, with methods that are interpretable, reliable, and grounded in strong mathematical foundations.</p>
+  </section>
+
+  <section class="section">
+    <div class="icon-heading">
+      <i class="fas fa-wrench"></i>
+      <span>Core Projects</span>
+    </div>
+
+    <section class="projects-grid">
+      <div class="project-card">
+        <div class="carousel" id="carousel1">
+          <img src="{{ '/images/1_4_SMC_SMLMC_Distribution.png' | relative_url }}" class="active" />
+          <img src="{{ '/images/1a_Normal_distribution_50_CI_illustration.png' | relative_url }}" />
+          <img src="{{ '/images/1c_samplingDist.png' | relative_url }}" />
+          <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+          <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="project-card-content">
+          <h3>Rare-Event Estimation via Monte Carlo and Importance Sampling</h3>
+          <p>This project tackles rare-event probability estimation in stochastic systems. We first employed a naïve Monte Carlo approach on 1D and 3D random walks, then introduced an importance sampling strategy with optimized biasing distributions. Both estimators were compared under equal sample budgets using Chebyshev and CLT bounds, revealing dramatic variance reduction.</p>
+          <div class="project-footer">
+            <div class="tags">
+              <span>Monte Carlo</span><span>Importance Sampling</span><span>Rare Events</span>
+            </div>
+            <div class="project-buttons">
+              <a href="https://github.com/SaiSampathKedari/MonteCarlo-Statistical-Methods" target="_blank" aria-label="GitHub">GitHub <i class="fab fa-github"></i></a>
+              <a href="https://drive.google.com/file/d/1Zj1cKTC8zAlYv7HGjWjmpgrZB7GvdGne/view?usp=sharing" target="_blank">Report</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="carousel" id="carousel2">
+          <img src="{{ '/images/2a_PriorPosterior_4.png' | relative_url }}" class="active" />
+          <img src="{{ '/images/2a_bananaDistribution.png' | relative_url }}" />
+          <img src="{{ '/images/2a_var_trail1.png' | relative_url }}" />
+          <img src="{{ '/images/2b_DRA.png' | relative_url }}" />
+          <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+          <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="project-card-content">
+          <h3>Active Object Localization using Bayesian Optimization</h3>
+          <p>In this exploration-focused project, a robot models its environment with Gaussian Process regression and selects informative measurements via Bayesian Optimization. Expected Improvement and Probability of Improvement guide the search for a hidden target, demonstrating how uncertainty-aware policies accelerate localization.</p>
+          <div class="project-footer">
+            <div class="tags">
+              <span>Bayesian Opt.</span><span>Gaussian Processes</span><span>Exploration</span>
+            </div>
+            <div class="project-buttons">
+              <a href="https://github.com/SaiSampathKedari/AEROSP567-Project2a" target="_blank" aria-label="GitHub">GitHub <i class="fab fa-github"></i></a>
+              <a href="https://drive.google.com/file/d/1rmVl7ab2_pvmfXvd2gHSURzPaVzqsEAP/view?usp=sharing" target="_blank">Report</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="carousel" id="carousel3">
+          <img src="{{ '/images/2b_MH_Mixing.png' | relative_url }}" class="active" />
+          <img src="{{ '/images/2b_PosteriorPred_SIR_Identifiable.png' | relative_url }}" />
+          <img src="{{ '/images/2b_SIR_Identifiable.png' | relative_url }}" />
+          <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+          <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="project-card-content">
+          <h3>Posterior Inference in Nonlinear Epidemiological Dynamics using MCMC</h3>
+          <p>We applied Metropolis-Hastings and DRAM algorithms to infer parameters of a nonlinear SIR model from noisy data. The study investigated identifiability, noise sensitivity and predictive uncertainty, highlighting the power of Bayesian MCMC for dynamical systems.</p>
+          <div class="project-footer">
+            <div class="tags">
+              <span>Bayesian Inference</span><span>MCMC</span><span>DRAM</span>
+            </div>
+            <div class="project-buttons">
+              <a href="https://github.com/SaiSampathKedari/AEROSP567-Project2b" target="_blank" aria-label="GitHub">GitHub <i class="fab fa-github"></i></a>
+              <a href="https://drive.google.com/file/d/1U3EeO3B7XSDwNVYHuw6a2UAFkQemIKku/view?usp=sharing" target="_blank">Report</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="carousel" id="carousel4">
+          <img src="{{ '/images/3_GHKF_4x4_num3_1.png' | relative_url }}" class="active" />
+          <img src="{{ '/images/3_UKF_Particle3.png' | relative_url }}" />
+          <img src="{{ '/images/3_dynamics_data.png' | relative_url }}" />
+          <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+          <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="project-card-content">
+          <h3>Nonlinear Filtering of Pendulum Dynamics using Gaussian and Non-Gaussian Methods</h3>
+          <p>This benchmark compares Extended and Unscented Kalman filters, Gauss-Hermite filters, and Particle Filters on a nonlinear pendulum. Estimation accuracy, computational cost and robustness to non-Gaussian noise were evaluated across varying sensor noise and update rates.</p>
+          <div class="project-footer">
+            <div class="tags">
+              <span>EKF</span><span>UKF</span><span>Particle Filter</span>
+            </div>
+            <div class="project-buttons">
+              <a href="https://github.com/SaiSampathKedari/AEROSP567-Project3" target="_blank" aria-label="GitHub">GitHub <i class="fab fa-github"></i></a>
+              <a href="https://drive.google.com/file/d/1JPkWKbcHBsgtdJ1h-xOj_W0QmosTLNj2/view?usp=sharing" target="_blank">Report</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="carousel" id="carousel5">
+          <img src="{{ '/images/EECS553_FINNArchitecture.png' | relative_url }}" class="active" />
+          <img src="{{ '/images/EECS553_harmonicOscillator.gif' | relative_url }}" />
+          <img src="{{ '/images/EECS553_TCN_ConvLSTM.png' | relative_url }}" />
+          <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+          <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="project-card-content">
+          <h3>Reproducibility Study of Physics-Aware Neural Networks for PDEs</h3>
+          <p>We replicated the FINN architecture to solve spatiotemporal partial differential equations, confirming its strong generalization and robustness. Experiments on Burgers', Allen–Cahn and diffusion-sorption systems showed FINN outperforming ConvLSTM, TCN and other baselines even with noisy data and longer prediction horizons.</p>
+          <div class="project-footer">
+            <div class="tags">
+              <span>physics-informed-ml</span><span>neural-ode</span><span>pde-simulation</span>
+            </div>
+            <div class="project-buttons">
+              <a href="https://github.com/SaiSampathKedari/EECS553-finn-reproducibility" target="_blank" aria-label="GitHub">GitHub <i class="fab fa-github"></i></a>
+              <a href="https://github.com/SaiSampathKedari/EECS553-finn-reproducibility/blob/master/FinalReport_EECS553_Group10.pdf" target="_blank">Report</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section class="section">
+    <div class="icon-heading">
+      <i class="fas fa-book"></i>
+      <span>Math Foundations</span>
+    </div>
+
+    <section id="math-intelligence">
+      <p class="intro" style="text-align: justify;">
+        Mathematics is the language of systems, uncertainty, and learning, essential for building intelligent and reliable robots. The work below reflects my commitment to mastering this foundation through deep study and rigorous problem-solving. Each GitHub repository represents a subject I have explored thoroughly, documenting both theory and exercises to build lasting intuition.
+      </p>
+
+      <div class="math-showcase">
+        <div class="math-tile">
+          <img src="{{ '/images/Hamiltonian_Monte_Carlo.png' | relative_url }}" alt="Cover for Monte Carlo Statistical Methods">
+          <div class="math-content">
+            <h3>MonteCarlo Statistical Methods</h3>
+            <p>Robert &amp; Casella — Random-variable generation, importance sampling, variance reduction, and MCMC algorithms (Metropolis–Hastings, Gibbs). Transforms intractable integrals into computable expectations — the backbone of Bayesian inference, filtering, and state estimation.</p>
+            <div class="math-buttons">
+              <a href="https://github.com/SaiSampathKedari/MonteCarlo-Statistical-Methods" target="_blank" aria-label="GitHub">View on GitHub <i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="math-tile">
+          <img src="{{ '/images/Inference.png' | relative_url }}" alt="Cover for Statistical Inference Theory">
+          <div class="math-content">
+            <h3>Statistical Inference Theory</h3>
+            <p>Casella &amp; Berger — Estimation, MLE, Bayesian inference, hypothesis testing. These exercises train the statistical thinking required for perception algorithms.</p>
+            <div class="math-buttons">
+              <a href="https://github.com/SaiSampathKedari/Statistical-Inference-Theory" target="_blank" aria-label="GitHub">View on GitHub <i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="math-tile">
+          <img src="{{ '/images/Probability.jpeg' | relative_url }}" alt="Cover for Probability and Distribution Theory">
+          <div class="math-content">
+            <h3>Probability and Distribution Theory</h3>
+            <p>Casella &amp; Berger — Random variables, expectation, exponential family, convergence theorems. Working through every problem strengthens my intuition for handling uncertainty in robotics.</p>
+            <div class="math-buttons">
+              <a href="https://github.com/SaiSampathKedari/Probability-and-Distribution-Theory" target="_blank" aria-label="GitHub">View on GitHub <i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="math-tile">
+          <img src="{{ '/images/uniformconvergence.png' | relative_url }}" alt="Cover for Real Analysis">
+          <div class="math-content">
+            <h3>Real Analysis</h3>
+            <p>Kenneth Ross — Sequences, limits, continuity, uniform convergence, compactness. Building rigor here lets me prove convergence and stability of algorithms.</p>
+            <div class="math-buttons">
+              <a href="https://github.com/SaiSampathKedari/Real-Analysis" target="_blank" aria-label="GitHub">View on GitHub <i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="math-tile">
+          <img src="{{ '/images/bv_cvxbook_cover.jpg' | relative_url }}" alt="Cover for Convex Optimization">
+          <div class="math-content">
+            <h3>Convex Optimization</h3>
+            <p>Stephen Boyd — Convex sets, functions, duality, gradient and interior-point methods. Solving problems equips me with tools for efficient planning and control.</p>
+            <div class="math-buttons">
+              <a href="https://github.com/SaiSampathKedari/UMich-IOE611-Convex-Optimization" target="_blank" aria-label="GitHub">View on GitHub <i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="math-tile">
+          <img src="{{ '/images/Fourier-Transform.jpg' | relative_url }}" alt="Cover for Fourier Transform">
+          <div class="math-content">
+            <h3>Fourier Transform</h3>
+            <p>Stanford EE261 — Fourier series, spectral representation, convolution, filters. A deep grasp of transforms aids processing sensor data and images.</p>
+            <div class="math-buttons">
+              <a href="https://github.com/SaiSampathKedari/Stanford-EE261-The-Fourier-Transform-and-its-Applications" target="_blank" aria-label="GitHub">View on GitHub <i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="math-tile">
+          <img src="{{ '/images/Signals-and-Systems.jpg' | relative_url }}" alt="Cover for Signals and Systems">
+          <div class="math-content">
+            <h3>Signals and Systems</h3>
+            <p>Oppenheim — LTI systems, Laplace/Z/Fourier transforms, convolution, system stability. Understanding signals lays the groundwork for reliable dynamic models.</p>
+            <div class="math-buttons">
+              <a href="https://github.com/SaiSampathKedari/Signals-and-Systems" target="_blank" aria-label="GitHub">View on GitHub <i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="math-tile">
+          <img src="{{ '/images/Differential-Equations.png' | relative_url }}" alt="Cover for Differential Equations">
+          <div class="math-content">
+            <h3>Differential Equations</h3>
+            <p>MIT 18.03 &amp; Edwards-Penney — Lecture notes and solved problems on first- and second-order ODEs, Laplace transforms, linear systems, and nonlinear dynamics. Essential for modeling real-world robotics and control systems.</p>
+            <div class="math-buttons">
+              <a href="https://github.com/SaiSampathKedari/Differential-Equations" target="_blank" aria-label="GitHub">View on GitHub <i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section class="section">
+    <div class="icon-heading">
+      <i class="fas fa-briefcase"></i>
+      <span>Experience</span>
+    </div>
+
+    <section class="experience-list">
+      <div class="experience-item">
+        <div class="experience-logo">
+          <img src="{{ '/images/Dassault.png' | relative_url }}" alt="Dassault Systèmes logo">
+        </div>
+        <div class="experience-content">
+          <h3 class="experience-title"><span class="company-name dassault">Dassault Systèmes</span></h3>
+          <p class="role dassault-role">CATIA R&amp;D Software Developer – Functional Tolerancing &amp; Annotation (FTA)</p>
+          <p class="experience-location"><i class="fas fa-map-marker-alt"></i> Sep 2020 – Aug 2021 · Pune, India</p>
+          <ul>
+            <li>Contributed to the development of the Functional Tolerancing and Annotation (FTA) workbench in CATIA, a key module for managing 3D manufacturing data.</li>
+            <li>Implemented optimizations for numerical methods and geometric computations to enhance the speed and robustness of the FTA module.</li>
+            <li>Worked extensively on build systems and development tooling for large-scale C++ codebases, streamlining continuous integration and delivery pipelines.</li>
+          </ul>
+          <div class="tags">
+            <span>C++</span><span>Geometric Computation</span><span>Build Systems</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-logo">
+          <img src="{{ '/images/altair.png' | relative_url }}" alt="Altair Engineering logo">
+        </div>
+        <div class="experience-content">
+          <h3 class="experience-title altair">Altair Engineering</h3>
+          <p class="role altair-role">HyperMesh &amp; MotionView Software Developer</p>
+          <p class="experience-location"><i class="fas fa-map-marker-alt"></i> Sep 2019 – Sep 2020 · Bangalore, India</p>
+          <ul>
+            <li>Designed multibody dynamic (MBD) models of two- and four-wheelers using various suspension and powertrain architectures for the MotionView library; developed tire force visualization and a dynamic bicycle model for stability analysis.</li>
+            <li>Improved solver performance in MotionView by optimizing core numerical methods and integrating C++ APIs with TCL/TK scripting for user customization.</li>
+            <li>Contributed to HyperMesh development by creating and extending Commands (APIs) for pre-processing workflows and enabling deeper interaction between C++ and TCL/TK.</li>
+          </ul>
+          <div class="tags">
+            <span>C++</span><span>Python</span><span>TCL/TK</span><span>Multibody Dynamics</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
   <section class="section">
     <div class="icon-heading">
       <i class="fas fa-book"></i>
@@ -75,7 +352,6 @@ author_profile: true
     <p><strong>Focus Areas:</strong> Machine Learning · Bayesian Inference · Convex Optimization · Control Theory · Statistical Estimation · Stochastic Processes · Nonlinear Dynamics</p>
 
     <div class="coursework-section">
-
       <div class="course-block">
         <div class="course-header">Inference, Learning, and Optimization</div>
         <div class="course-list">
@@ -106,11 +382,92 @@ author_profile: true
           <div class="course-pill"><span class="course-code">EECS 565</span><span class="course-title">Linear Feedback Control</span></div>
         </div>
       </div>
+    </div>
+  </section>
 
+  <section class="section">
+    <div class="icon-heading">
+      <i class="fas fa-chalkboard-teacher"></i>
+      <span>Teaching</span>
     </div>
 
+    <p>I served as a Graduate Student Instructor (GSI) for core undergraduate physics courses at the University of Michigan from Fall 2022 to Winter 2024, supporting labs, discussion sections, and exams.</p>
+
+    <ul class="teaching-list">
+      <li class="teaching-item">
+        <img src="/images/um_logo.png" alt="University of Michigan logo" />
+        <div>
+          <strong>PHYSICS 241 &ndash; General Physics II &ndash; Electricity &amp; Magnetism</strong><br>
+          <em>FALL 2022, WINTER 2023 &mdash; Prof. Wolfgang Lorenzon</em><br>
+          Led electromagnetism lab sections covering electric circuits, particle motion, and computational modeling using simulation tools.
+        </div>
+      </li>
+      <li class="teaching-item">
+        <img src="/images/um_logo.png" alt="University of Michigan logo" />
+        <div>
+          <strong>PHYSICS/BIOPHYS 151 &ndash; Introductory Physics Lab for Life Sciences</strong><br>
+          <em>SPRING 2023</em><br>
+          Taught physics labs focused on biomechanics, fluid mechanics, and biological measurement systems tailored for life sciences students.
+        </div>
+      </li>
+      <li class="teaching-item">
+        <img src="/images/um_logo.png" alt="University of Michigan logo" />
+        <div>
+          <strong>PHYSICS 360 &ndash; Honors Physics III &ndash; Thermodynamics, Waves, and Relativity</strong><br>
+          <em>FALL 2023 &mdash; Prof. Jianming Qian, WINTER 2024 &mdash; Prof. Lu Li</em><br>
+          Led weekly discussions and quizzes on thermodynamics, wave optics, and special relativity for upper-level honors physics students.
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="icon-heading">
+      <i class="fas fa-file-pdf"></i>
+      <span>Resume</span>
+    </div>
+
+    <div class="cv-button" style="margin-bottom:1rem;">
+      <a href="{{ base_path }}/files/Resume_SaiSampathKedari.pdf" target="_blank" aria-label="Download Resume">
+        <i class="fas fa-file-pdf"></i> Download Resume
+      </a>
+    </div>
+
+    <div class="pdf-viewer">
+      <iframe src="{{ base_path }}/files/Resume_SaiSampathKedari.pdf" width="100%" height="800px" style="border:none;">
+        <p>Your browser does not support iframes. You can <a href="{{ base_path }}/files/Resume_SaiSampathKedari.pdf" target="_blank">download the PDF</a> instead.</p>
+      </iframe>
+    </div>
   </section>
 </div>
+
+<script>
+function setupCarousel(id) {
+  const carousel = document.getElementById(id);
+  if (!carousel) return;
+  const images = carousel.querySelectorAll('img');
+  const prevBtn = carousel.querySelector('.prev');
+  const nextBtn = carousel.querySelector('.next');
+  let index = 0;
+
+  function show(i) {
+    images[index].classList.remove('active');
+    index = (i + images.length) % images.length;
+    images[index].classList.add('active');
+  }
+
+  prevBtn.addEventListener('click', () => show(index - 1));
+  nextBtn.addEventListener('click', () => show(index + 1));
+
+  setInterval(() => show(index + 1), 4000);
+}
+
+setupCarousel('carousel1');
+setupCarousel('carousel2');
+setupCarousel('carousel3');
+setupCarousel('carousel4');
+setupCarousel('carousel5');
+</script>
 
 <style>
 body {
@@ -118,11 +475,12 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background: #ffffff;
   color: #1c1c1e;
-  line-height: 1.6;
+  line-height: 1.5;
+  font-size: 0.95rem;
 }
 
 .container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto 1.5rem;
   padding: 2rem 1rem;
 }
@@ -134,7 +492,6 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
 }
-
 
 .section ul {
   padding-left: 1.5rem;
@@ -164,7 +521,7 @@ body {
 .icon-heading {
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 600;
   color: #00274C;
   gap: 0.5rem;
@@ -173,9 +530,6 @@ body {
 
 .icon-heading i {
   color: #FFCB05;
-}
-.section-title {
-  color: #00274C;
 }
 
 .coursework-section {
@@ -197,7 +551,7 @@ body {
   color: #FFCB05;
   padding: 0.75rem 1rem;
   font-weight: 600;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   letter-spacing: 0.3px;
 }
 
@@ -243,11 +597,401 @@ body {
   padding-left: 0.5rem;
 }
 
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding: 1rem 0;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+}
+
+.project-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.15);
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  overflow: hidden;
+}
+
+.carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: none;
+}
+
+.carousel img.active {
+  display: block;
+}
+
+.project-card-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 40%;
+}
+
+.project-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #2b6cb0;
+  font-family: 'Inter', sans-serif;
+}
+
+.project-card p {
+  font-size: 0.8rem;
+  color: #555;
+  margin: 0.4rem 0 0.6rem;
+  flex: 1;
+  font-family: 'Inter', sans-serif;
+}
+
+.project-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.project-buttons a {
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  padding: 0.4rem 0.9rem;
+  background: #2b6cb0;
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  border: 1px solid #2b6cb0;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  display: inline-block;
+}
+
+.project-buttons a:hover {
+  background: #1a416f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.project-buttons a:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.project-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.nav-btn.prev { left: 8px; }
+.nav-btn.next { right: 8px; }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags span {
+  background-color: #e6f0fa;
+  color: #2b6cb0;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+
+#math-intelligence {
+  padding: 1rem 0;
+  background: var(--global-bg-color);
+}
+
+.intro {
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #444;
+  font-family: 'Inter', sans-serif;
+}
+
+.math-showcase {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.math-tile {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.math-tile img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.math-content h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-family: 'Inter', sans-serif;
+  color: #2b6cb0;
+}
+
+.math-content p {
+  margin: 0 0 1rem;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.math-buttons a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  background: #2b6cb0;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.experience-list {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.experience-item {
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  gap: 1rem;
+}
+
+.experience-logo {
+  flex: 0 0 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.experience-logo img {
+  max-width: 160px;
+  height: auto;
+}
+
+.experience-content {
+  flex: 1;
+  font-family: 'Inter', sans-serif;
+}
+
+.experience-title {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.role {
+  font-weight: 600;
+  margin: 0.25rem 0;
+}
+
+.dassault-role {
+  color: #005386;
+  font-weight: 600;
+}
+
+.altair-role {
+  color: #0D6E83;
+  font-weight: 600;
+}
+
+.experience-location {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.4rem 0 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.experience-content ul {
+  list-style: none;
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+
+.experience-content ul li::before {
+  content: "\25B8";
+  color: #2b6cb0;
+  display: inline-block;
+  width: 1rem;
+  margin-left: -1rem;
+}
+
+.experience-content li {
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.company-name {
+  font-weight: 700;
+}
+
+.dassault {
+  color: #005386;
+  font-weight: 700;
+}
+
+.experience-title.altair {
+  color: #FF6A13;
+  font-weight: 700;
+}
+
+.teaching-list {
+  padding-left: 1.2rem;
+}
+
+.teaching-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.teaching-item img {
+  height: 72px;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.cv-button a {
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  padding: 0.4rem 0.9rem;
+  background: #2b6cb0;
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  border: 1px solid #2b6cb0;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  display: inline-block;
+}
+
+.cv-button a:hover {
+  background: #1a416f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.cv-button a:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    height: 500px;
+  }
+
+  .carousel {
+    width: 100%;
+    height: 55%;
+  }
+
+  .project-card-content {
+    height: 45%;
+  }
+
+  .project-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .tags, .project-buttons {
+    margin-top: 0.5rem;
+  }
+
+  .experience-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .experience-logo {
+    flex: none;
+  }
+
+  .math-tile {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 480px) {
   .course-code {
     width: 110px;
     font-size: 0.9rem;
   }
+
   .course-title {
     font-size: 0.9rem;
   }
