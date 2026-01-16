@@ -18,7 +18,10 @@ author_profile: true
     <p>My current work centers on building and understanding learning and inference algorithms from first principles, with particular attention to uncertainty, identifiability, and failure modes. Rather than relying on off-the-shelf tools, I focus on developing a deep, mechanistic understanding of how algorithms behave and why they succeed or fail.</p>
     <p>Prior to graduate school, I worked as a C++ software developer at Dassault Systèmes and Altair Engineering, contributing to large-scale engineering software. This background strongly influences my approach today, with an emphasis on rigor, structure, and implementation clarity.</p>
 
-    <h3 class="section-title">Education</h3>
+    <div class="icon-heading subsection-heading">
+      <span class="emoji" aria-hidden="true">🎓</span>
+      <span>Education</span>
+    </div>
     <ul class="education-list">
       <li class="edu-item">
         <img class="edu-logo" src="{{ '/images/um_logo.png' | relative_url }}" alt="UMich logo" />
@@ -43,7 +46,10 @@ author_profile: true
       </li>
     </ul>
 
-    <h3 class="section-title">Selected Graduate Coursework</h3>
+    <div class="icon-heading subsection-heading">
+      <span class="emoji" aria-hidden="true">📘</span>
+      <span>Selected Graduate Coursework</span>
+    </div>
     <p><strong>Focus Areas:</strong> Machine Learning · Bayesian Inference · Convex Optimization · Control Theory · Statistical Estimation · Stochastic Processes · Nonlinear Dynamics</p>
 
     <div class="coursework-section">
@@ -521,6 +527,16 @@ body {
   color: #00274C;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
+}
+
+.icon-heading .emoji {
+  font-size: 1.35rem;
+  line-height: 1;
+  color: #FFCB05;
+}
+
+.subsection-heading {
+  margin-top: 2rem;
 }
 
 .icon-heading i {
