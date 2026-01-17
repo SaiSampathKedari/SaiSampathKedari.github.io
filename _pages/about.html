@@ -7,91 +7,95 @@ permalink: /
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet" />
 
-<div class="container">
-  <section class="hero" id="hero">
-    <div class="hero__photo">
-      <img src="{{ '/images/Profile_Pic.png' | relative_url }}" alt="Sai Sampath Kedari" />
+<section class="section" id="home">
+  <div class="section-inner">
+    <section class="hero">
+      <div class="hero__photo">
+        <img src="{{ '/images/Profile_Pic.png' | relative_url }}" alt="Sai Sampath Kedari" />
+      </div>
+      <div class="hero__content">
+        <h1 class="hero__name">{{ site.author.name }}</h1>
+        <p class="hero__tagline">{{ site.author.bio }}</p>
+        <p class="hero__bio">I work at the intersection of Robotics and AI, focusing on probabilistic modeling, estimation, and optimization. I build learning and inference algorithms from first principles to understand uncertainty, identifiability, and failure modes.</p>
+        <ul class="hero__links">
+          <li><a href="mailto:{{ site.author.email }}" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+          <li><a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+          <li><a href="https://twitter.com/{{ site.author.twitter }}" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-x-twitter"></i></a></li>
+          <li>
+            <a href="#resume" aria-label="Resume">
+              <i class="fas fa-file-pdf"></i>
+              <span class="link-label">Resume</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="home-block">
+      <div class="icon-heading">
+        <i class="fas fa-user"></i>
+        <span>About Me</span>
+      </div>
+      <p>I work at the intersection of Robotics and AI, with a strong focus on mathematical and statistical approaches to robot learning and inference. I hold dual master’s degrees from the University of Michigan, where my training emphasized probabilistic modeling, estimation, and optimization.</p>
+      <p>My current work centers on building and understanding learning and inference algorithms from first principles, with particular attention to uncertainty, identifiability, and failure modes. Rather than relying on off-the-shelf tools, I focus on developing a deep, mechanistic understanding of how algorithms behave and why they succeed or fail.</p>
+      <p>Prior to graduate school, I worked as a C++ software developer at Dassault Systèmes and Altair Engineering, contributing to large-scale engineering software. This background strongly influences my approach today, with an emphasis on rigor, structure, and implementation clarity.</p>
     </div>
-    <div class="hero__content">
-      <h1 class="hero__name">{{ site.author.name }}</h1>
-      <p class="hero__tagline">{{ site.author.bio }}</p>
-      <p class="hero__bio">I work at the intersection of Robotics and AI, focusing on probabilistic modeling, estimation, and optimization. I build learning and inference algorithms from first principles to understand uncertainty, identifiability, and failure modes.</p>
-      <ul class="hero__links">
-        <li><a href="mailto:{{ site.author.email }}" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
-        <li><a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
-        <li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
-        <li><a href="https://twitter.com/{{ site.author.twitter }}" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-x-twitter"></i></a></li>
-        <li>
-          <a href="{{ base_path }}/files/Resume_SaiSampathKedari.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume">
-            <i class="fas fa-file-pdf"></i>
-            <span class="link-label">Resume</span>
-          </a>
+
+    <div class="home-block">
+      <div class="icon-heading">
+        <i class="fas fa-brain"></i>
+        <span>Research Interests</span>
+      </div>
+      <p>My primary interest is in robot learning grounded in mathematics and statistical inference, especially in settings where uncertainty and limited information play a central role.</p>
+      <p>My current strengths and focus areas include:</p>
+      <ul>
+        <li><strong>Bayesian Inference and Filtering for Robotics:</strong> State, parameter, and belief estimation using Bayesian methods, Monte Carlo sampling, and probabilistic filtering.</li>
+        <li><strong>Statistical Foundations of Learning:</strong> Understanding learning algorithms through the lens of estimation theory, uncertainty quantification, and probabilistic modeling.</li>
+        <li><strong>Sampling-Based and Probabilistic Algorithms:</strong> Monte Carlo methods, particle methods, and diagnostics for reliability and robustness.</li>
+      </ul>
+      <p>I am also strongly interested in expanding into the following areas, where my mathematical background allows me to ramp up quickly:</p>
+      <ul>
+        <li><strong>Learning-Based Control:</strong> Revisiting control and optimization-based methods through modern, data-driven and probabilistic perspectives.</li>
+        <li><strong>Reinforcement Learning for Robotics:</strong> Developing a principled understanding of RL, particularly where it intersects with model-based methods, uncertainty-aware learning, and control.</li>
+      </ul>
+      <p>My long-term goal is to contribute to robotic systems that learn, reason, and act under uncertainty, with methods that are interpretable, reliable, and grounded in strong mathematical foundations.</p>
+    </div>
+
+    <div class="home-block">
+      <div class="icon-heading">
+        <span class="emoji" aria-hidden="true">🎓</span>
+        <span>Education</span>
+      </div>
+      <ul class="education-list">
+        <li class="edu-item">
+          <img class="edu-logo" src="{{ '/images/um_logo.png' | relative_url }}" alt="UMich logo" />
+          <div>
+            <span class="edu-school"><strong>University of Michigan, Ann Arbor</strong></span><br />
+            <span class="edu-degree">M.S. Mechanical Engineering (Robotics), Jan 2023 – Apr 2024</span>
+          </div>
+        </li>
+        <li class="edu-item">
+          <img class="edu-logo" src="{{ '/images/um_logo.png' | relative_url }}" alt="UMich logo" />
+          <div>
+            <span class="edu-school"><strong>University of Michigan, Ann Arbor</strong></span><br />
+            <span class="edu-degree">M.S. Automotive Engineering, Aug 2021 – Dec 2022</span>
+          </div>
+        </li>
+        <li class="edu-item">
+          <img class="edu-logo" src="{{ '/images/nit_logo.png' | relative_url }}" alt="NIT Rourkela logo" />
+          <div>
+            <span class="edu-school"><strong>National Institute of Technology, Rourkela, India</strong></span><br />
+            <span class="edu-degree">B.Tech. Mechanical Engineering, Jul 2015 – May 2019</span>
+          </div>
         </li>
       </ul>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="about">
-    <div class="icon-heading">
-      <i class="fas fa-user"></i>
-      <span>About Me</span>
-    </div>
-    <p>I work at the intersection of Robotics and AI, with a strong focus on mathematical and statistical approaches to robot learning and inference. I hold dual master’s degrees from the University of Michigan, where my training emphasized probabilistic modeling, estimation, and optimization.</p>
-    <p>My current work centers on building and understanding learning and inference algorithms from first principles, with particular attention to uncertainty, identifiability, and failure modes. Rather than relying on off-the-shelf tools, I focus on developing a deep, mechanistic understanding of how algorithms behave and why they succeed or fail.</p>
-    <p>Prior to graduate school, I worked as a C++ software developer at Dassault Systèmes and Altair Engineering, contributing to large-scale engineering software. This background strongly influences my approach today, with an emphasis on rigor, structure, and implementation clarity.</p>
-  </section>
-
-  <section class="section">
-    <div class="icon-heading">
-      <i class="fas fa-brain"></i>
-      <span>Research Interests</span>
-    </div>
-    <p>My primary interest is in robot learning grounded in mathematics and statistical inference, especially in settings where uncertainty and limited information play a central role.</p>
-    <p>My current strengths and focus areas include:</p>
-    <ul>
-      <li><strong>Bayesian Inference and Filtering for Robotics:</strong> State, parameter, and belief estimation using Bayesian methods, Monte Carlo sampling, and probabilistic filtering.</li>
-      <li><strong>Statistical Foundations of Learning:</strong> Understanding learning algorithms through the lens of estimation theory, uncertainty quantification, and probabilistic modeling.</li>
-      <li><strong>Sampling-Based and Probabilistic Algorithms:</strong> Monte Carlo methods, particle methods, and diagnostics for reliability and robustness.</li>
-    </ul>
-    <p>I am also strongly interested in expanding into the following areas, where my mathematical background allows me to ramp up quickly:</p>
-    <ul>
-      <li><strong>Learning-Based Control:</strong> Revisiting control and optimization-based methods through modern, data-driven and probabilistic perspectives.</li>
-      <li><strong>Reinforcement Learning for Robotics:</strong> Developing a principled understanding of RL, particularly where it intersects with model-based methods, uncertainty-aware learning, and control.</li>
-    </ul>
-    <p>My long-term goal is to contribute to robotic systems that learn, reason, and act under uncertainty, with methods that are interpretable, reliable, and grounded in strong mathematical foundations.</p>
-  </section>
-
-  <section class="section">
-    <div class="icon-heading">
-      <span class="emoji" aria-hidden="true">🎓</span>
-      <span>Education</span>
-    </div>
-    <ul class="education-list">
-      <li class="edu-item">
-        <img class="edu-logo" src="{{ '/images/um_logo.png' | relative_url }}" alt="UMich logo" />
-        <div>
-          <span class="edu-school"><strong>University of Michigan, Ann Arbor</strong></span><br />
-          <span class="edu-degree">M.S. Mechanical Engineering (Robotics), Jan 2023 – Apr 2024</span>
-        </div>
-      </li>
-      <li class="edu-item">
-        <img class="edu-logo" src="{{ '/images/um_logo.png' | relative_url }}" alt="UMich logo" />
-        <div>
-          <span class="edu-school"><strong>University of Michigan, Ann Arbor</strong></span><br />
-          <span class="edu-degree">M.S. Automotive Engineering, Aug 2021 – Dec 2022</span>
-        </div>
-      </li>
-      <li class="edu-item">
-        <img class="edu-logo" src="{{ '/images/nit_logo.png' | relative_url }}" alt="NIT Rourkela logo" />
-        <div>
-          <span class="edu-school"><strong>National Institute of Technology, Rourkela, India</strong></span><br />
-          <span class="edu-degree">B.Tech. Mechanical Engineering, Jul 2015 – May 2019</span>
-        </div>
-      </li>
-    </ul>
-  </section>
-
-  <section class="section">
+<section class="section" id="core-projects">
+  <div class="section-inner">
     <div class="icon-heading">
       <i class="fas fa-wrench"></i>
       <span>Core Projects</span>
@@ -214,18 +218,17 @@ permalink: /
         </div>
       </div>
     </section>
-  </section>
-</div>
+  </div>
+</section>
 
-<div class="container">
-
-  <section class="section">
+<section class="section" id="math-foundations">
+  <div class="section-inner">
     <div class="icon-heading">
       <i class="fas fa-book"></i>
       <span>Math Foundations</span>
     </div>
 
-    <section id="math-intelligence">
+    <div id="math-intelligence">
       <p class="intro" style="text-align: justify;">
         Mathematics is the language of systems, uncertainty, and learning, essential for building intelligent and reliable robots. The work below reflects my commitment to mastering this foundation through deep study and rigorous problem-solving. Each GitHub repository represents a subject I have explored thoroughly, documenting both theory and exercises to build lasting intuition.
       </p>
@@ -308,10 +311,12 @@ permalink: /
           </div>
         </div>
       </div>
-    </section>
-  </section>
+    </div>
+  </div>
+</section>
 
-  <section class="section">
+<section class="section" id="coursework">
+  <div class="section-inner">
     <div class="icon-heading">
       <span class="emoji" aria-hidden="true">📘</span>
       <span>Selected Graduate Coursework</span>
@@ -350,9 +355,11 @@ permalink: /
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section">
+<section class="section" id="experience">
+  <div class="section-inner">
     <div class="icon-heading">
       <i class="fas fa-briefcase"></i>
       <span>Experience</span>
@@ -397,9 +404,11 @@ permalink: /
         </div>
       </div>
     </section>
-  </section>
+  </div>
+</section>
 
-  <section class="section">
+<section class="section" id="teaching">
+  <div class="section-inner">
     <div class="icon-heading">
       <i class="fas fa-chalkboard-teacher"></i>
       <span>Teaching</span>
@@ -432,9 +441,11 @@ permalink: /
         </div>
       </li>
     </ul>
-  </section>
+  </div>
+</section>
 
-  <section class="section">
+<section class="section" id="resume">
+  <div class="section-inner">
     <div class="icon-heading">
       <i class="fas fa-file-pdf"></i>
       <span>Resume</span>
@@ -451,8 +462,8 @@ permalink: /
         <p>Your browser does not support iframes. You can <a href="{{ base_path }}/files/Resume_SaiSampathKedari.pdf" target="_blank">download the PDF</a> instead.</p>
       </iframe>
     </div>
-  </section>
-</div>
+  </div>
+</section>
 
 <script>
 function setupCarousel(id) {
@@ -480,9 +491,46 @@ setupCarousel('carousel2');
 setupCarousel('carousel3');
 setupCarousel('carousel4');
 setupCarousel('carousel5');
+
+(function () {
+  const sections = document.querySelectorAll(".section[id]");
+  const navLinks = document.querySelectorAll(
+    ".masthead__menu-item a[href^='#']"
+  );
+
+  function updateActiveNav() {
+    let currentSectionId = "";
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+
+      if (window.scrollY >= sectionTop - 160) {
+        currentSectionId = section.id;
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${currentSectionId}`) {
+        link.classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", updateActiveNav);
+  window.addEventListener("load", updateActiveNav);
+})();
 </script>
 
 <style>
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 90px;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -492,10 +540,42 @@ body {
   font-size: 0.95rem;
 }
 
-.container {
-  max-width: 1000px;
-  margin: 0 auto 1.5rem;
-  padding: 2rem 1rem;
+.page__content,
+.wrapper,
+.container,
+.main-content {
+  max-width: none !important;
+  width: 100%;
+}
+
+.section {
+  width: 100%;
+  padding: 5.5rem 0;
+}
+
+/* First section (hero / home) should be tighter */
+.section#home {
+  padding-top: 2.5rem;
+  padding-bottom: 3.5rem;
+}
+
+/* Subtle visual rhythm between sections */
+.section:nth-of-type(even) {
+  background: #f8f9fa;
+}
+
+.section:nth-of-type(odd) {
+  background: #ffffff;
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.home-block {
+  margin-top: 2.5rem;
 }
 
 .hero {
@@ -570,12 +650,31 @@ body {
   letter-spacing: 0.01em;
 }
 
+.masthead__menu-item a {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.masthead__menu-item a.active {
+  color: #00274C;
+  font-weight: 600;
+}
+
+.masthead__menu-item a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  background-color: #00274C;
+}
+
 .section {
   background: transparent;
-  padding: 2rem;
   border-radius: 0;
   box-shadow: none;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 }
 
 .section ul {
