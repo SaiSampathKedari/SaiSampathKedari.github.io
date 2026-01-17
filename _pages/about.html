@@ -5,7 +5,7 @@ permalink: /
 ---
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet" />
 
 <div class="container">
   <section class="hero" id="hero">
@@ -21,6 +21,12 @@ permalink: /
         <li><a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
         <li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
         <li><a href="https://twitter.com/{{ site.author.twitter }}" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-x-twitter"></i></a></li>
+        <li>
+          <a href="{{ base_path }}/files/Resume_SaiSampathKedari.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume">
+            <i class="fas fa-file-pdf"></i>
+            <span class="link-label">Resume</span>
+          </a>
+        </li>
       </ul>
     </div>
   </section>
@@ -508,10 +514,12 @@ body {
 }
 
 .hero__photo img {
-  width: 180px;
-  height: 180px;
+  width: 210px;
+  height: 210px;
   object-fit: cover;
   border-radius: 50%;
+  border: 3px solid #c7cbd1;
+  box-sizing: border-box;
 }
 
 .hero__content {
@@ -520,16 +528,20 @@ body {
 
 .hero__name {
   margin: 0;
-  font-size: 2.4rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 2.5rem;
   font-weight: 700;
-  color: #1c1c1e;
+  color: #00274C;
 }
 
 .hero__tagline {
   margin: 0.35rem 0 0.75rem;
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: #00274C;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #2b3442;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
 }
 
 .hero__bio {
@@ -548,15 +560,22 @@ body {
 }
 
 .hero__links a {
-  font-size: 1.6rem;
+  font-size: 1.75rem;
   color: #00274C;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  gap: 0.35rem;
 }
 
 .hero__links a:hover {
   color: #1a416f;
+}
+
+.hero__links .link-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .section {
@@ -601,6 +620,7 @@ body {
 .icon-heading {
   display: flex;
   align-items: center;
+  font-family: 'Inter', sans-serif;
   font-size: 1.35rem;
   font-weight: 600;
   color: #00274C;
