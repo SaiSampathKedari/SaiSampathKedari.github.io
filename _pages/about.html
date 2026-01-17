@@ -229,17 +229,6 @@ permalink: /
 
       <div class="math-showcase">
         <div class="math-tile">
-          <img src="{{ '/images/Hamiltonian_Monte_Carlo.png' | relative_url }}" alt="Cover for Monte Carlo Statistical Methods">
-          <div class="math-content">
-            <h3>MonteCarlo Statistical Methods</h3>
-            <p>Robert &amp; Casella — Random-variable generation, importance sampling, variance reduction, and MCMC algorithms (Metropolis–Hastings, Gibbs). Transforms intractable integrals into computable expectations — the backbone of Bayesian inference, filtering, and state estimation.</p>
-            <div class="math-buttons">
-              <a href="https://github.com/SaiSampathKedari/MonteCarlo-Statistical-Methods" target="_blank" aria-label="GitHub">View on GitHub <i class="fab fa-github"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="math-tile">
           <img src="{{ '/images/Inference.png' | relative_url }}" alt="Cover for Statistical Inference Theory">
           <div class="math-content">
             <h3>Statistical Inference Theory</h3>
@@ -861,7 +850,16 @@ body {
 
 .math-showcase {
   display: grid;
+  grid-template-columns: 1fr;
   gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  .math-showcase {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .math-tile {
