@@ -40,12 +40,6 @@ $(document).ready(function () {
     }
   });
 
-  // init smooth scroll, this needs to be slightly more than then fixed masthead height
-  $("a").smoothScroll({ 
-    offset: -75, // needs to match $masthead-height
-    preventDefault: false,
-  }); 
-
   // add lightbox class to all image links
   // Add "image-popup" to links ending in image extensions,
   // but skip any <a> that already contains an <img>
