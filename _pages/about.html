@@ -2,13 +2,29 @@
 layout: single
 title: ""
 permalink: /
-author_profile: true
 ---
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap" rel="stylesheet" />
 
 <div class="container">
+  <section class="hero" id="hero">
+    <div class="hero__photo">
+      <img src="{{ '/images/Profile_Pic.png' | relative_url }}" alt="Sai Sampath Kedari" />
+    </div>
+    <div class="hero__content">
+      <h1 class="hero__name">{{ site.author.name }}</h1>
+      <p class="hero__tagline">{{ site.author.bio }}</p>
+      <p class="hero__bio">I work at the intersection of Robotics and AI, focusing on probabilistic modeling, estimation, and optimization. I build learning and inference algorithms from first principles to understand uncertainty, identifiability, and failure modes.</p>
+      <ul class="hero__links">
+        <li><a href="mailto:{{ site.author.email }}" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+        <li><a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+        <li><a href="https://twitter.com/{{ site.author.twitter }}" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-x-twitter"></i></a></li>
+      </ul>
+    </div>
+  </section>
+
   <section class="section" id="about">
     <div class="icon-heading">
       <i class="fas fa-user"></i>
@@ -482,6 +498,65 @@ body {
   max-width: 1000px;
   margin: 0 auto 1.5rem;
   padding: 2rem 1rem;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 2rem 0 1.5rem;
+}
+
+.hero__photo img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.hero__content {
+  flex: 1;
+}
+
+.hero__name {
+  margin: 0;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #1c1c1e;
+}
+
+.hero__tagline {
+  margin: 0.35rem 0 0.75rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #00274C;
+}
+
+.hero__bio {
+  margin: 0;
+  font-size: 1rem;
+  max-width: 680px;
+}
+
+.hero__links {
+  display: flex;
+  gap: 1.1rem;
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0;
+  flex-wrap: wrap;
+}
+
+.hero__links a {
+  font-size: 1.6rem;
+  color: #00274C;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.hero__links a:hover {
+  color: #1a416f;
 }
 
 .section {
@@ -963,6 +1038,15 @@ body {
 }
 
 @media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero__links {
+    justify-content: center;
+  }
+
   .project-card {
     height: 500px;
   }
