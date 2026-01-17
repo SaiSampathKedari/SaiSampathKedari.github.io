@@ -138,8 +138,15 @@ $sidebar-fixed-width: 260px;
 
 .page__content section,
 .page__content .section {
-  margin-bottom: 0.65rem;
+  margin-bottom: 0;
   padding: 0;
+}
+
+.page__content section + section,
+.page__content section + .section,
+.page__content .section + section,
+.page__content .section + .section {
+  margin-top: 2.5rem;
 }
 
 .notice,
