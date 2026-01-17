@@ -128,6 +128,22 @@ $sidebar-fixed-width: 260px;
   font-size: 0.88rem;
 }
 
+.page__content h2:not(:first-child) {
+  margin-top: 2.2rem;
+}
+
+.page__content h3:not(:first-child) {
+  margin-top: 1.6rem;
+}
+
+.page__content h1 + h2,
+.page__content h2 + h3,
+.page__content h3 + h4,
+.page__content h4 + h5,
+.page__content h5 + h6 {
+  margin-top: 0.8rem;
+}
+
 .page__content > :first-child {
   margin-top: 0;
 }
