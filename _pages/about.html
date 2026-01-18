@@ -16,7 +16,7 @@ permalink: /
       <div class="hero__content">
         <h1 class="hero__name">{{ site.author.name }}</h1>
         <p class="hero__tagline">{{ site.author.bio }}</p>
-        <p class="hero__bio">I work at the intersection of Robotics and AI, focusing on probabilistic modeling, estimation, and optimization. I build learning and inference algorithms from first principles to understand uncertainty, identifiability, and failure modes.</p>
+        <p class="hero__bio">I work at the intersection of Robotics and AI, focusing on state estimation, parameter learning, and probabilistic methods for robot learning.</p>
         <ul class="hero__links">
           <li><a href="mailto:{{ site.author.email }}" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
           <li><a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
@@ -37,9 +37,9 @@ permalink: /
         <i class="fas fa-user"></i>
         <span>About Me</span>
       </div>
-      <p>I work at the intersection of Robotics and AI, with a strong focus on mathematical and statistical approaches to robot learning and inference. I hold dual master’s degrees from the University of Michigan, where my training emphasized probabilistic modeling, estimation, and optimization.</p>
-      <p>My current work centers on building and understanding learning and inference algorithms from first principles, with particular attention to uncertainty, identifiability, and failure modes. Rather than relying on off-the-shelf tools, I focus on developing a deep, mechanistic understanding of how algorithms behave and why they succeed or fail.</p>
-      <p>Prior to graduate school, I worked as a C++ software developer at Dassault Systèmes and Altair Engineering, contributing to large-scale engineering software. This background strongly influences my approach today, with an emphasis on rigor, structure, and implementation clarity.</p>
+      <p>I work at the intersection of Robotics and AI, with a focus on state estimation, parameter learning, and probabilistic methods for robot learning.</p>
+      <p>I hold dual master’s degrees from the University of Michigan, where my training emphasized probabilistic modeling, estimation, control systems, and optimization. My current work centers on building and analyzing learning and inference algorithms for dynamical and robotic systems, with particular attention to uncertainty, identifiability, and failure modes.</p>
+      <p>Prior to graduate school, I worked as a C++ software developer at Dassault Systèmes and Altair Engineering, contributing to large-scale engineering software. This background continues to shape my approach, with an emphasis on rigor, structure, and implementation clarity.</p>
     </div>
 
     <div class="home-block">
@@ -47,19 +47,11 @@ permalink: /
         <i class="fas fa-brain"></i>
         <span>Research Interests</span>
       </div>
-      <p>My primary interest is in robot learning grounded in mathematics and statistical inference, especially in settings where uncertainty and limited information play a central role.</p>
-      <p>My current strengths and focus areas include:</p>
-      <ul>
-        <li><strong>Bayesian Inference and Filtering for Robotics:</strong> State, parameter, and belief estimation using Bayesian methods, Monte Carlo sampling, and probabilistic filtering.</li>
-        <li><strong>Statistical Foundations of Learning:</strong> Understanding learning algorithms through the lens of estimation theory, uncertainty quantification, and probabilistic modeling.</li>
-        <li><strong>Sampling-Based and Probabilistic Algorithms:</strong> Monte Carlo methods, particle methods, and diagnostics for reliability and robustness.</li>
-      </ul>
-      <p>I am also strongly interested in expanding into the following areas, where my mathematical background allows me to ramp up quickly:</p>
-      <ul>
-        <li><strong>Learning-Based Control:</strong> Revisiting control and optimization-based methods through modern, data-driven and probabilistic perspectives.</li>
-        <li><strong>Reinforcement Learning for Robotics:</strong> Developing a principled understanding of RL, particularly where it intersects with model-based methods, uncertainty-aware learning, and control.</li>
-      </ul>
-      <p>My long-term goal is to contribute to robotic systems that learn, reason, and act under uncertainty, with methods that are interpretable, reliable, and grounded in strong mathematical foundations.</p>
+      <p>My primary interest is robot learning under uncertainty, grounded in mathematics and statistical inference. In particular, I focus on:</p>
+      <p><strong>State and parameter estimation for robots</strong><br />Bayesian inference, filtering, joint state–parameter estimation, and uncertainty-aware modeling.</p>
+      <p><strong>Sampling-based and probabilistic algorithms</strong><br />Monte Carlo methods, particle methods, and diagnostics for robustness and reliability.</p>
+      <p><strong>Statistical perspectives on learning</strong><br />Understanding learning and adaptation through estimation theory and probabilistic modeling.</p>
+      <p>I am actively extending this work toward learning-based control and reinforcement learning for robotics, where estimation, uncertainty modeling, and control come together in embodied systems.</p>
     </div>
 
     <div class="home-block">
@@ -229,7 +221,7 @@ permalink: /
     </div>
 
     <div id="math-intelligence">
-      <p class="intro" style="text-align: justify;">
+      <p class="intro">
         Mathematics is the language of systems, uncertainty, and learning, essential for building intelligent and reliable robots. The work below reflects my commitment to mastering this foundation through deep study and rigorous problem-solving. Each GitHub repository represents a subject I have explored thoroughly, documenting both theory and exercises to build lasting intuition.
       </p>
 
@@ -324,7 +316,7 @@ permalink: /
     <p><strong>Focus Areas:</strong> Machine Learning · Bayesian Inference · Convex Optimization · Control Theory · Statistical Estimation · Stochastic Processes · Nonlinear Dynamics</p>
 
     <div class="coursework-section">
-      <div class="course-block">
+      <div class="course-block course-block--inference">
         <div class="course-header">Inference, Learning, and Optimization</div>
         <div class="course-list">
           <div class="course-pill"><span class="course-code">EECS 505</span><span class="course-title">Computational Data Science and Machine Learning</span></div>
@@ -334,7 +326,7 @@ permalink: /
         </div>
       </div>
 
-      <div class="course-block">
+      <div class="course-block course-block--stats">
         <div class="course-header">Statistics and Mathematical Foundations</div>
         <div class="course-list">
           <div class="course-pill"><span class="course-code">STATS 510</span><span class="course-title">Probability and Distribution Theory</span></div>
@@ -345,7 +337,7 @@ permalink: /
         </div>
       </div>
 
-      <div class="course-block">
+      <div class="course-block course-block--control">
         <div class="course-header">Control Theory and Dynamical Systems</div>
         <div class="course-list">
           <div class="course-pill"><span class="course-code">EECS 460</span><span class="course-title">Control Systems Analysis and Design</span></div>
@@ -588,22 +580,24 @@ body {
 }
 
 .home-block {
-  margin-top: 2.5rem;
+  margin: 3.5rem auto 0;
+  max-width: 980px;
+  text-align: left;
 }
 
 .hero {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
-  padding: 2rem 0 1.5rem;
+  gap: 5rem;
+  padding: 2.5rem 0 2rem;
 }
 
 .hero__photo img {
-  width: 210px;
-  height: 210px;
+  width: 320px;
+  height: 320px;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid #c7cbd1;
+  border: 4px solid #c7cbd1;
   box-sizing: border-box;
 }
 
@@ -614,43 +608,45 @@ body {
 .hero__name {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 5rem;
+  font-weight: 800;
   color: #00274C;
+  line-height: 1.05;
 }
 
 .hero__tagline {
-  margin: 0.35rem 0 0.75rem;
+  margin: 0.6rem 0 1rem;
   font-family: 'Inter', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-size: 2rem;
+  font-weight: 700;
   color: #2b3442;
-  line-height: 1.25;
+  line-height: 1.35;
   letter-spacing: -0.01em;
 }
 
 .hero__bio {
   margin: 0;
-  font-size: 1rem;
-  max-width: 680px;
+  font-size: 1.1rem;
+  max-width: 720px;
+  line-height: 1.7;
 }
 
 .hero__links {
   display: flex;
-  gap: 1.1rem;
+  gap: 1.5rem;
   list-style: none;
   padding: 0;
-  margin: 1.25rem 0 0;
+  margin: 1.75rem 0 0;
   flex-wrap: wrap;
 }
 
 .hero__links a {
-  font-size: 1.75rem;
+  font-size: 2.1rem;
   color: #00274C;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.45rem;
 }
 
 .hero__links a:hover {
@@ -658,7 +654,7 @@ body {
 }
 
 .hero__links .link-label {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 600;
   letter-spacing: 0.01em;
 }
@@ -700,6 +696,8 @@ body {
 .education-list {
   list-style: none;
   padding-left: 0;
+  max-width: 780px;
+  margin: 0 auto;
 }
 
 .edu-item {
@@ -717,12 +715,15 @@ body {
 .icon-heading {
   display: flex;
   align-items: center;
+  justify-content: center;
   font-family: 'Inter', sans-serif;
-  font-size: 1.35rem;
-  font-weight: 600;
+  font-size: 1.9rem;
+  font-weight: 700;
   color: #00274C;
   gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  width: 100%;
 }
 
 .icon-heading .emoji {
@@ -744,6 +745,29 @@ body {
   flex-direction: column;
   gap: 1.5rem;
   margin-top: 2rem;
+}
+
+@media (min-width: 900px) {
+  .coursework-section {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "inference control"
+      "stats .";
+    gap: 2rem;
+  }
+
+  .course-block--inference {
+    grid-area: inference;
+  }
+
+  .course-block--control {
+    grid-area: control;
+  }
+
+  .course-block--stats {
+    grid-area: stats;
+  }
 }
 
 .course-block {
@@ -809,8 +833,14 @@ body {
   grid-template-columns: 1fr;
   gap: 40px;
   padding: 1rem 0;
-  max-width: 1100px;
+  max-width: 1250px;
   margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .project-card {
@@ -960,13 +990,19 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 @media (min-width: 900px) {
   .math-showcase {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .math-showcase {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -1183,6 +1219,23 @@ body {
   .hero {
     flex-direction: column;
     text-align: center;
+  }
+
+  .hero__photo img {
+    width: 240px;
+    height: 240px;
+  }
+
+  .hero__name {
+    font-size: 3.2rem;
+  }
+
+  .hero__tagline {
+    font-size: 1.45rem;
+  }
+
+  .hero__bio {
+    font-size: 1.05rem;
   }
 
   .hero__links {
