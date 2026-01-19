@@ -96,7 +96,12 @@ permalink: /
     <div class="repo-cards">
       <div class="repo-card repo-card--monte-carlo">
         <div class="repo-card-header">
-          <h3 class="repo-card-title">Monte Carlo Statistical Methods</h3>
+          <div class="repo-card-title-row">
+            <h3 class="repo-card-title">Monte Carlo Statistical Methods</h3>
+            <div class="repo-card-actions project-buttons">
+              <a href="https://github.com/SaiSampathKedari/MonteCarlo-Statistical-Methods" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub <i class="fab fa-github"></i></a>
+            </div>
+          </div>
           <p class="repo-card-subtitle">Book-level Monte Carlo methods implemented from scratch, with rigorous PDF derivations, notebooks, and diagnostic tooling.</p>
           <p class="repo-card-subtitle repo-card-subtitle--secondary">Sampling → importance sampling → variance reduction → stochastic processes → MCMC diagnostics (MH/AM/DR/DRAM).</p>
         </div>
@@ -1014,6 +1019,24 @@ body {
   justify-content: center;
 }
 
+.repo-card-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.repo-card-title-row .repo-card-title {
+  flex: 1 1 320px;
+  text-align: center;
+}
+
+.repo-card-actions {
+  margin-left: auto;
+}
+
 .repo-card--monte-carlo {
   flex-direction: column;
   gap: 2.5rem;
@@ -1024,6 +1047,10 @@ body {
 
 .repo-card-header {
   text-align: center;
+}
+
+.repo-card--monte-carlo .repo-card-title {
+  font-size: 2rem;
 }
 
 .repo-card-subtitle {
@@ -1606,6 +1633,15 @@ body {
 
   .repo-card-title {
     font-size: 2.2rem;
+  }
+
+  .repo-card-title-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .repo-card-actions {
+    margin-left: 0;
   }
 
   .project-card {
