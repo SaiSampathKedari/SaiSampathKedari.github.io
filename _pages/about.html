@@ -95,41 +95,33 @@ permalink: /
 
     <div class="repo-cards">
       <div class="repo-card repo-card--monte-carlo">
-        <div class="repo-card-header">
-          <div class="repo-card-title-row">
-            <h3 class="repo-card-title">Monte Carlo Statistical Methods</h3>
-            <div class="repo-card-actions project-buttons">
-              <a href="https://github.com/SaiSampathKedari/MonteCarlo-Statistical-Methods" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub <i class="fab fa-github"></i></a>
+        <div class="repo-card-header monte-carlo-hero">
+          <div class="monte-carlo-hero-main">
+            <div class="repo-card-title-row">
+              <h3 class="repo-card-title">Monte Carlo Statistical Methods</h3>
+              <div class="repo-card-actions project-buttons">
+                <a href="https://github.com/SaiSampathKedari/MonteCarlo-Statistical-Methods" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub <i class="fab fa-github"></i></a>
+              </div>
             </div>
+            <p class="repo-card-subtitle">Book-level Monte Carlo methods implemented from scratch with rigorous mathematical derivations, notebooks, and diagnostic tooling.</p>
+            <p class="repo-card-subtitle repo-card-subtitle--secondary">This repo mirrors a full Monte Carlo curriculum: sampling, variance reduction, stochastic processes, and MCMC (MH/AM/DR/DRAM).</p>
+            <p class="monte-carlo-spine">Sampling → Importance Sampling → Variance Reduction → Stochastic Processes → MCMC Diagnostics</p>
           </div>
-          <p class="repo-card-subtitle">Book-level Monte Carlo methods implemented from scratch, with rigorous PDF derivations, notebooks, and diagnostic tooling.</p>
-          <p class="repo-card-subtitle repo-card-subtitle--secondary">Sampling → importance sampling → variance reduction → stochastic processes → MCMC diagnostics (MH/AM/DR/DRAM).</p>
+          <div class="monte-carlo-hero-meta">
+            <p class="monte-carlo-meta-title">Repo stack</p>
+            <div class="monte-carlo-badges">
+              <span>Python</span>
+              <span>Jupyter</span>
+              <span>LaTeX</span>
+              <span>NumPy</span>
+              <span>MCMC</span>
+              <span>Diagnostics</span>
+            </div>
+            <p class="monte-carlo-meta-caption">From-scratch sampling, variance reduction, and MCMC diagnostics with full PDF writeups.</p>
+          </div>
         </div>
-        <div class="monte-carlo-grid">
-          <div class="monte-carlo-feature-card">
-            <div class="monte-carlo-demo-media">
-              <video autoplay muted loop playsinline>
-                <source src="{{ '/images/montecarlo/animations/beta_fill.mp4' | relative_url }}" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div class="monte-carlo-card-content">
-              <h3>Inverse transform sampling</h3>
-              <p>CDF construction that turns theory into exact samplers.</p>
-            </div>
-          </div>
-          <div class="monte-carlo-feature-card">
-            <div class="monte-carlo-demo-media">
-              <video autoplay muted loop playsinline>
-                <source src="{{ '/images/montecarlo/animations/accept_reject_demo.mp4' | relative_url }}" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div class="monte-carlo-card-content">
-              <h3>Accept–reject sampling</h3>
-              <p>Envelope constructions for exact sampling when CDFs are hard.</p>
-            </div>
-          </div>
+
+        <div class="monte-carlo-feature-row">
           <div class="monte-carlo-card monte-carlo-dram-card">
             <div class="monte-carlo-demo-media">
               <video autoplay muted loop playsinline>
@@ -137,26 +129,20 @@ permalink: /
                 Your browser does not support the video tag.
               </video>
             </div>
-            <div class="dram-strip">
-              <img src="{{ '/images/montecarlo/images/mcmc/Banana_target_distribution.png' | relative_url }}" alt="Banana-shaped target distribution" />
-              <img src="{{ '/images/montecarlo/images/mcmc/DRAM_samples2_banana.png' | relative_url }}" alt="DRAM samples on banana distribution" />
-              <img src="{{ '/images/montecarlo/images/mcmc/AutoCorr_DRAM_banana.png' | relative_url }}" alt="Autocorrelation diagnostics for DRAM" />
-              <img src="{{ '/images/montecarlo/images/mcmc/Mixing_DRAM_banana.png' | relative_url }}" alt="Mixing diagnostics for DRAM" />
-            </div>
             <div class="monte-carlo-card-content">
-              <h3>Capstone: DRAM on banana-shaped target</h3>
-              <p>DRAM + diagnostics (ESS, autocorrelation, mixing) on a hard banana posterior.</p>
+              <h3>Capstone Demo: DRAM on banana-shaped target</h3>
+              <p class="monte-carlo-caption">DRAM on banana-shaped target: MH → AM → DR → DRAM + diagnostics (IAC, ESS, autocorrelation, mixing).</p>
             </div>
           </div>
           <div class="monte-carlo-card monte-carlo-repo-tree-card">
             <div class="monte-carlo-card-content">
-              <h3>Repository structure</h3>
+              <h3>Repository structure (proof of work)</h3>
               <pre class="repo-tree">MonteCarlo-Statistical-Methods/
   animations/
-    accept_reject_demo.mp4
-    beta_fill.mp4
     dram_banana.mp4
   images/
+    mcmc/
+    diagnostics/
   notebooks/
     ch02_sampling/
     ch03_importance_sampling/
@@ -164,30 +150,29 @@ permalink: /
     ch05_mcmc/
     ch06_stochastic_processes/
   reports/
-    ch01_01_MonteCarloBasics.pdf
-    ch02_accept_reject.pdf
     ch02_general_transforms.pdf
+    ch02_accept_reject.pdf
     ch03_03_ImportanceSampling_Rare_event_Estimation.pdf
     ch03_04_SelfNormalized_ImportantSampling.pdf
     ch04_01_ControlVariate_Foundations-and-Intution.pdf
     ch04_02_Brownian_Motion.pdf
-    ch04_04_ImportanceSampling_Applications.pdf
     ch05_07_Metropolis-Hastings.pdf
-    ch05_08_MetropolisAdjustedLangevin.pdf
     ch05_09_AdaptiveMetropolis.pdf
   src/
     sampling/
     importance_sampling/
-    variance_reduction/
-    stochastic_processes/
     mcmc/
-  pyproject.toml</pre>
+    diagnostics/</pre>
             </div>
           </div>
+        </div>
+
+        <div class="monte-carlo-supporting-grid">
           <div class="monte-carlo-card monte-carlo-math-card">
             <div class="monte-carlo-card-content">
               <h3>PDF Chapter Library (Math Writeups)</h3>
-              <p><strong>14+ mathematical reports</strong> · Hundreds of pages of derivations and explanations.</p>
+              <p><strong>14+ mathematical reports</strong></p>
+              <p>Hundreds of pages of derivations, proofs, and intuition.</p>
               <ul class="monte-carlo-list">
                 <li>ch02_general_transforms.pdf</li>
                 <li>ch02_accept_reject.pdf</li>
@@ -197,10 +182,10 @@ permalink: /
                 <li>ch04_02_Brownian_Motion.pdf</li>
                 <li>ch05_07_Metropolis-Hastings.pdf</li>
               </ul>
-              <p class="monte-carlo-more">and more…</p>
+              <p class="monte-carlo-more">View all reports · and more…</p>
             </div>
           </div>
-          <div class="monte-carlo-card monte-carlo-math-card">
+          <div class="monte-carlo-card">
             <div class="monte-carlo-card-content">
               <h3>What’s derived + implemented from scratch</h3>
               <ul class="monte-carlo-list">
@@ -212,6 +197,31 @@ permalink: /
                 <li>MCMC: MH, Adaptive Metropolis, Delayed Rejection, DRAM</li>
                 <li>Diagnostics implemented: autocorrelation, IAC, ESS, mixing/burn-in</li>
               </ul>
+            </div>
+          </div>
+          <div class="monte-carlo-card">
+            <div class="monte-carlo-card-content">
+              <h3>Notebooks &amp; experiments</h3>
+              <p>Chapter-aligned notebooks validate theory with experiments and diagnostics.</p>
+              <ul class="monte-carlo-list">
+                <li>ch02_sampling &amp; generators</li>
+                <li>ch03_importance_sampling &amp; rare-event studies</li>
+                <li>ch04_variance_reduction &amp; control variates</li>
+                <li>ch05_mcmc &amp; DRAM diagnostics</li>
+                <li>ch06_stochastic_processes &amp; Brownian motion</li>
+              </ul>
+            </div>
+          </div>
+          <div class="monte-carlo-card">
+            <div class="monte-carlo-card-content">
+              <h3>Diagnostics &amp; visualization gallery</h3>
+              <div class="monte-carlo-image-grid">
+                <img src="{{ '/images/montecarlo/images/mcmc/Banana_target_distribution.png' | relative_url }}" alt="Banana-shaped target distribution" />
+                <img src="{{ '/images/montecarlo/images/mcmc/DRAM_samples2_banana.png' | relative_url }}" alt="DRAM samples on banana distribution" />
+                <img src="{{ '/images/montecarlo/images/mcmc/AutoCorr_DRAM_banana.png' | relative_url }}" alt="Autocorrelation diagnostics for DRAM" />
+                <img src="{{ '/images/montecarlo/images/mcmc/Mixing_DRAM_banana.png' | relative_url }}" alt="Mixing diagnostics for DRAM" />
+              </div>
+              <p class="monte-carlo-caption">Sampling behavior, diagnostics, and mixing visuals across the DRAM studies.</p>
             </div>
           </div>
         </div>
@@ -1055,12 +1065,21 @@ body {
   min-height: auto;
 }
 
-.repo-card-header {
-  text-align: center;
-}
-
 .repo-card--monte-carlo .repo-card-title {
   font-size: 2rem;
+}
+
+.repo-card--monte-carlo .repo-card-title-row {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.repo-card--monte-carlo .repo-card-title-row .repo-card-title {
+  text-align: left;
+}
+
+.repo-card--monte-carlo .repo-card-actions {
+  margin-left: 0;
 }
 
 .repo-card-subtitle {
@@ -1077,11 +1096,79 @@ body {
   color: #6b7280;
 }
 
-.monte-carlo-grid {
+.monte-carlo-hero {
   display: grid;
-  grid-template-columns: 1fr;
   gap: 24px;
-  align-items: stretch;
+  align-items: start;
+}
+
+.monte-carlo-hero-main {
+  text-align: left;
+}
+
+.monte-carlo-hero-main .repo-card-subtitle,
+.monte-carlo-hero-main .repo-card-subtitle--secondary {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.monte-carlo-spine {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1f4f8a;
+}
+
+.monte-carlo-hero-meta {
+  background: #f9fafb;
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.monte-carlo-meta-title {
+  margin: 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6b7280;
+  font-weight: 700;
+}
+
+.monte-carlo-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.monte-carlo-badges span {
+  background: #e6f0ff;
+  color: #1f4f8a;
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.monte-carlo-meta-caption {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #4b5563;
+  line-height: 1.4;
+}
+
+.monte-carlo-feature-row {
+  display: grid;
+  gap: 24px;
+  align-items: start;
+}
+
+.monte-carlo-supporting-grid {
+  display: grid;
+  gap: 24px;
 }
 
 .monte-carlo-feature-card,
@@ -1105,15 +1192,15 @@ body {
   overflow: hidden;
   background: #f5f7fb;
   width: 100%;
-  aspect-ratio: 16 / 9;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 16px;
 }
 
 .monte-carlo-demo-media video {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: contain;
   display: block;
 }
@@ -1140,10 +1227,6 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-.monte-carlo-dram-card .monte-carlo-demo-media {
-  aspect-ratio: 4 / 3;
-}
-
 .monte-carlo-dram-card .monte-carlo-card-content {
   padding: 12px 16px 16px;
 }
@@ -1151,31 +1234,6 @@ body {
 .monte-carlo-dram-card .monte-carlo-card-content h3 {
   font-size: 1.35rem;
   color: #1f4f8a;
-}
-
-.monte-carlo-repo-tree-card {
-  height: 100%;
-}
-
-.monte-carlo-repo-tree-card .monte-carlo-card-content {
-  flex: 1;
-  min-height: 0;
-}
-
-.dram-strip {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 6px;
-  padding: 8px 12px 0;
-}
-
-.dram-strip img {
-  width: 100%;
-  height: 96px;
-  object-fit: contain;
-  background: #f5f7fb;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
 }
 
 .monte-carlo-card-content .monte-carlo-list {
@@ -1192,6 +1250,13 @@ body {
   color: #6b7280;
 }
 
+.monte-carlo-caption {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
 .repo-tree {
   font-family: 'SFMono-Regular', 'Menlo', 'Monaco', 'Courier New', monospace;
   font-size: 0.78rem;
@@ -1202,9 +1267,26 @@ body {
   color: #374151;
   margin: 0.4rem 0 0;
   white-space: pre;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: visible;
   flex: 1;
   min-height: 0;
+}
+
+.monte-carlo-image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.monte-carlo-image-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: #f5f7fb;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 6px;
 }
 
 .monte-carlo-footer {
@@ -1217,29 +1299,18 @@ body {
 }
 
 @media (min-width: 700px) {
-  .monte-carlo-grid {
+  .monte-carlo-hero {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  }
+
+  .monte-carlo-supporting-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .monte-carlo-feature-card,
-  .monte-carlo-math-card {
-    grid-column: span 1;
-  }
-
-  .monte-carlo-dram-card,
-  .monte-carlo-repo-tree-card {
-    grid-column: span 2;
   }
 }
 
 @media (min-width: 900px) {
-  .monte-carlo-grid {
+  .monte-carlo-feature-row {
     grid-template-columns: repeat(12, minmax(0, 1fr));
-  }
-
-  .monte-carlo-feature-card,
-  .monte-carlo-math-card {
-    grid-column: span 6;
   }
 
   .monte-carlo-dram-card {
