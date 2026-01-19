@@ -103,21 +103,14 @@ permalink: /
                 <a href="https://github.com/SaiSampathKedari/MonteCarlo-Statistical-Methods" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub <i class="fab fa-github"></i></a>
               </div>
             </div>
-            <p class="repo-card-subtitle">Book-level Monte Carlo methods implemented from scratch with rigorous mathematical derivations, notebooks, and diagnostic tooling.</p>
-            <p class="repo-card-subtitle repo-card-subtitle--secondary">This repo mirrors a full Monte Carlo curriculum: sampling, variance reduction, stochastic processes, and MCMC (MH/AM/DR/DRAM).</p>
-            <p class="monte-carlo-spine">Sampling → Importance Sampling → Variance Reduction → Stochastic Processes → MCMC Diagnostics</p>
-          </div>
-          <div class="monte-carlo-hero-meta">
-            <p class="monte-carlo-meta-title">Repo stack</p>
+            <p class="repo-card-subtitle">Book-level Monte Carlo methods implemented from first principles, with rigorous mathematical derivations, diagnostics, and experiments.</p>
+            <p class="repo-card-subtitle repo-card-subtitle--secondary">This repository systematically implements the core chapters of “Monte Carlo Statistical Methods” (Robert &amp; Casella), bridging theory → implementation → diagnostics → experiments → writeups.</p>
+            <p class="monte-carlo-spine">Sampling → Importance Sampling → Variance Reduction → Stochastic Processes → MCMC Diagnostics (MH / AM / DR / DRAM)</p>
             <div class="monte-carlo-badges">
               <span>Python</span>
               <span>Jupyter</span>
-              <span>LaTeX</span>
-              <span>NumPy</span>
-              <span>MCMC</span>
-              <span>Diagnostics</span>
+              <span>MIT License</span>
             </div>
-            <p class="monte-carlo-meta-caption">From-scratch sampling, variance reduction, and MCMC diagnostics with full PDF writeups.</p>
           </div>
         </div>
 
@@ -130,19 +123,21 @@ permalink: /
               </video>
             </div>
             <div class="monte-carlo-card-content">
-              <h3>Capstone Demo: DRAM on banana-shaped target</h3>
-              <p class="monte-carlo-caption">DRAM on banana-shaped target: MH → AM → DR → DRAM + diagnostics (IAC, ESS, autocorrelation, mixing).</p>
+              <h3>Capstone: DRAM on Banana-Shaped Target</h3>
+              <p class="monte-carlo-caption">Delayed Rejection Adaptive Metropolis (DRAM) implemented from scratch. Demonstrates improved mixing and efficiency on a highly non-Gaussian posterior. Includes full diagnostics: autocorrelation, IAC, ESS, burn-in, and mixing behavior.</p>
             </div>
           </div>
           <div class="monte-carlo-card monte-carlo-repo-tree-card">
             <div class="monte-carlo-card-content">
-              <h3>Repository structure (proof of work)</h3>
+              <h3>Repository Structure (Proof of Work)</h3>
               <pre class="repo-tree">MonteCarlo-Statistical-Methods/
   animations/
-    dram_banana.mp4
   images/
+    sampling/
+    importance_sampling/
+    variance_reduction/
+    stochastic_processes/
     mcmc/
-    diagnostics/
   notebooks/
     ch02_sampling/
     ch03_importance_sampling/
@@ -157,7 +152,6 @@ permalink: /
     ch04_01_ControlVariate_Foundations-and-Intution.pdf
     ch04_02_Brownian_Motion.pdf
     ch05_07_Metropolis-Hastings.pdf
-    ch05_09_AdaptiveMetropolis.pdf
   src/
     sampling/
     importance_sampling/
@@ -167,12 +161,39 @@ permalink: /
           </div>
         </div>
 
-        <div class="monte-carlo-supporting-grid">
+        <div class="monte-carlo-sampling-grid">
+          <div class="monte-carlo-card">
+            <div class="monte-carlo-demo-media">
+              <video autoplay muted loop playsinline>
+                <source src="{{ '/images/montecarlo/animations/beta_fill.mp4' | relative_url }}" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="monte-carlo-card-content">
+              <h3>Inverse Transform Sampling</h3>
+              <p class="monte-carlo-caption">CDF construction that turns theory into exact samplers.</p>
+            </div>
+          </div>
+          <div class="monte-carlo-card">
+            <div class="monte-carlo-demo-media">
+              <video autoplay muted loop playsinline>
+                <source src="{{ '/images/montecarlo/animations/accept_reject_demo.mp4' | relative_url }}" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="monte-carlo-card-content">
+              <h3>Accept–Reject Sampling</h3>
+              <p class="monte-carlo-caption">Envelope constructions for exact sampling when CDFs are intractable.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="monte-carlo-depth-grid">
           <div class="monte-carlo-card monte-carlo-math-card">
             <div class="monte-carlo-card-content">
-              <h3>PDF Chapter Library (Math Writeups)</h3>
-              <p><strong>14+ mathematical reports</strong></p>
-              <p>Hundreds of pages of derivations, proofs, and intuition.</p>
+              <h3>PDF Chapter Library (Mathematical Writeups)</h3>
+              <p><strong>14+ mathematical reports · hundreds of pages</strong></p>
+              <p>Each chapter is a self-contained mathematical exposition. Algorithms are derived from first principles, assumptions are stated explicitly, and intuition is built step-by-step before implementation.</p>
               <ul class="monte-carlo-list">
                 <li>ch02_general_transforms.pdf</li>
                 <li>ch02_accept_reject.pdf</li>
@@ -182,46 +203,21 @@ permalink: /
                 <li>ch04_02_Brownian_Motion.pdf</li>
                 <li>ch05_07_Metropolis-Hastings.pdf</li>
               </ul>
-              <p class="monte-carlo-more">View all reports · and more…</p>
+              <p class="monte-carlo-more">These reports function as blog-style lecture notes, not documentation dumps.</p>
             </div>
           </div>
           <div class="monte-carlo-card">
             <div class="monte-carlo-card-content">
-              <h3>What’s derived + implemented from scratch</h3>
+              <h3>What’s Derived &amp; Implemented From Scratch</h3>
               <ul class="monte-carlo-list">
-                <li>Random variable generation: inverse transform, accept-reject</li>
-                <li>LLN/CLT Monte Carlo estimation behavior (empirical vs theoretical)</li>
+                <li>Random variable generation: inverse transform, accept–reject</li>
+                <li>Monte Carlo estimation: WLLN, SLLN, CLT (empirical vs theoretical)</li>
                 <li>Importance sampling: weight behavior, rare-event estimation, SNIS</li>
-                <li>Variance reduction: control variates and intuition</li>
-                <li>Stochastic processes: Brownian motion scaling + simulation</li>
+                <li>Variance reduction: control variates with variance analysis</li>
+                <li>Stochastic processes: Brownian motion scaling and simulation</li>
                 <li>MCMC: MH, Adaptive Metropolis, Delayed Rejection, DRAM</li>
-                <li>Diagnostics implemented: autocorrelation, IAC, ESS, mixing/burn-in</li>
+                <li>Diagnostics: autocorrelation, integrated autocorrelation time, ESS, burn-in, mixing</li>
               </ul>
-            </div>
-          </div>
-          <div class="monte-carlo-card">
-            <div class="monte-carlo-card-content">
-              <h3>Notebooks &amp; experiments</h3>
-              <p>Chapter-aligned notebooks validate theory with experiments and diagnostics.</p>
-              <ul class="monte-carlo-list">
-                <li>ch02_sampling &amp; generators</li>
-                <li>ch03_importance_sampling &amp; rare-event studies</li>
-                <li>ch04_variance_reduction &amp; control variates</li>
-                <li>ch05_mcmc &amp; DRAM diagnostics</li>
-                <li>ch06_stochastic_processes &amp; Brownian motion</li>
-              </ul>
-            </div>
-          </div>
-          <div class="monte-carlo-card">
-            <div class="monte-carlo-card-content">
-              <h3>Diagnostics &amp; visualization gallery</h3>
-              <div class="monte-carlo-image-grid">
-                <img src="{{ '/images/montecarlo/images/mcmc/Banana_target_distribution.png' | relative_url }}" alt="Banana-shaped target distribution" />
-                <img src="{{ '/images/montecarlo/images/mcmc/DRAM_samples2_banana.png' | relative_url }}" alt="DRAM samples on banana distribution" />
-                <img src="{{ '/images/montecarlo/images/mcmc/AutoCorr_DRAM_banana.png' | relative_url }}" alt="Autocorrelation diagnostics for DRAM" />
-                <img src="{{ '/images/montecarlo/images/mcmc/Mixing_DRAM_banana.png' | relative_url }}" alt="Mixing diagnostics for DRAM" />
-              </div>
-              <p class="monte-carlo-caption">Sampling behavior, diagnostics, and mixing visuals across the DRAM studies.</p>
             </div>
           </div>
         </div>
@@ -1070,12 +1066,12 @@ body {
 }
 
 .repo-card--monte-carlo .repo-card-title-row {
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
 .repo-card--monte-carlo .repo-card-title-row .repo-card-title {
-  text-align: left;
+  text-align: center;
 }
 
 .repo-card--monte-carlo .repo-card-actions {
@@ -1099,11 +1095,13 @@ body {
 .monte-carlo-hero {
   display: grid;
   gap: 24px;
-  align-items: start;
+  align-items: center;
+  justify-items: center;
 }
 
 .monte-carlo-hero-main {
-  text-align: left;
+  text-align: center;
+  max-width: 920px;
 }
 
 .monte-carlo-hero-main .repo-card-subtitle,
@@ -1142,6 +1140,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  justify-content: center;
 }
 
 .monte-carlo-badges span {
@@ -1167,6 +1166,12 @@ body {
 }
 
 .monte-carlo-supporting-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.monte-carlo-sampling-grid,
+.monte-carlo-depth-grid {
   display: grid;
   gap: 24px;
 }
@@ -1299,11 +1304,9 @@ body {
 }
 
 @media (min-width: 700px) {
-  .monte-carlo-hero {
-    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-  }
-
-  .monte-carlo-supporting-grid {
+  .monte-carlo-supporting-grid,
+  .monte-carlo-sampling-grid,
+  .monte-carlo-depth-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
