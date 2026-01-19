@@ -103,9 +103,9 @@ permalink: /
                 <a href="https://github.com/SaiSampathKedari/MonteCarlo-Statistical-Methods" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub <i class="fab fa-github"></i></a>
               </div>
             </div>
-            <p class="repo-card-subtitle">Book-level Monte Carlo methods implemented from first principles, with rigorous mathematical derivations, diagnostics, and experiments.</p>
-            <p class="repo-card-subtitle repo-card-subtitle--secondary">This repository systematically implements the core chapters of “Monte Carlo Statistical Methods” (Robert &amp; Casella), bridging theory → implementation → diagnostics → experiments → writeups.</p>
-            <p class="monte-carlo-spine">Sampling → Importance Sampling → Variance Reduction → Stochastic Processes → MCMC Diagnostics (MH / AM / DR / DRAM)</p>
+            <p class="repo-card-subtitle">A full mathematical and computational reconstruction of the Monte Carlo Statistical Methods framework, developed to build a deep, working understanding of probabilistic computation — the backbone of Bayesian inference, reinforcement learning, uncertainty quantification, and robot learning.</p>
+            <p class="repo-card-subtitle repo-card-subtitle--secondary">This project goes far beyond surface-level implementations. Every method is derived from first principles, implemented from scratch, verified through controlled experiments, and supported by rigorous diagnostics. The objective is to turn Monte Carlo from a black box into an interpretable, reliable computational engine.</p>
+            <p class="monte-carlo-spine">Modern robotics routinely encounters regimes where analytical posteriors do not exist, expectations over complex distributions are unavoidable, uncertainty must be propagated through nonlinear dynamics, and learning requires sampling from difficult, high-dimensional distributions. Monte Carlo methods are the numerical machinery that enables these computations. This repository reconstructs that machinery in full mathematical and algorithmic detail.</p>
             <div class="monte-carlo-badges">
               <span>Python</span>
               <span>Jupyter</span>
@@ -191,38 +191,38 @@ permalink: /
         <div class="monte-carlo-depth-grid">
           <div class="monte-carlo-card monte-carlo-math-card">
             <div class="monte-carlo-card-content">
-              <h3>PDF Chapter Library (Mathematical Writeups)</h3>
-              <p><strong>14+ mathematical reports · hundreds of pages</strong></p>
-              <p>Each chapter is a self-contained mathematical exposition. Algorithms are derived from first principles, assumptions are stated explicitly, and intuition is built step-by-step before implementation.</p>
+              <h3>PDF Chapter Library (Math Writeups)</h3>
+              <p><strong>14+ detailed mathematical reports · hundreds of pages of derivations</strong></p>
+              <p>The project includes 14+ detailed mathematical reports comprising hundreds of pages of derivations, intuition, correctness arguments, convergence analysis, and experimental interpretation.</p>
               <ul class="monte-carlo-list">
-                <li>ch02_general_transforms.pdf</li>
-                <li>ch02_accept_reject.pdf</li>
-                <li>ch03_03_ImportanceSampling_Rare_event_Estimation.pdf</li>
-                <li>ch03_04_SelfNormalized_ImportantSampling.pdf</li>
-                <li>ch04_01_ControlVariate_Foundations-and-Intution.pdf</li>
-                <li>ch04_02_Brownian_Motion.pdf</li>
-                <li>ch05_07_Metropolis-Hastings.pdf</li>
+                <li>Derivations from first principles</li>
+                <li>Intuition-building narratives</li>
+                <li>Correctness arguments and assumptions</li>
+                <li>Convergence and bias–variance analysis</li>
+                <li>Experimental interpretation and diagnostics</li>
+                <li>Theory-to-implementation bridges</li>
+                <li>Canonical testbeds and behavior-driven visualizations</li>
               </ul>
-              <p class="monte-carlo-more">These reports function as blog-style lecture notes, not documentation dumps.</p>
+              <p class="monte-carlo-more">These documents function as blog-style expository notes, not documentation dumps. They explicitly bridge theory to implementation and diagnostics.</p>
             </div>
           </div>
           <div class="monte-carlo-card">
             <div class="monte-carlo-card-content">
-              <h3>What’s Derived &amp; Implemented From Scratch</h3>
+              <h3>What Is Built and Verified</h3>
               <ul class="monte-carlo-list">
-                <li>Random variable generation: inverse transform, accept–reject</li>
-                <li>Monte Carlo estimation: WLLN, SLLN, CLT (empirical vs theoretical)</li>
-                <li>Importance sampling: weight behavior, rare-event estimation, SNIS</li>
-                <li>Variance reduction: control variates with variance analysis</li>
-                <li>Stochastic processes: Brownian motion scaling and simulation</li>
-                <li>MCMC: MH, Adaptive Metropolis, Delayed Rejection, DRAM</li>
-                <li>Diagnostics: autocorrelation, integrated autocorrelation time, ESS, burn-in, mixing</li>
+                <li>Sampling foundations: inverse transform, accept–reject, and transformation-based methods</li>
+                <li>Monte Carlo estimation: convergence behavior (WLLN, SLLN, CLT) and bias–variance dynamics</li>
+                <li>Importance sampling: proposal design, weight degeneracy, ESS, and rare-event estimation</li>
+                <li>Variance reduction: control variates with optimal coefficient derivation and diagnostics</li>
+                <li>Stochastic processes: Brownian motion scaling limits and sample-path simulation</li>
+                <li>Markov Chain Monte Carlo: MH, Adaptive Metropolis, Delayed Rejection, and DRAM</li>
+                <li>Diagnostics: burn-in behavior, mixing, autocorrelation, integrated autocorrelation time, ESS, with evaluations on canonical testbeds such as Gaussian and banana-shaped targets to expose algorithmic behavior</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="monte-carlo-footer">
-          <span>Theory → implementation → diagnostics → experiments → writeups.</span>
+          <span>This Monte Carlo foundation underpins ongoing work in Bayesian state and parameter estimation, posterior computation under streaming sensor data, uncertainty-aware planning and control, and learning in high-dimensional robotic systems. Modern humanoids and nonlinear robots require Bayesian inference over tens to hundreds of parameters with asynchronous sensing. Monte Carlo methods are the only numerical tools flexible enough to support these demands. A deeply mathematical and fully engineered reconstruction of Monte Carlo methods — built as a foundational probabilistic computation engine for Bayesian robotics, inference, and learning.</span>
         </div>
       </div>
       <div class="repo-card">
@@ -1057,7 +1057,7 @@ body {
   flex-direction: column;
   gap: 2.5rem;
   align-items: stretch;
-  text-align: left;
+  text-align: center;
   min-height: auto;
 }
 
@@ -1076,6 +1076,12 @@ body {
 
 .repo-card--monte-carlo .repo-card-actions {
   margin-left: 0;
+}
+
+.repo-card--monte-carlo p,
+.repo-card--monte-carlo li {
+  text-align: justify;
+  text-align-last: center;
 }
 
 .repo-card-subtitle {
@@ -1215,7 +1221,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  text-align: left;
+  text-align: center;
 }
 
 .monte-carlo-card-content h3 {
