@@ -103,9 +103,9 @@ permalink: /
                 <a href="https://github.com/SaiSampathKedari/MonteCarlo-Statistical-Methods" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub <i class="fab fa-github"></i></a>
               </div>
             </div>
-            <p class="repo-card-subtitle">Book-level Monte Carlo methods implemented from first principles, with rigorous mathematical derivations, diagnostics, and experiments.</p>
-            <p class="repo-card-subtitle repo-card-subtitle--secondary">This repository systematically implements the core chapters of “Monte Carlo Statistical Methods” (Robert &amp; Casella), bridging theory → implementation → diagnostics → experiments → writeups.</p>
-            <p class="monte-carlo-spine">Sampling → Importance Sampling → Variance Reduction → Stochastic Processes → MCMC Diagnostics (MH / AM / DR / DRAM)</p>
+            <p class="repo-card-subtitle">A research-grade reconstruction of Monte Carlo statistical methods as a probabilistic computation engine for Bayesian inference and robotics-scale uncertainty.</p>
+            <p class="repo-card-subtitle repo-card-subtitle--secondary">Algorithms are derived from first principles, correctness and convergence are reasoned explicitly, and implementations are stress-tested with diagnostics that expose bias, variance, and failure modes.</p>
+            <p class="monte-carlo-spine">Derive → Implement → Diagnose → Validate → Scale to high-dimensional posteriors</p>
             <div class="monte-carlo-badges">
               <span>Python</span>
               <span>Jupyter</span>
@@ -124,39 +124,16 @@ permalink: /
             </div>
             <div class="monte-carlo-card-content">
               <h3>Capstone: DRAM on Banana-Shaped Target</h3>
-              <p class="monte-carlo-caption">Delayed Rejection Adaptive Metropolis (DRAM) implemented from scratch. Demonstrates improved mixing and efficiency on a highly non-Gaussian posterior. Includes full diagnostics: autocorrelation, IAC, ESS, burn-in, and mixing behavior.</p>
+              <p class="monte-carlo-caption">Delayed Rejection Adaptive Metropolis (DRAM) implemented from scratch to expose mixing behavior on a strongly curved posterior. Diagnostics include autocorrelation structure, integrated autocorrelation time, effective sample size, burn-in behavior, and proposal adaptation.</p>
             </div>
           </div>
           <div class="monte-carlo-card monte-carlo-repo-tree-card">
             <div class="monte-carlo-card-content">
-              <h3>Repository Structure (Proof of Work)</h3>
-              <pre class="repo-tree">MonteCarlo-Statistical-Methods/
-  animations/
-  images/
-    sampling/
-    importance_sampling/
-    variance_reduction/
-    stochastic_processes/
-    mcmc/
-  notebooks/
-    ch02_sampling/
-    ch03_importance_sampling/
-    ch04_variance_reduction/
-    ch05_mcmc/
-    ch06_stochastic_processes/
-  reports/
-    ch02_general_transforms.pdf
-    ch02_accept_reject.pdf
-    ch03_03_ImportanceSampling_Rare_event_Estimation.pdf
-    ch03_04_SelfNormalized_ImportantSampling.pdf
-    ch04_01_ControlVariate_Foundations-and-Intution.pdf
-    ch04_02_Brownian_Motion.pdf
-    ch05_07_Metropolis-Hastings.pdf
-  src/
-    sampling/
-    importance_sampling/
-    mcmc/
-    diagnostics/</pre>
+              <h3>Why This Exists</h3>
+              <p>Robotics and modern inference routinely require expectations over distributions that are implicit, high-dimensional, or defined only up to normalizing constants. Monte Carlo is the only general-purpose machinery for these regimes, yet it is often used as a black box.</p>
+              <p>This project rebuilds Monte Carlo as a transparent computational engine: each estimator is derived, each chain is diagnosed, and each failure mode is surfaced, so the resulting inference can be trusted under the constraints of real robotic systems.</p>
+              <h3>Robotics &amp; Bayesian Learning</h3>
+              <p>These foundations support state and parameter estimation, uncertainty propagation through nonlinear dynamics, and posterior exploration in tens to hundreds of dimensions. The methods here are the statistical backbone for filtering, planning, learning under uncertainty, and probabilistic control.</p>
             </div>
           </div>
         </div>
@@ -193,36 +170,27 @@ permalink: /
             <div class="monte-carlo-card-content">
               <h3>PDF Chapter Library (Mathematical Writeups)</h3>
               <p><strong>14+ mathematical reports · hundreds of pages</strong></p>
-              <p>Each chapter is a self-contained mathematical exposition. Algorithms are derived from first principles, assumptions are stated explicitly, and intuition is built step-by-step before implementation.</p>
-              <ul class="monte-carlo-list">
-                <li>ch02_general_transforms.pdf</li>
-                <li>ch02_accept_reject.pdf</li>
-                <li>ch03_03_ImportanceSampling_Rare_event_Estimation.pdf</li>
-                <li>ch03_04_SelfNormalized_ImportantSampling.pdf</li>
-                <li>ch04_01_ControlVariate_Foundations-and-Intution.pdf</li>
-                <li>ch04_02_Brownian_Motion.pdf</li>
-                <li>ch05_07_Metropolis-Hastings.pdf</li>
-              </ul>
-              <p class="monte-carlo-more">These reports function as blog-style lecture notes, not documentation dumps.</p>
+              <p>Each report is a self-contained exposition with derivations, convergence reasoning, and correctness guarantees. The notes connect theory to implementation to diagnostics, and document where estimators fail under degeneracy, poor mixing, or heavy-tailed targets.</p>
+              <p class="monte-carlo-more">These are research-style chapters, written to stand on their own as probabilistic references.</p>
             </div>
           </div>
           <div class="monte-carlo-card">
             <div class="monte-carlo-card-content">
-              <h3>What’s Derived &amp; Implemented From Scratch</h3>
+              <h3>What Is Reconstructed From Scratch</h3>
               <ul class="monte-carlo-list">
-                <li>Random variable generation: inverse transform, accept–reject</li>
-                <li>Monte Carlo estimation: WLLN, SLLN, CLT (empirical vs theoretical)</li>
-                <li>Importance sampling: weight behavior, rare-event estimation, SNIS</li>
-                <li>Variance reduction: control variates with variance analysis</li>
-                <li>Stochastic processes: Brownian motion scaling and simulation</li>
-                <li>MCMC: MH, Adaptive Metropolis, Delayed Rejection, DRAM</li>
-                <li>Diagnostics: autocorrelation, integrated autocorrelation time, ESS, burn-in, mixing</li>
+                <li>Sampling foundations: inverse transform, accept–reject, transformation geometry</li>
+                <li>Monte Carlo estimation: WLLN, SLLN, CLT, empirical error vs theory</li>
+                <li>Importance sampling: proposal design, degeneracy, rare-event estimation, SNIS</li>
+                <li>Variance reduction: control variates, optimal coefficients, variance decomposition</li>
+                <li>Stochastic processes: Brownian motion construction, scaling limits, simulation</li>
+                <li>MCMC: Metropolis–Hastings, Adaptive Metropolis, Delayed Rejection, DRAM</li>
+                <li>Diagnostics: autocorrelation, IAC, ESS, burn-in, mixing pathologies</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="monte-carlo-footer">
-          <span>Theory → implementation → diagnostics → experiments → writeups.</span>
+          <span>A fully engineered Monte Carlo foundation that signals mathematical depth, statistical maturity, and readiness for robotics-scale Bayesian inference.</span>
         </div>
       </div>
       <div class="repo-card">
