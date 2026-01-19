@@ -97,102 +97,107 @@ permalink: /
       <div class="repo-card repo-card--monte-carlo">
         <div class="repo-card-header">
           <h3 class="repo-card-title">Monte Carlo Statistical Methods</h3>
-          <p class="repo-card-subtitle">Sampling, variance reduction, MCMC, diagnostics, and stochastic processes</p>
+          <p class="repo-card-subtitle">Book-level Monte Carlo methods implemented from scratch, with rigorous PDF derivations, notebooks, and diagnostic tooling.</p>
+          <p class="repo-card-subtitle repo-card-subtitle--secondary">Sampling → importance sampling → variance reduction → stochastic processes → MCMC diagnostics (MH/AM/DR/DRAM).</p>
         </div>
-        <div class="monte-carlo-demos">
-          <div class="monte-carlo-demo-card">
+        <div class="monte-carlo-grid">
+          <div class="monte-carlo-feature-card">
             <div class="monte-carlo-demo-media">
               <video autoplay muted loop playsinline>
                 <source src="{{ '/images/montecarlo/animations/beta_fill.mp4' | relative_url }}" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
-            <div class="monte-carlo-demo-content">
+            <div class="monte-carlo-card-content">
               <h3>Inverse transform sampling</h3>
-              <p>CDF filling animation for transforming uniform samples.</p>
+              <p>CDF construction that turns theory into exact samplers.</p>
             </div>
           </div>
-          <div class="monte-carlo-demo-card">
+          <div class="monte-carlo-feature-card">
             <div class="monte-carlo-demo-media">
               <video autoplay muted loop playsinline>
                 <source src="{{ '/images/montecarlo/animations/accept_reject_demo.mp4' | relative_url }}" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
-            <div class="monte-carlo-demo-content">
+            <div class="monte-carlo-card-content">
               <h3>Accept–reject sampling</h3>
-              <p>Envelope-based acceptance visualization for proposal draws.</p>
+              <p>Envelope constructions for exact sampling when CDFs are hard.</p>
             </div>
           </div>
-          <div class="monte-carlo-demo-card">
+          <div class="monte-carlo-card monte-carlo-dram-card">
             <div class="monte-carlo-demo-media">
               <video autoplay muted loop playsinline>
                 <source src="{{ '/images/montecarlo/animations/dram_banana.mp4' | relative_url }}" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
-            <div class="monte-carlo-demo-content">
-              <h3>Delayed Rejection Adaptive Metropolis</h3>
-              <p>Adaptive MCMC trajectory over a banana-shaped target.</p>
+            <div class="dram-strip">
+              <img src="{{ '/images/montecarlo/images/mcmc/Banana_target_distribution.png' | relative_url }}" alt="Banana-shaped target distribution" />
+              <img src="{{ '/images/montecarlo/images/mcmc/DRAM_samples2_banana.png' | relative_url }}" alt="DRAM samples on banana distribution" />
+              <img src="{{ '/images/montecarlo/images/mcmc/AutoCorr_DRAM_banana.png' | relative_url }}" alt="Autocorrelation diagnostics for DRAM" />
+            </div>
+            <div class="monte-carlo-card-content">
+              <h3>Capstone: DRAM on banana-shaped target</h3>
+              <p>Implements MH → AM → DR → DRAM + diagnostics (IAC, ESS, autocorrelation, mixing).</p>
+              <p>Shows improved mixing and efficiency on challenging posteriors.</p>
             </div>
           </div>
-        </div>
-        <div class="monte-carlo-topics">
-          <div class="project-card monte-carlo-topic-card">
-            <div class="carousel" id="mc-carousel-1">
-              <img src="{{ '/images/montecarlo/images/sampling/EmpvsTheo_beta.png' | relative_url }}" class="active" />
-              <img src="{{ '/images/montecarlo/images/sampling/CLT_exp.png' | relative_url }}" />
-              <img src="{{ '/images/montecarlo/images/exponential/EmpvsTheo_exp.png' | relative_url }}" />
-              <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
-              <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
-            </div>
-            <div class="project-card-content">
-              <h3>Sampling &amp; Random Variable Generation</h3>
-              <p>Foundations of Monte Carlo sampling, including inverse transforms, accept&ndash;reject methods, and empirical convergence behavior.</p>
-            </div>
-          </div>
-          <div class="project-card monte-carlo-topic-card">
-            <div class="carousel" id="mc-carousel-2">
-              <img src="{{ '/images/montecarlo/images/importance_sampling/Prior_Likelihood_Posterior.png' | relative_url }}" class="active" />
-              <img src="{{ '/images/montecarlo/images/importance_sampling/SNIS_weights.png' | relative_url }}" />
-              <img src="{{ '/images/montecarlo/images/importance_sampling/importance_sampling.png' | relative_url }}" />
-              <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
-              <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
-            </div>
-            <div class="project-card-content">
-              <h3>Importance Sampling &amp; Rare Event Estimation</h3>
-              <p>Variance reduction through importance sampling, including self-normalized estimators and rare-event probability estimation.</p>
+          <div class="monte-carlo-card monte-carlo-repo-tree-card">
+            <div class="monte-carlo-card-content">
+              <h3>Repository structure</h3>
+              <pre class="repo-tree">MonteCarlo-Statistical-Methods/
+  animations/
+  images/
+  notebooks/
+    ch02_sampling/
+    ch03_importance_sampling/
+    ch04_variance_reduction/
+    ch05_mcmc/
+    ch06_stochastic_processes/
+  reports/
+  src/
+    sampling/
+    importance_sampling/
+    variance_reduction/
+    stochastic_processes/
+    mcmc/
+  pyproject.toml</pre>
             </div>
           </div>
-          <div class="project-card monte-carlo-topic-card">
-            <div class="carousel" id="mc-carousel-3">
-              <img src="{{ '/images/montecarlo/images/mcmc/DRAM_samples1_banana.png' | relative_url }}" class="active" />
-              <img src="{{ '/images/montecarlo/images/mcmc/MH_samples1_banana.png' | relative_url }}" />
-              <img src="{{ '/images/montecarlo/images/mcmc/AutoCorr_DRAM_banana.png' | relative_url }}" />
-              <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
-              <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
-            </div>
-            <div class="project-card-content">
-              <h3>Markov Chain Monte Carlo &amp; Diagnostics</h3>
-              <p>Modern MCMC algorithms including Metropolis&ndash;Hastings, Adaptive Metropolis, Delayed Rejection, and DRAM, with diagnostics.</p>
+          <div class="monte-carlo-card monte-carlo-math-card">
+            <div class="monte-carlo-card-content">
+              <h3>PDF Chapter Library (Math Writeups)</h3>
+              <p><strong>14+ mathematical reports</strong> · Hundreds of pages of derivations and explanations.</p>
+              <ul class="monte-carlo-list">
+                <li>ch02_general_transforms.pdf</li>
+                <li>ch02_accept_reject.pdf</li>
+                <li>ch03_03_ImportanceSampling_Rare_event_Estimation.pdf</li>
+                <li>ch03_04_SelfNormalized_ImportantSampling.pdf</li>
+                <li>ch04_01_ControlVariate_Foundations-and-Intution.pdf</li>
+                <li>ch04_02_Brownian_Motion.pdf</li>
+                <li>ch05_07_Metropolis-Hastings.pdf</li>
+              </ul>
+              <p class="monte-carlo-more">and more…</p>
             </div>
           </div>
-          <div class="project-card monte-carlo-topic-card">
-            <div class="carousel" id="mc-carousel-4">
-              <img src="{{ '/images/montecarlo/images/stochastic_processes/multiple_BM.png' | relative_url }}" class="active" />
-              <img src="{{ '/images/montecarlo/images/stochastic_processes/DiffusiveScale.png' | relative_url }}" />
-              <img src="{{ '/images/montecarlo/images/variance_reduction/mc_vs_cv_var.png' | relative_url }}" />
-              <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
-              <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
-            </div>
-            <div class="project-card-content">
-              <h3>Stochastic Processes &amp; Variance Reduction</h3>
-              <p>Monte Carlo analysis of stochastic processes and variance reduction techniques such as control variates.</p>
+          <div class="monte-carlo-card monte-carlo-math-card">
+            <div class="monte-carlo-card-content">
+              <h3>What’s derived + implemented from scratch</h3>
+              <ul class="monte-carlo-list">
+                <li>Random variable generation: inverse transform, accept-reject</li>
+                <li>LLN/CLT Monte Carlo estimation behavior (empirical vs theoretical)</li>
+                <li>Importance sampling: weight behavior, rare-event estimation, SNIS</li>
+                <li>Variance reduction: control variates and intuition</li>
+                <li>Stochastic processes: Brownian motion scaling + simulation</li>
+                <li>MCMC: MH, Adaptive Metropolis, Delayed Rejection, DRAM</li>
+                <li>Diagnostics implemented: autocorrelation, IAC, ESS, mixing/burn-in</li>
+              </ul>
             </div>
           </div>
         </div>
         <div class="monte-carlo-footer">
-          <span>Each module is supported by mathematical derivations, reports, and reproducible implementations.</span>
+          <span>Theory → implementation → diagnostics → experiments → writeups.</span>
         </div>
       </div>
       <div class="repo-card">
@@ -1025,13 +1030,20 @@ body {
   line-height: 1.6;
 }
 
-.monte-carlo-demos {
+.repo-card-subtitle--secondary {
+  font-size: 0.95rem;
+  margin-top: 0.35rem;
+  color: #6b7280;
+}
+
+.monte-carlo-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
 }
 
-.monte-carlo-demo-card {
+.monte-carlo-feature-card,
+.monte-carlo-card {
   background: #fff;
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -1041,7 +1053,8 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.monte-carlo-demo-card:hover {
+.monte-carlo-feature-card:hover,
+.monte-carlo-card:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 18px 32px rgba(0, 0, 0, 0.15);
 }
@@ -1063,7 +1076,7 @@ body {
   display: block;
 }
 
-.monte-carlo-demo-content {
+.monte-carlo-card-content {
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -1071,45 +1084,60 @@ body {
   text-align: left;
 }
 
-.monte-carlo-demo-content h3 {
+.monte-carlo-card-content h3 {
   margin: 0;
   font-size: 1.05rem;
   color: #2b6cb0;
   font-family: 'Inter', sans-serif;
 }
 
-.monte-carlo-demo-content p {
+.monte-carlo-card-content p {
   margin: 0;
   font-size: 0.85rem;
   color: #555;
   font-family: 'Inter', sans-serif;
 }
 
-.monte-carlo-topics {
+.dram-strip {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  padding: 12px 16px 0;
 }
 
-.monte-carlo-topic-card {
-  height: auto;
+.dram-strip img {
+  width: 100%;
+  height: 90px;
+  object-fit: contain;
+  background: #f5f7fb;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
 }
 
-.monte-carlo-topic-card .project-card-content {
-  text-align: left;
-  flex: 0 0 auto;
-  height: auto;
-  padding: 12px 16px 16px;
+.monte-carlo-card-content .monte-carlo-list {
+  margin: 0.5rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.85rem;
+  color: #4b5563;
+  line-height: 1.5;
 }
 
-.monte-carlo-topic-card .carousel {
-  height: auto;
-  aspect-ratio: 16 / 9;
+.monte-carlo-more {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #6b7280;
 }
 
-.monte-carlo-topic-card .project-card-content p {
-  flex: 0 0 auto;
-  margin-bottom: 0;
+.repo-tree {
+  font-family: 'SFMono-Regular', 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 0.78rem;
+  background: #f8f9fb;
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  color: #374151;
+  margin: 0.5rem 0 0;
+  white-space: pre;
 }
 
 .monte-carlo-footer {
@@ -1121,13 +1149,38 @@ body {
   font-weight: 500;
 }
 
-@media (min-width: 900px) {
-  .monte-carlo-demos {
+@media (min-width: 700px) {
+  .monte-carlo-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .monte-carlo-topics {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .monte-carlo-feature-card,
+  .monte-carlo-math-card {
+    grid-column: span 1;
+  }
+
+  .monte-carlo-dram-card,
+  .monte-carlo-repo-tree-card {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 900px) {
+  .monte-carlo-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .monte-carlo-feature-card,
+  .monte-carlo-math-card {
+    grid-column: span 2;
+  }
+
+  .monte-carlo-dram-card {
+    grid-column: span 3;
+  }
+
+  .monte-carlo-repo-tree-card {
+    grid-column: span 1;
   }
 }
 
