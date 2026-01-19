@@ -1025,10 +1025,11 @@ body {
   background: #fff;
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
+  padding: 1.75rem;
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
+  height: 560px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1041,7 +1042,8 @@ body {
   border-radius: 16px;
   overflow: hidden;
   background: #f5f7fb;
-  aspect-ratio: 16 / 9;
+  flex: 1;
+  min-height: 320px;
 }
 
 .monte-carlo-demo-media video {
@@ -1066,11 +1068,24 @@ body {
 }
 
 .monte-carlo-topic-card {
-  height: 560px;
+  height: auto;
 }
 
 .monte-carlo-topic-card .project-card-content {
   text-align: left;
+  flex: 0 0 auto;
+  height: auto;
+  padding: 12px 16px 16px;
+}
+
+.monte-carlo-topic-card .carousel {
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+.monte-carlo-topic-card .project-card-content p {
+  flex: 0 0 auto;
+  margin-bottom: 0;
 }
 
 .monte-carlo-footer {
