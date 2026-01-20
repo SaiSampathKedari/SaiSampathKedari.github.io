@@ -18,7 +18,7 @@ author_profile: true
       <img src="{{ '/images/Hamiltonian_Monte_Carlo.png' | relative_url }}" alt="Cover for Monte Carlo Statistical Methods">
       <div class="math-content">
         <h3>MonteCarlo Statistical Methods</h3>
-        <p>Robert & Casella — Random-variable generation, importance sampling, variance reduction, and MCMC algorithms (Metropolis–Hastings, Gibbs). Transforms intractable integrals into computable expectations — the backbone of Bayesian inference, filtering, and state estimation.</p>
+        <p class="codex-text">A research-grade reconstruction of Monte Carlo Statistical Methods (Robert and Casella), built to reveal the statistical engine behind modern AI, robot learning, and reinforcement learning. The project derives and implements the full Monte Carlo toolkit from first principles, including sampling, importance sampling, variance reduction, Brownian motion, Metropolis–Hastings, Adaptive Metropolis, Delayed Rejection, and DRAM, and evaluates each method using research-level diagnostics. The work demonstrates how expectations are estimated in high dimensions, how posteriors behave under model misspecification, how Monte Carlo estimators succeed or fail, and how MCMC explores complex distributions. Monte Carlo methods form the computational backbone of Bayesian inference, model learning, probabilistic state estimation, uncertainty propagation, and reinforcement learning. This repository rebuilds that backbone with the rigor expected in top robotics and AI labs.</p>
         <div class="math-buttons">
           <a href="https://github.com/SaiSampathKedari/MonteCarlo-Statistical-Methods" target="_blank" aria-label="GitHub">View on GitHub <i class="fab fa-github"></i></a>
         </div>
@@ -172,6 +172,11 @@ author_profile: true
     margin: 0.4rem 0 0.6rem;
     flex: 1;
     font-family: 'Inter', sans-serif;
+  }
+  .math-content p.codex-text {
+    text-align: justify;
+    line-height: 1.4;
+    width: 100%;
   }
   .math-buttons {
     display: flex;
