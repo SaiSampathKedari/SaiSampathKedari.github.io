@@ -226,11 +226,17 @@ permalink: /
         <div class="monte-carlo-feature-row">
           <div class="monte-carlo-card monte-carlo-dram-card">
             <div class="monte-carlo-demo-media">
-              <img src="{{ '/images/2b_MH_Mixing.png' | relative_url }}" alt="Posterior visualization for nonlinear epidemiological dynamics" style="width: 100%; height: auto; object-fit: contain; display: block;" />
+              <div class="carousel" id="mc-carousel-5" style="height: 260px;">
+                <img src="{{ '/images/2b_MH_Mixing.png' | relative_url }}" class="active" alt="Metropolis-Hastings mixing diagnostics" />
+                <img src="{{ '/images/2b_PosteriorPred_SIR_Identifiable.png' | relative_url }}" alt="Posterior predictive SIR trajectories" />
+                <img src="{{ '/images/2b_SIR_Identifiable.png' | relative_url }}" alt="Identifiability diagnostics for SIR parameters" />
+                <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
+              </div>
             </div>
             <div class="monte-carlo-card-content">
               <h3>Posterior Inference in Nonlinear Epidemiological Dynamics using MCMC</h3>
-              <p class="monte-carlo-caption">We applied Metropolis–Hastings and DRAM algorithms to infer parameters of a nonlinear SIR model from noisy data. The study investigated identifiability, noise sensitivity, and predictive uncertainty, highlighting the power of Bayesian MCMC for dynamical systems.</p>
+              <p class="monte-carlo-caption">Metropolis–Hastings and DRAM are applied to infer parameters of a nonlinear SIR model from noisy observations, revealing posterior geometry, parameter correlations, identifiability, and predictive uncertainty.</p>
             </div>
           </div>
         </div>
@@ -617,6 +623,7 @@ setupCarousel('mc-carousel-1');
 setupCarousel('mc-carousel-2');
 setupCarousel('mc-carousel-3');
 setupCarousel('mc-carousel-4');
+setupCarousel('mc-carousel-5');
 
 (function () {
   const sections = document.querySelectorAll(".section[id]");
