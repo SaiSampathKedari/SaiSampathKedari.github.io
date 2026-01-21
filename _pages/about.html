@@ -150,7 +150,53 @@ permalink: /
         </div>
       </div>
       <div class="repo-card">
-        <h3 class="repo-card-title">Bayesian Filtering and Smoothing</h3>
+        <div class="repo-card-header monte-carlo-hero">
+          <div class="monte-carlo-hero-main">
+            <div class="repo-card-title-row">
+              <h3 class="repo-card-title">Bayesian Filtering &amp; Smoothing</h3>
+              <div class="repo-card-actions project-buttons">
+                <a href="https://github.com/SaiSampathKedari/Bayesian-Filtering-and-Smoothing" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub <i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <p class="repo-card-subtitle" style="text-align: justify; width: 100%; line-height: 1.45; color: var(--global-text-color); font-size: 1rem; font-weight: 400; margin: 0.4rem 0 0;">This repository focuses on Bayesian filtering and smoothing for dynamical systems, where the system state is represented as a probability distribution rather than a point estimate. It derives the Bayesian filtering recursion, explains why full state-trajectory inference is impractical, and implements both Gaussian filtering methods and sampling-based filtering via Sequential Importance Sampling with resampling. Kalman and Extended Kalman filters are treated as linear and local Gaussian cases, while SIS-based filters handle nonlinear and non-Gaussian belief evolution, with emphasis on uncertainty propagation and weight degeneracy.</p>
+          </div>
+        </div>
+        <div class="monte-carlo-card monte-carlo-dram-card">
+          <div class="monte-carlo-demo-media">
+            <video autoplay muted loop playsinline>
+              <source src="{{ '/images/bayesfilter/images/regression/bayesian_regression_animation.mp4' | relative_url }}" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="monte-carlo-card-content">
+            <h3>Batch vs Recursive Bayesian Linear Regression</h3>
+            <p class="monte-carlo-caption">Sequential Bayesian updates converge to the batch posterior, showing uncertainty contraction as data accumulates.</p>
+          </div>
+        </div>
+        <div class="monte-carlo-card monte-carlo-dram-card">
+          <div class="monte-carlo-demo-media">
+            <video autoplay muted loop playsinline>
+              <source src="{{ '/images/bayesfilter/images/bayesian_filtering/pendulum_true_vs_ekf3.mp4' | relative_url }}" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="monte-carlo-card-content">
+            <h3>Extended Kalman Filter for State Estimation of a Nonlinear Pendulum</h3>
+            <p class="monte-carlo-caption">Local Gaussian filtering via linearization tracks nonlinear dynamics while exposing approximation error and covariance evolution.</p>
+          </div>
+        </div>
+        <div class="monte-carlo-card monte-carlo-dram-card">
+          <div class="monte-carlo-demo-media">
+            <video autoplay muted loop playsinline>
+              <source src="{{ '/images/bayesfilter/images/bayesian_filtering/pendulum_true_vs_bootstrap_PF.mp4' | relative_url }}" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="monte-carlo-card-content">
+            <h3>Bootstrap Particle Filter (Sequential Importance Sampling with Resampling)</h3>
+            <p class="monte-carlo-caption">Non-Gaussian belief propagation using particles highlights weight degeneracy and the role of resampling under nonlinear dynamics.</p>
+          </div>
+        </div>
       </div>
       <div class="repo-card">
         <h3 class="repo-card-title">Bayesian Inference</h3>
