@@ -115,6 +115,17 @@ permalink: /
                 Your browser does not support the video tag.
               </video>
             </div>
+            <div class="monte-carlo-image-grid monte-carlo-image-strip">
+              <div class="monte-carlo-image-frame">
+                <img src="{{ '/images/montecarlo/images/mcmc/Banana_and_LaplaceApproximation.png' | relative_url }}" alt="Banana distribution and Laplace approximation snapshot" loading="lazy" />
+              </div>
+              <div class="monte-carlo-image-frame">
+                <img src="{{ '/images/montecarlo/images/mcmc/Mixing_DRAM_banana.png' | relative_url }}" alt="DRAM banana mixing snapshot" loading="lazy" />
+              </div>
+              <div class="monte-carlo-image-frame">
+                <img src="{{ '/images/montecarlo/images/mcmc/AutoCorr_DRAM_banana.png' | relative_url }}" alt="DRAM banana autocorrelation snapshot" loading="lazy" />
+              </div>
+            </div>
             <div class="monte-carlo-card-content">
               <h3>DRAM: Delayed Rejection Adaptive Metropolis on a Banana Distribution</h3>
               <p class="monte-carlo-caption">A two-stage DRAM sampler combining delayed rejection with adaptive covariance updates to efficiently explore the curved banana distribution, showing how refined secondary proposals and empirical covariance learning improve acceptance and mixing on difficult target geometries.</p>
@@ -1279,6 +1290,19 @@ body {
   gap: 8px;
 }
 
+.monte-carlo-image-strip {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 0 16px 12px;
+}
+
+.monte-carlo-image-frame {
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .monte-carlo-image-grid img {
   width: 100%;
   height: auto;
@@ -1287,6 +1311,17 @@ body {
   border-radius: 12px;
   border: 1px solid #e5e7eb;
   padding: 6px;
+}
+
+.monte-carlo-image-frame img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.monte-carlo-image-strip img {
+  border-radius: 10px;
+  padding: 4px;
 }
 
 .monte-carlo-footer {
