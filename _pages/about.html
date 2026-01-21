@@ -223,7 +223,23 @@ permalink: /
             <p class="repo-card-subtitle" style="text-align: justify; width: 100%; line-height: 1.45; color: var(--global-text-color); font-size: 1rem; font-weight: 400; margin: 0.4rem 0 0;">This repository studies Bayesian parameter estimation for nonlinear dynamical systems where posterior distributions are analytically intractable. Markov Chain Monte Carlo methods are used to approximate posterior expectations, enabling posterior mean estimation and uncertainty-aware predictive dynamics.</p>
           </div>
         </div>
-        <div class="monte-carlo-feature-row"></div>
+        <div class="monte-carlo-feature-row">
+          <div class="monte-carlo-card monte-carlo-dram-card">
+            <div class="monte-carlo-demo-media">
+              <div class="carousel" id="mc-carousel-5" style="height: 260px;">
+                <img src="{{ '/images/2b_MH_Mixing.png' | relative_url }}" class="active" alt="Metropolis-Hastings mixing diagnostics" />
+                <img src="{{ '/images/2b_PosteriorPred_SIR_Identifiable.png' | relative_url }}" alt="Posterior predictive SIR trajectories" />
+                <img src="{{ '/images/2b_SIR_Identifiable.png' | relative_url }}" alt="Identifiability diagnostics for SIR parameters" />
+                <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
+              </div>
+            </div>
+            <div class="monte-carlo-card-content">
+              <h3>Posterior Inference in Nonlinear Epidemiological Dynamics using MCMC</h3>
+              <p class="monte-carlo-caption">Metropolis–Hastings and DRAM are applied to infer parameters of a nonlinear SIR model from noisy observations, revealing posterior geometry, parameter correlations, identifiability, and predictive uncertainty.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -279,29 +295,6 @@ permalink: /
             <div class="project-buttons">
               <a href="https://github.com/SaiSampathKedari/AEROSP567-Project2a" target="_blank" aria-label="GitHub">GitHub <i class="fab fa-github"></i></a>
               <a href="https://drive.google.com/file/d/1rmVl7ab2_pvmfXvd2gHSURzPaVzqsEAP/view?usp=sharing" target="_blank">Report</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="carousel" id="carousel3">
-          <img src="{{ '/images/2b_MH_Mixing.png' | relative_url }}" class="active" />
-          <img src="{{ '/images/2b_PosteriorPred_SIR_Identifiable.png' | relative_url }}" />
-          <img src="{{ '/images/2b_SIR_Identifiable.png' | relative_url }}" />
-          <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
-          <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
-        </div>
-        <div class="project-card-content">
-          <h3>Posterior Inference in Nonlinear Epidemiological Dynamics using MCMC</h3>
-          <p>We applied Metropolis-Hastings and DRAM algorithms to infer parameters of a nonlinear SIR model from noisy data. The study investigated identifiability, noise sensitivity and predictive uncertainty, highlighting the power of Bayesian MCMC for dynamical systems.</p>
-          <div class="project-footer">
-            <div class="tags">
-              <span>Bayesian Inference</span><span>MCMC</span><span>DRAM</span>
-            </div>
-            <div class="project-buttons">
-              <a href="https://github.com/SaiSampathKedari/AEROSP567-Project2b" target="_blank" aria-label="GitHub">GitHub <i class="fab fa-github"></i></a>
-              <a href="https://drive.google.com/file/d/1U3EeO3B7XSDwNVYHuw6a2UAFkQemIKku/view?usp=sharing" target="_blank">Report</a>
             </div>
           </div>
         </div>
@@ -630,6 +623,7 @@ setupCarousel('mc-carousel-1');
 setupCarousel('mc-carousel-2');
 setupCarousel('mc-carousel-3');
 setupCarousel('mc-carousel-4');
+setupCarousel('mc-carousel-5');
 
 (function () {
   const sections = document.querySelectorAll(".section[id]");
