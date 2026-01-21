@@ -116,40 +116,8 @@ permalink: /
               </video>
             </div>
             <div class="monte-carlo-card-content">
-              <h3>Capstone: DRAM on Banana-Shaped Target</h3>
-              <p class="monte-carlo-caption">Delayed Rejection Adaptive Metropolis (DRAM) implemented from scratch. Demonstrates improved mixing and efficiency on a highly non-Gaussian posterior. Includes full diagnostics: autocorrelation, IAC, ESS, burn-in, and mixing behavior.</p>
-            </div>
-          </div>
-          <div class="monte-carlo-card monte-carlo-repo-tree-card">
-            <div class="monte-carlo-card-content">
-              <h3>Repository Structure (Proof of Work)</h3>
-              <pre class="repo-tree">MonteCarlo-Statistical-Methods/
-  animations/
-  images/
-    sampling/
-    importance_sampling/
-    variance_reduction/
-    stochastic_processes/
-    mcmc/
-  notebooks/
-    ch02_sampling/
-    ch03_importance_sampling/
-    ch04_variance_reduction/
-    ch05_mcmc/
-    ch06_stochastic_processes/
-  reports/
-    ch02_general_transforms.pdf
-    ch02_accept_reject.pdf
-    ch03_03_ImportanceSampling_Rare_event_Estimation.pdf
-    ch03_04_SelfNormalized_ImportantSampling.pdf
-    ch04_01_ControlVariate_Foundations-and-Intution.pdf
-    ch04_02_Brownian_Motion.pdf
-    ch05_07_Metropolis-Hastings.pdf
-  src/
-    sampling/
-    importance_sampling/
-    mcmc/
-    diagnostics/</pre>
+              <h3>Capstone: DRAM on a Banana-Shaped Distribution</h3>
+              <p class="monte-carlo-caption">Delayed Rejection Adaptive Metropolis tracks a warped posterior with explicit mixing diagnostics. The geometry makes proposal mismatch and slow exploration visible at a glance.</p>
             </div>
           </div>
         </div>
@@ -163,8 +131,8 @@ permalink: /
               </video>
             </div>
             <div class="monte-carlo-card-content">
-              <h3>Inverse Transform Sampling</h3>
-              <p class="monte-carlo-caption">CDF construction that turns theory into exact samplers.</p>
+              <h3>Estimator Geometry: Inverse Transform</h3>
+              <p class="monte-carlo-caption">Shows how tail behavior and discretization bias appear before any MCMC layer is added.</p>
             </div>
           </div>
           <div class="monte-carlo-card">
@@ -175,38 +143,8 @@ permalink: /
               </video>
             </div>
             <div class="monte-carlo-card-content">
-              <h3>Accept–Reject Sampling</h3>
-              <p class="monte-carlo-caption">Envelope constructions for exact sampling when CDFs are intractable.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="monte-carlo-depth-grid">
-          <div class="monte-carlo-card monte-carlo-math-card">
-            <div class="monte-carlo-card-content">
-              <h3>Mathematical Chapter Library</h3>
-              <p class="monte-carlo-caption">14+ chapters · hundreds of pages</p>
-              <p>A curated set of blog-style mathematical notes that rebuild Monte Carlo from first principles. Each chapter includes derivations, assumptions, intuition, and validation experiments.</p>
-              <ul class="monte-carlo-list">
-                <li>Sampling: General transformations</li>
-                <li>Sampling: Accept–reject</li>
-                <li>Importance sampling: Rare-event estimation</li>
-                <li>Self-normalized importance sampling (SNIS)</li>
-                <li>Metropolis–Hastings: Foundations and diagnostics</li>
-              </ul>
-              <p class="monte-carlo-more">Full chapter library available in the repository.</p>
-            </div>
-          </div>
-          <div class="monte-carlo-card">
-            <div class="monte-carlo-card-content">
-              <h3>Core Methods Reconstructed</h3>
-              <ul class="monte-carlo-list">
-                <li><strong>Sampling &amp; Estimation</strong><br />Inverse transform, accept–reject, WLLN/SLLN/CLT behavior</li>
-                <li><strong>Importance Sampling &amp; Variance Reduction</strong><br />Weight degeneracy, ESS, rare events, control variates</li>
-                <li><strong>Stochastic Processes</strong><br />Brownian motion scaling, sample-path simulation</li>
-                <li><strong>MCMC</strong><br />MH, Adaptive Metropolis, Delayed Rejection, DRAM</li>
-                <li><strong>Diagnostics</strong><br />Autocorrelation, IACT, ESS, burn-in, mixing</li>
-              </ul>
+              <h3>Proposal Mismatch: Accept–Reject</h3>
+              <p class="monte-carlo-caption">Acceptance dynamics expose where naive envelopes waste compute or distort rare events.</p>
             </div>
           </div>
         </div>
@@ -1176,6 +1114,16 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.monte-carlo-dram-card {
+  border: 1px solid #d7e0ec;
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.12);
+}
+
+.monte-carlo-dram-card .monte-carlo-demo-media {
+  padding: 24px;
+  background: linear-gradient(135deg, #eef2f7 0%, #f9fbff 100%);
+}
+
 .monte-carlo-feature-card:hover,
 .monte-carlo-card:hover {
   transform: translateY(-8px) scale(1.02);
@@ -1226,7 +1174,7 @@ body {
 }
 
 .monte-carlo-dram-card .monte-carlo-card-content h3 {
-  font-size: 1.35rem;
+  font-size: 1.5rem;
   color: #1f4f8a;
 }
 
@@ -1302,15 +1250,11 @@ body {
 
 @media (min-width: 900px) {
   .monte-carlo-feature-row {
-    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .monte-carlo-dram-card {
-    grid-column: span 9;
-  }
-
-  .monte-carlo-repo-tree-card {
-    grid-column: span 3;
+    grid-column: 1 / -1;
   }
 }
 
