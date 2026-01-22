@@ -37,7 +37,9 @@ permalink: /
         <i class="fas fa-user"></i>
         <span>About Me</span>
       </div>
-      <p>I work in Robotics &amp; AI, focused on probabilistic methods for robot learning, especially state and parameter estimation under uncertainty. My work is centered on statistical modeling and inference for learning and decision-making in robotic systems.</p>
+      <div class="section-content-centered">
+        <p>I work in Robotics &amp; AI, focused on probabilistic methods for robot learning, especially state and parameter estimation under uncertainty. My work is centered on statistical modeling and inference for learning and decision-making in robotic systems.</p>
+      </div>
     </div>
 
     <div class="home-block">
@@ -45,11 +47,13 @@ permalink: /
         <i class="fas fa-brain"></i>
         <span>Research Interests</span>
       </div>
-      <ul>
-        <li>Bayesian state estimation and parameter learning for robotic systems</li>
-        <li>Inference and estimation methods for learning dynamics from data</li>
-        <li>Currently exploring learning-based control and reinforcement learning</li>
-      </ul>
+      <div class="section-content-centered">
+        <ul>
+          <li>Bayesian state estimation and parameter learning for robotic systems</li>
+          <li>Inference and estimation methods for learning dynamics from data</li>
+          <li>Currently exploring learning-based control and reinforcement learning</li>
+        </ul>
+      </div>
     </div>
 
     <div class="home-block">
@@ -676,6 +680,26 @@ body {
   margin: 3.5rem auto 0;
   max-width: 980px;
   text-align: left;
+}
+
+.section-content-centered {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-content-centered p {
+  margin: 0.8rem auto;
+}
+
+.section-content-centered ul {
+  list-style-position: inside;
+  padding: 0;
+  margin: 0.6rem auto;
+}
+
+.section-content-centered li {
+  margin: 0.4rem 0;
 }
 
 .hero {
