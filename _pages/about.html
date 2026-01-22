@@ -47,8 +47,8 @@ permalink: /
         <i class="fas fa-brain"></i>
         <span>Research Interests</span>
       </div>
-      <div class="section-content-centered">
-        <ul>
+      <div class="research-interests-container">
+        <ul class="research-interests-list">
           <li>Bayesian state estimation and parameter learning for robotic systems</li>
           <li>Inference and estimation methods for learning dynamics from data</li>
           <li>Currently exploring learning-based control and reinforcement learning</li>
@@ -61,29 +61,31 @@ permalink: /
         <span class="emoji" aria-hidden="true">🎓</span>
         <span>Education</span>
       </div>
-      <ul class="education-list">
-        <li class="edu-item">
-          <img class="edu-logo" src="{{ '/images/um_logo.png' | relative_url }}" alt="UMich logo" />
-          <div>
-            <span class="edu-school"><strong>University of Michigan, Ann Arbor</strong></span><br />
-            <span class="edu-degree">M.S. Mechanical Engineering (Robotics), Jan 2023 – Apr 2024</span>
-          </div>
-        </li>
-        <li class="edu-item">
-          <img class="edu-logo" src="{{ '/images/um_logo.png' | relative_url }}" alt="UMich logo" />
-          <div>
-            <span class="edu-school"><strong>University of Michigan, Ann Arbor</strong></span><br />
-            <span class="edu-degree">M.S. Automotive Engineering, Aug 2021 – Dec 2022</span>
-          </div>
-        </li>
-        <li class="edu-item">
-          <img class="edu-logo" src="{{ '/images/nit_logo.png' | relative_url }}" alt="NIT Rourkela logo" />
-          <div>
-            <span class="edu-school"><strong>National Institute of Technology, Rourkela, India</strong></span><br />
-            <span class="edu-degree">B.Tech. Mechanical Engineering, Jul 2015 – May 2019</span>
-          </div>
-        </li>
-      </ul>
+      <div class="education-container">
+        <ul class="education-list">
+          <li class="edu-item">
+            <img class="edu-logo" src="{{ '/images/um_logo.png' | relative_url }}" alt="UMich logo" />
+            <div>
+              <span class="edu-school"><strong>University of Michigan, Ann Arbor</strong></span><br />
+              <span class="edu-degree">M.S. Mechanical Engineering (Robotics), Jan 2023 – Apr 2024</span>
+            </div>
+          </li>
+          <li class="edu-item">
+            <img class="edu-logo" src="{{ '/images/um_logo.png' | relative_url }}" alt="UMich logo" />
+            <div>
+              <span class="edu-school"><strong>University of Michigan, Ann Arbor</strong></span><br />
+              <span class="edu-degree">M.S. Automotive Engineering, Aug 2021 – Dec 2022</span>
+            </div>
+          </li>
+          <li class="edu-item">
+            <img class="edu-logo" src="{{ '/images/nit_logo.png' | relative_url }}" alt="NIT Rourkela logo" />
+            <div>
+              <span class="edu-school"><strong>National Institute of Technology, Rourkela, India</strong></span><br />
+              <span class="edu-degree">B.Tech. Mechanical Engineering, Jul 2015 – May 2019</span>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -702,6 +704,22 @@ body {
   margin: 0.4rem 0;
 }
 
+.research-interests-container {
+  max-width: 640px;
+  margin: 0.8rem auto 0 auto;
+}
+
+.research-interests-list {
+  list-style-position: outside;
+  padding-left: 1.2rem;
+  margin: 0;
+  text-align: left;
+}
+
+.research-interests-list li {
+  margin: 0.4rem 0;
+}
+
 .hero {
   display: flex;
   align-items: center;
@@ -815,6 +833,15 @@ body {
   padding-left: 0;
   max-width: 780px;
   margin: 0 auto;
+}
+
+.education-container {
+  max-width: 720px;
+  margin: 0.8rem auto 0 auto;
+}
+
+.education-container .edu-item {
+  text-align: left;
 }
 
 .edu-item {
