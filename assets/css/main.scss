@@ -42,7 +42,7 @@
 ;
 
 /* Custom layout overrides */
-$layout-wide-max: 2200px;
+$layout-wide-max: 1400px;
 $sidebar-fixed-width: 260px;
 
 @include breakpoint($x-large) {
@@ -64,17 +64,17 @@ $sidebar-fixed-width: 260px;
 }
 
 .page__content {
-  font-size: 0.95rem;
-  line-height: 1.4;
+  font-size: 1rem;
+  line-height: 1.45;
 }
 
 .layout--single .page__inner-wrap {
-  padding: 1.25rem 1.5rem;
+  padding: 1rem 1.25rem;
 }
 
 @include breakpoint($large) {
   .layout--single .page__inner-wrap {
-    padding: 1.75rem 2rem;
+    padding: 1.4rem 1.6rem;
   }
 }
 
@@ -85,12 +85,12 @@ $sidebar-fixed-width: 260px;
 .page__content pre,
 .page__content table,
 .page__content blockquote {
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.4rem;
 }
 
 .page__content ul li,
 .page__content ol li {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
 
 .page__content h1,
@@ -99,41 +99,41 @@ $sidebar-fixed-width: 260px;
 .page__content h4,
 .page__content h5,
 .page__content h6 {
-  line-height: 1.15;
-  margin: 0.8rem 0 0.3rem;
+  line-height: 1.28;
+  margin: 0.65rem 0 0.25rem;
   font-weight: 500;
 }
 
 .page__content h1 {
-  font-size: 1.45rem;
+  font-size: 1.25rem;
 }
 
 .page__content h2 {
-  font-size: 1.2rem;
+  font-size: 1.02rem;
 }
 
 .page__content h3 {
-  font-size: 1.05rem;
-}
-
-.page__content h4 {
-  font-size: 0.98rem;
-}
-
-.page__content h5 {
   font-size: 0.92rem;
 }
 
-.page__content h6 {
+.page__content h4 {
   font-size: 0.88rem;
 }
 
+.page__content h5 {
+  font-size: 0.83rem;
+}
+
+.page__content h6 {
+  font-size: 0.79rem;
+}
+
 .page__content h2:not(:first-child) {
-  margin-top: 2.2rem;
+  margin-top: 1.8rem;
 }
 
 .page__content h3:not(:first-child) {
-  margin-top: 1.6rem;
+  margin-top: 1.3rem;
 }
 
 .page__content h1 + h2,
@@ -162,7 +162,7 @@ $sidebar-fixed-width: 260px;
 .page__content section + .section,
 .page__content .section + section,
 .page__content .section + .section {
-  margin-top: 2.5rem;
+  margin-top: 2rem;
 }
 
 .notice,
@@ -171,13 +171,13 @@ $sidebar-fixed-width: 260px;
 .notice--warning,
 .notice--success,
 .notice--danger {
-  padding: 0.5rem 0.75rem;
-  margin: 0.5rem 0;
+  padding: 0.4rem 0.65rem;
+  margin: 0.4rem 0;
 }
 
 .archive__item,
 .list__item {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .fa,
