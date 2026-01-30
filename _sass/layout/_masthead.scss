@@ -27,11 +27,15 @@
   &__inner-wrap {
     @include container;
     @include clearfix;
-    padding: 0.5em 1em;
+    padding: 0.4em 3rem;
     font-family: $sans-serif-narrow;
 
     @include breakpoint($x-large) {
       max-width: $x-large;
+    }
+
+    @include breakpoint(max-width $medium) {
+      padding: 0.4em 1.5rem;
     }
 
     nav {
