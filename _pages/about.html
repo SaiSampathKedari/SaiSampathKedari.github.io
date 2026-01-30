@@ -132,6 +132,9 @@ permalink: /
             <div class="monte-carlo-card-content">
               <h3>DRAM: Delayed Rejection Adaptive Metropolis on a Banana Distribution</h3>
               <p class="monte-carlo-caption">A two-stage DRAM sampler combining delayed rejection with adaptive covariance updates to efficiently explore the curved banana distribution, showing how refined secondary proposals and empirical covariance learning improve acceptance and mixing on difficult target geometries.</p>
+              <div class="monte-carlo-card-links">
+                <a href="#">visualization</a> | <a href="#">notebook</a> | <a href="#">code</a> | <a href="#">github</a> | <a href="#">report</a>
+              </div>
             </div>
           </div>
         </div>
@@ -147,6 +150,9 @@ permalink: /
             <div class="monte-carlo-card-content">
               <h3>Inverse Transform Sampling for Beta Distribution</h3>
               <p class="monte-carlo-caption">Uniform samples \( U \sim \mathrm{Unif}(0,1) \) are passed through the inverse Beta CDF \( F^{-1}(U) \) to produce exact \( \mathrm{Beta}(10,3) \) draws. This demonstrates the core idea of inverse transform sampling: shaping uniform randomness into a target distribution and visualizing the empirical convergence to its true density.</p>
+              <div class="monte-carlo-card-links">
+                <a href="#">visualization</a> | <a href="#">notebook</a> | <a href="#">code</a> | <a href="#">github</a> | <a href="#">report</a>
+              </div>
             </div>
           </div>
         </div>
@@ -161,6 +167,9 @@ permalink: /
             <div class="monte-carlo-card-content">
               <h3>Accept–Reject Sampling: Gaussian Target with Laplace Proposal</h3>
               <p class="monte-carlo-caption">Samples are drawn from a Laplace proposal and accepted with probability \( \frac{f(x)}{M g(x)} \), where \( M g(x) \) envelopes the Gaussian target. The plot highlights how the shape differences between the Gaussian and Laplace distributions determine acceptance rates and sampling efficiency.</p>
+              <div class="monte-carlo-card-links">
+                <a href="#">visualization</a> | <a href="#">notebook</a> | <a href="#">code</a> | <a href="#">github</a> | <a href="#">report</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1274,6 +1283,57 @@ body {
   font-size: 0.85rem;
   color: #4b5563;
   line-height: 1.5;
+}
+
+.repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-feature-row {
+  display: block;
+}
+
+.repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.25rem;
+  flex-wrap: nowrap;
+}
+
+.repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-demo-media {
+  flex: 0 0 38%;
+  max-width: 40%;
+}
+
+.repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-image-grid {
+  display: none;
+}
+
+.repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-demo-media video {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 60%;
+}
+
+.repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-card-links {
+  margin-top: auto;
+  font-size: 0.75rem;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-card {
+    flex-direction: column;
+  }
+
+  .repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-demo-media {
+    max-width: 100%;
+    flex-basis: auto;
+  }
 }
 
 .repo-tree {
