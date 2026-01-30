@@ -101,7 +101,7 @@ permalink: /
     </div>
 
     <div class="repo-cards">
-      <div class="repo-card repo-card--monte-carlo monte-carlo-publication">
+      <div class="repo-card repo-card--monte-carlo publication-style-card">
         <div class="repo-card-header monte-carlo-hero">
           <div class="monte-carlo-hero-main">
             <div class="repo-card-title-row">
@@ -174,7 +174,7 @@ permalink: /
           </div>
         </div>
       </div>
-      <div class="repo-card repo-card--monte-carlo">
+      <div class="repo-card repo-card--monte-carlo publication-style-card">
         <div class="repo-card-header">
           <div class="monte-carlo-hero-main">
             <div class="repo-card-title-row">
@@ -200,6 +200,9 @@ permalink: /
             <div class="monte-carlo-card-content">
               <h3>Batch vs Recursive Bayesian Linear Regression</h3>
               <p class="monte-carlo-caption">Sequential Bayesian updates converge to the batch posterior, showing uncertainty contraction as data accumulates.</p>
+              <div class="monte-carlo-card-links">
+                <a href="#">visualization</a> | <a href="#">notebook</a> | <a href="#">code</a> | <a href="#">github</a> | <a href="#">report</a>
+              </div>
             </div>
           </div>
         </div>
@@ -214,6 +217,9 @@ permalink: /
             <div class="monte-carlo-card-content">
               <h3>Extended Kalman Filter for State Estimation of a Nonlinear Pendulum</h3>
               <p class="monte-carlo-caption">Local Gaussian filtering via linearization tracks nonlinear dynamics while exposing approximation error and covariance evolution.</p>
+              <div class="monte-carlo-card-links">
+                <a href="#">visualization</a> | <a href="#">notebook</a> | <a href="#">code</a> | <a href="#">github</a> | <a href="#">report</a>
+              </div>
             </div>
           </div>
         </div>
@@ -228,11 +234,14 @@ permalink: /
             <div class="monte-carlo-card-content">
               <h3>Bootstrap Particle Filter (Sequential Importance Sampling with Resampling)</h3>
               <p class="monte-carlo-caption">Non-Gaussian belief propagation using particles highlights weight degeneracy and the role of resampling under nonlinear dynamics.</p>
+              <div class="monte-carlo-card-links">
+                <a href="#">visualization</a> | <a href="#">notebook</a> | <a href="#">code</a> | <a href="#">github</a> | <a href="#">report</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="repo-card repo-card--monte-carlo">
+      <div class="repo-card repo-card--monte-carlo publication-style-card">
         <div class="repo-card-header">
           <div class="monte-carlo-hero-main">
             <div class="repo-card-title-row">
@@ -258,6 +267,9 @@ permalink: /
             <div class="monte-carlo-card-content">
               <h3>MCMC-Based Bayesian Inference for Nonlinear Dynamical Models</h3>
               <p class="monte-carlo-caption">MCMC-based parameter estimation and posterior predictive analysis under nonlinear, non-Gaussian models.</p>
+              <div class="monte-carlo-card-links">
+                <a href="#">visualization</a> | <a href="#">notebook</a> | <a href="#">code</a> | <a href="#">github</a> | <a href="#">report</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1285,11 +1297,11 @@ body {
   line-height: 1.5;
 }
 
-.repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-feature-row {
+.repo-cards > .publication-style-card .monte-carlo-feature-row {
   display: block;
 }
 
-.repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-card {
+.repo-cards > .publication-style-card .monte-carlo-card {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -1297,23 +1309,23 @@ body {
   flex-wrap: nowrap;
 }
 
-.repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-demo-media {
+.repo-cards > .publication-style-card .monte-carlo-demo-media {
   flex: 0 0 48%;
   max-width: 50%;
 }
 
-.repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-image-grid {
+.repo-cards > .publication-style-card .monte-carlo-image-grid {
   display: none;
 }
 
-.repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-demo-media video {
+.repo-cards > .publication-style-card .monte-carlo-demo-media video {
   width: 100%;
   height: auto;
   object-fit: contain;
   border-radius: 6px;
 }
 
-.repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-card-content {
+.repo-cards > .publication-style-card .monte-carlo-card-content {
   display: flex;
   flex-direction: column;
   flex: 1 1 52%;
@@ -1321,34 +1333,34 @@ body {
   min-height: 100%;
 }
 
-.repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-card-links {
+.repo-cards > .publication-style-card .monte-carlo-card-links {
   margin-top: auto;
   font-size: 0.7rem;
   text-align: left;
 }
 
-.repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-card-content h3 {
+.repo-cards > .publication-style-card .monte-carlo-card-content h3 {
   font-size: 0.95rem;
   font-weight: 600;
   line-height: 1.4;
 }
 
-.repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-card-content p {
+.repo-cards > .publication-style-card .monte-carlo-card-content p {
   font-size: 0.78rem;
   line-height: 1.45;
 }
 
-.repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-card-content a {
+.repo-cards > .publication-style-card .monte-carlo-card-content a {
   font-size: 0.7rem;
   line-height: 1.4;
 }
 
 @media (max-width: 768px) {
-  .repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-card {
+  .repo-cards > .publication-style-card .monte-carlo-card {
     flex-direction: column;
   }
 
-  .repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-demo-media {
+  .repo-cards > .publication-style-card .monte-carlo-demo-media {
     max-width: 100%;
     flex-basis: auto;
   }
