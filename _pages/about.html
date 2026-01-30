@@ -1298,8 +1298,8 @@ body {
 }
 
 .repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-demo-media {
-  flex: 0 0 38%;
-  max-width: 40%;
+  flex: 0 0 48%;
+  max-width: 50%;
 }
 
 .repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-image-grid {
@@ -1316,13 +1316,31 @@ body {
 .repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-card-content {
   display: flex;
   flex-direction: column;
-  flex: 1 1 60%;
+  flex: 1 1 52%;
+  align-self: stretch;
+  min-height: 100%;
 }
 
 .repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-card-links {
   margin-top: auto;
-  font-size: 0.75rem;
-  text-align: right;
+  font-size: 0.7rem;
+  text-align: left;
+}
+
+.repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-card-content h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-card-content p {
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.repo-cards > .repo-card--monte-carlo:first-of-type .monte-carlo-card-content a {
+  font-size: 0.7rem;
+  line-height: 1.4;
 }
 
 @media (max-width: 768px) {
