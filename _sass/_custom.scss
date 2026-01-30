@@ -149,3 +149,12 @@ $sidebar-fixed-width: 260px;
   line-height: 1;
   vertical-align: text-bottom;
 }
+
+.page__hero,
+.page__hero--overlay {
+  margin-bottom: 1em;
+}
+
+.page__hero ~ #main .page__content > h2:first-of-type {
+  margin-top: 0.35rem;
+}
