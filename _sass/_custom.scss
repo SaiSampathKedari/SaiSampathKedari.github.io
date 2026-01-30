@@ -150,11 +150,7 @@ $sidebar-fixed-width: 260px;
   vertical-align: text-bottom;
 }
 
-.page__hero,
-.page__hero--overlay {
-  margin-bottom: 1em;
-}
-
-.page__hero ~ #main .page__content > h2:first-of-type {
-  margin-top: 0.35rem;
+/* Reduce gap between hero and first section heading */
+.layout--single .page__content > h2:first-of-type {
+  margin-top: 0.4rem;
 }
