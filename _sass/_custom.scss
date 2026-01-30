@@ -149,3 +149,8 @@ $sidebar-fixed-width: 260px;
   line-height: 1;
   vertical-align: text-bottom;
 }
+
+/* Reduce gap between hero and first section heading */
+.layout--single .page__content > h2:first-of-type {
+  margin-top: 0.4rem;
+}
