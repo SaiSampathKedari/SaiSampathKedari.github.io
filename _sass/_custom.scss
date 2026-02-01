@@ -28,6 +28,23 @@ $sidebar-fixed-width: 260px;
   line-height: 1.45;
 }
 
+$section-body-font-size: 1.06rem;
+
+.page__content :where(
+  p,
+  ul,
+  ol,
+  dl,
+  dt,
+  dd,
+  li,
+  blockquote,
+  table,
+  pre
+) {
+  font-size: $section-body-font-size;
+}
+
 .layout--single .page__inner-wrap {
   padding: 1rem 1.25rem;
 }
