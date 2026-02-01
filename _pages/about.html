@@ -38,9 +38,9 @@ permalink: /
         <span>About Me</span>
       </div>
       <div class="section-content-centered" style="text-align: justify;">
-        <p>I work in Robotics &amp; AI, with a focus on building robots that can learn, infer, and make decisions in uncertain environments. My core strength is in mathematical modeling, centered on Bayesian inference, probabilistic estimation, and uncertainty-aware learning in robotics. I also use control theory and convex optimization for planning, control, and structured reasoning in robotic systems.</p>
-        <p>I’m currently developing Bayesian filtering and smoothing pipelines for joint state and parameter estimation, where the goal is not just accuracy but explicit uncertainty quantification. This uncertainty is the foundation for my work in sequential decision-making, where I’m exploring how reinforcement learning algorithms can leverage Bayesian beliefs to act under partial information and evolving dynamics.</p>
-        <p>My goal is to design robotic systems that learn from limited data, adapt to changing environments, and make decisions with quantified confidence, using tools grounded in probabilistic inference, dynamics, and learning.</p>
+        <p>I work in Robotics &amp; AI on the part of the problem that decides <strong>what a robot should do next</strong> when it does not fully know what is happening. Real robots operate with noisy sensors, incomplete information, and changing environments. What interests me is how a robot can form an internal understanding of the world, keep updating it with experience, and use it to choose actions over time.</p>
+        <p>At a high level, I build systems that combine <strong>“what’s going on”</strong> with <strong>“what should I do next.”</strong> This means representing uncertainty explicitly, updating beliefs as new data arrives, and using those beliefs to guide decisions rather than relying on fixed rules or perfect information. I am especially drawn to problems where learning and decision-making happen together, instead of being treated as separate steps.</p>
+        <p>So far, my work has focused on probabilistic inference methods such as Monte Carlo techniques and Bayesian filtering to model uncertainty over hidden states and unknown quantities. I am now extending this toward sequential decision-making and robot learning, studying probabilistic graphical models, MDPs and POMDPs, and reinforcement learning. My goal is to build robotic systems that improve their behavior through experience by continually refining their internal beliefs and using them to make better decisions.</p>
       </div>
     </div>
 
@@ -51,10 +51,10 @@ permalink: /
       </div>
       <div class="research-interests-container">
         <ul class="research-interests-list">
-          <li><strong>Bayesian filtering and smoothing</strong> for joint estimation of hidden states and physical parameters in robotic systems</li>
-          <li><strong>Probabilistic inference and statistical modeling</strong> to extract latent structure from noisy, partial sensor data</li>
-          <li><strong>Sequential decision-making under uncertainty</strong>, using reinforcement learning informed by probabilistic beliefs</li>
-          <li><strong>Mathematical foundations of robot learning</strong>, including statistical inference, convex optimization, and control theory for structured learning and reasoning</li>
+          <li><strong>Probabilistic state-space modeling and Bayesian inference</strong> for robotic systems, with an emphasis on joint estimation of hidden states and unknown parameters under uncertainty using Monte Carlo methods and Bayesian filtering and smoothing.</li>
+          <li><strong>Probabilistic graphical models for sequential systems</strong>, including Bayesian Networks and Dynamic Bayesian Networks, focusing on exact and approximate inference, belief propagation over time, and learning structured representations from data.</li>
+          <li><strong>Sequential decision-making under uncertainty</strong>, studied through dynamic programming, Markov Decision Processes, and Partially Observable Markov Decision Processes, where actions are chosen based on evolving belief states rather than full observability.</li>
+          <li><strong>Robot learning as belief-driven decision-making</strong>, exploring reinforcement learning and deep reinforcement learning as endpoints for policies that act on uncertain, learned internal representations instead of fixed models.</li>
         </ul>
       </div>
     </div>
