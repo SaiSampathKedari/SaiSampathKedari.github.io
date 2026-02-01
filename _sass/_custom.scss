@@ -28,21 +28,25 @@ $sidebar-fixed-width: 260px;
   line-height: 1.45;
 }
 
-$section-body-font-size: 1.06rem;
+$body-text-size: 1.06rem;
 
-.page__content :where(
-  p,
-  ul,
-  ol,
-  dl,
-  dt,
-  dd,
-  li,
-  blockquote,
-  table,
-  pre
-) {
-  font-size: $section-body-font-size;
+.page__content p,
+.page__content ul,
+.page__content ol,
+.page__content dl,
+.page__content dt,
+.page__content dd,
+.page__content li,
+.page__content blockquote,
+.page__content table,
+.page__content pre,
+.archive__item-excerpt,
+.archive__item-excerpt p,
+.archive__item-excerpt li,
+.feature__item,
+.feature__item p,
+.feature__item li {
+  font-size: $body-text-size !important;
 }
 
 .layout--single .page__inner-wrap {
