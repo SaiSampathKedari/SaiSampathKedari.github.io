@@ -881,66 +881,6 @@ section {
   line-height: 1.5;
 }
 
-/* Publication-style card layout */
-.repo-cards > .publication-style-card {
-  .monte-carlo-feature-row {
-    display: block;
-  }
-
-  .monte-carlo-card {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 1.25rem;
-    flex-wrap: nowrap;
-  }
-
-  .monte-carlo-demo-media {
-    flex: 0 0 48%;
-    max-width: 50%;
-
-    video {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      border-radius: 6px;
-    }
-  }
-
-  .monte-carlo-image-grid {
-    display: none;
-  }
-
-  .monte-carlo-card-content {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 52%;
-    align-self: stretch;
-    min-height: 100%;
-
-    h3 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      line-height: 1.4;
-    }
-
-    p {
-      font-size: 0.78rem;
-      line-height: 1.45;
-    }
-
-    a {
-      font-size: 0.7rem;
-      line-height: 1.4;
-    }
-  }
-
-  .monte-carlo-card-links {
-    margin-top: auto;
-    font-size: 0.7rem;
-    text-align: left;
-  }
-}
 
 .repo-tree {
   font-family: 'SFMono-Regular', 'Menlo', 'Monaco', 'Courier New', monospace;
@@ -1496,14 +1436,6 @@ section {
     grid-template-columns: 1fr;
   }
 
-  .repo-cards > .publication-style-card .monte-carlo-card {
-    flex-direction: column;
-  }
-
-  .repo-cards > .publication-style-card .monte-carlo-demo-media {
-    max-width: 100%;
-    flex-basis: auto;
-  }
 }
 
 @media (max-width: 480px) {
