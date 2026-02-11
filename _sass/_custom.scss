@@ -246,20 +246,10 @@ section {
   margin-top: 0;
 }
 
-/* Alternating section backgrounds */
-.section:nth-child(odd) {
-  background: #ffffff;
-}
-
-.section:nth-child(even) {
-  background: #f9fafb;
-}
-
 /* First section (hero / home) should be tighter */
 .section#home {
   padding-top: 3rem;
   padding-bottom: 5rem;
-  background: #ffffff;
 }
 
 .section-inner {
