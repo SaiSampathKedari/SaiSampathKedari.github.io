@@ -121,15 +121,10 @@ permalink: /
         <div class="inference-viz-grid">
           <div class="monte-carlo-card inference-viz-card">
             <div class="monte-carlo-demo-media">
-              <video autoplay muted loop playsinline>
+              <video autoplay muted loop playsinline preload="metadata">
                 <source src="{{ '/images/montecarlo/animations/dram_banana.mp4' | relative_url }}" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-            </div>
-            <div class="monte-carlo-image-grid monte-carlo-image-strip">
-              <img src="{{ '/images/montecarlo/images/mcmc/2D_Gaussian_laplace_approx.png' | relative_url }}" alt="2D Gaussian Laplace approximation snapshot" />
-              <img src="{{ '/images/montecarlo/images/mcmc/Mixing_DRAM_banana.png' | relative_url }}" alt="DRAM banana mixing snapshot" />
-              <img src="{{ '/images/montecarlo/images/mcmc/AutoCorr_DRAM_banana.png' | relative_url }}" alt="DRAM banana autocorrelation snapshot" />
             </div>
             <div class="monte-carlo-card-content">
               <h3>DRAM: Delayed Rejection Adaptive Metropolis on a Banana Distribution</h3>
@@ -139,7 +134,7 @@ permalink: /
 
           <div class="monte-carlo-card inference-viz-card">
             <div class="monte-carlo-demo-media">
-              <video autoplay muted loop playsinline>
+              <video autoplay muted loop playsinline preload="metadata">
                 <source src="{{ '/images/montecarlo/animations/beta_fill.mp4' | relative_url }}" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
@@ -152,7 +147,7 @@ permalink: /
 
           <div class="monte-carlo-card inference-viz-card">
             <div class="monte-carlo-demo-media">
-              <video autoplay muted loop playsinline>
+              <video autoplay muted loop playsinline preload="metadata">
                 <source src="{{ '/images/montecarlo/animations/accept_reject_demo.mp4' | relative_url }}" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
@@ -188,8 +183,20 @@ permalink: /
                   <div class="tree-item">ch06_stochastic_processes/ <span class="tree-tag tree-tag--count">1 notebook</span></div>
                 </div>
                 <div class="tree-section">
-                  <div class="tree-section-label"><i class="fas fa-file-pdf"></i> reports/</div>
-                  <div class="tree-item"><span class="tree-tag tree-tag--count">13 derivation PDFs</span> covering sampling, IS, control variates, MCMC theory, and Brownian motion</div>
+                  <div class="tree-section-label"><i class="fas fa-file-pdf"></i> reports/ <span class="tree-tag tree-tag--count">13 PDFs</span></div>
+                  <div class="tree-sub-item">Inverse Transform &amp; General Transforms</div>
+                  <div class="tree-sub-item">Accept-Reject Sampling</div>
+                  <div class="tree-sub-item">Importance Sampling &amp; SNIS</div>
+                  <div class="tree-sub-item">Rare-Event Estimation</div>
+                  <div class="tree-sub-item">Control Variates &amp; Variance Reduction</div>
+                  <div class="tree-sub-item">Metropolis-Hastings Theory</div>
+                  <div class="tree-sub-item">Adaptive Metropolis (AM)</div>
+                  <div class="tree-sub-item">Delayed Rejection (DR)</div>
+                  <div class="tree-sub-item">DRAM: DR + AM Combined</div>
+                  <div class="tree-sub-item">MCMC Diagnostics &amp; Convergence</div>
+                  <div class="tree-sub-item">Autocorrelation, IAC &amp; ESS</div>
+                  <div class="tree-sub-item">Stochastic Processes &amp; Brownian Motion</div>
+                  <div class="tree-sub-item">Monte Carlo Integration Theory</div>
                 </div>
               </div>
             </div>
@@ -216,7 +223,7 @@ permalink: /
         <div class="inference-viz-grid">
           <div class="monte-carlo-card inference-viz-card">
             <div class="monte-carlo-demo-media">
-              <video autoplay muted loop playsinline>
+              <video autoplay muted loop playsinline preload="metadata">
                 <source src="{{ '/images/bayesfilter/images/regression/bayesian_regression_animation.mp4' | relative_url }}" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
@@ -229,7 +236,7 @@ permalink: /
 
           <div class="monte-carlo-card inference-viz-card">
             <div class="monte-carlo-demo-media">
-              <video autoplay muted loop playsinline>
+              <video autoplay muted loop playsinline preload="metadata">
                 <source src="{{ '/images/bayesfilter/images/bayesian_filtering/pendulum_true_vs_ekf3.mp4' | relative_url }}" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
@@ -242,7 +249,7 @@ permalink: /
 
           <div class="monte-carlo-card inference-viz-card">
             <div class="monte-carlo-demo-media">
-              <video autoplay muted loop playsinline>
+              <video autoplay muted loop playsinline preload="metadata">
                 <source src="{{ '/images/bayesfilter/images/bayesian_filtering/pendulum_true_vs_bootstrap_PF.mp4' | relative_url }}" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
@@ -272,8 +279,21 @@ permalink: /
                   <div class="tree-item">ch02_filtering/ <span class="tree-tag tree-tag--count">6 notebooks</span></div>
                 </div>
                 <div class="tree-section">
-                  <div class="tree-section-label"><i class="fas fa-file-pdf"></i> reports/</div>
-                  <div class="tree-item"><span class="tree-tag tree-tag--count">14 derivation PDFs</span> covering Gaussian estimation, regression, dynamical systems, filtering equations, Kalman variants, and particle filtering foundations</div>
+                  <div class="tree-section-label"><i class="fas fa-file-pdf"></i> reports/ <span class="tree-tag tree-tag--count">14 PDFs</span></div>
+                  <div class="tree-sub-item">Gaussian Distributions &amp; Estimation</div>
+                  <div class="tree-sub-item">Bayesian Linear Regression</div>
+                  <div class="tree-sub-item">Recursive Bayesian Estimation</div>
+                  <div class="tree-sub-item">State-Space Models &amp; Dynamical Systems</div>
+                  <div class="tree-sub-item">Kalman Filter Derivation</div>
+                  <div class="tree-sub-item">Extended Kalman Filter (EKF)</div>
+                  <div class="tree-sub-item">Gauss-Hermite Kalman Filter</div>
+                  <div class="tree-sub-item">Unscented Kalman Filter (UKF)</div>
+                  <div class="tree-sub-item">Sequential Importance Sampling</div>
+                  <div class="tree-sub-item">Bootstrap Particle Filter</div>
+                  <div class="tree-sub-item">EKF &amp; UKF Proposal Particle Filters</div>
+                  <div class="tree-sub-item">Resampling Strategies</div>
+                  <div class="tree-sub-item">Weight Degeneracy &amp; Sample Impoverishment</div>
+                  <div class="tree-sub-item">Filtering vs Smoothing Equations</div>
                 </div>
               </div>
             </div>
@@ -329,12 +349,16 @@ permalink: /
                   <div class="tree-sub-item">SIR_nonIdentifiable.ipynb</div>
                 </div>
                 <div class="tree-section">
-                  <div class="tree-section-label"><i class="fas fa-file-pdf"></i> reports/</div>
-                  <div class="tree-item"><span class="tree-tag tree-tag--count">1 derivation PDF</span> Bayesian modeling for dynamical systems</div>
+                  <div class="tree-section-label"><i class="fas fa-file-pdf"></i> reports/ <span class="tree-tag tree-tag--count">1 PDF</span></div>
+                  <div class="tree-sub-item">Bayesian Parameter Estimation for Nonlinear Dynamical Systems</div>
                 </div>
                 <div class="tree-section">
                   <div class="tree-section-label"><i class="fas fa-chart-line"></i> images/</div>
-                  <div class="tree-item">Dynamical_systems/ <span class="tree-tag">Bayesian network, prior/posterior predictive, mixing, autocorrelation, posterior samples</span></div>
+                  <div class="tree-item">Dynamical_systems/</div>
+                  <div class="tree-sub-item">Bayesian network diagrams</div>
+                  <div class="tree-sub-item">Prior &amp; posterior predictive</div>
+                  <div class="tree-sub-item">Mixing &amp; autocorrelation diagnostics</div>
+                  <div class="tree-sub-item">Posterior parameter samples</div>
                 </div>
               </div>
             </div>
