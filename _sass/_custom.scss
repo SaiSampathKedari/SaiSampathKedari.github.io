@@ -720,7 +720,7 @@ section {
 
 /* ---------- Repository tree card ---------- */
 .repo-tree-card {
-  background: #fff;
+  background: #fff !important;
   display: flex;
   flex-direction: column;
 }
@@ -728,7 +728,7 @@ section {
 .repo-tree-header {
   padding: 14px 18px;
   font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #1e3a5f;
   border-bottom: 1px solid #e8ecf2;
@@ -736,14 +736,15 @@ section {
 
   i {
     color: #3b82f6;
-    margin-right: 6px;
+    margin-right: 8px;
+    font-size: 1.1rem;
   }
 }
 
 .repo-tree-content {
   flex: 1;
   padding: 14px 18px;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 .repo-tree {
@@ -765,13 +766,13 @@ section {
   font-weight: 700;
   color: #1e3a5f;
   margin-bottom: 4px;
-  font-size: 0.78rem;
+  font-size: 0.85rem;
 
   i {
-    width: 16px;
+    width: 20px;
     text-align: center;
-    margin-right: 4px;
-    font-size: 0.7rem;
+    margin-right: 6px;
+    font-size: 0.85rem;
   }
 
   .fa-flask { color: #8b5cf6; }
@@ -784,6 +785,8 @@ section {
   padding-left: 20px;
   position: relative;
   color: #475569;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 
   &::before {
     content: '';
@@ -811,6 +814,8 @@ section {
   position: relative;
   color: #64748b;
   font-size: 0.68rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 
   &::before {
     content: '';
@@ -839,6 +844,8 @@ section {
   color: #6b7280;
   font-style: italic;
   font-family: 'Inter', sans-serif;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .tree-tag--count {
@@ -1132,15 +1139,16 @@ section {
 .repo-tree {
   font-family: 'SFMono-Regular', 'Menlo', 'Monaco', 'Courier New', monospace;
   font-size: 0.78rem;
-  background: #f8f9fb;
+  background: #fff;
   border-radius: 12px;
   padding: 12px;
   border: 1px solid #e5e7eb;
   color: #374151;
   margin: 0.4rem 0 0;
-  white-space: pre;
-  overflow-x: auto;
-  overflow-y: visible;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: hidden;
   flex: 1;
   min-height: 0;
 }
