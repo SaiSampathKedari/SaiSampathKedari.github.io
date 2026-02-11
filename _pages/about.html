@@ -108,11 +108,13 @@ permalink: /
               <h3 class="repo-card-title">Monte Carlo Statistical Methods</h3>
               <div class="repo-card-actions project-buttons">
                 <a href="https://github.com/SaiSampathKedari/MonteCarlo-Statistical-Methods" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub <i class="fab fa-github"></i></a>
+                <a href="https://github.com/SaiSampathKedari/MonteCarlo-Statistical-Methods/tree/master/notebooks" target="_blank" rel="noopener noreferrer" aria-label="Notebooks">Notebooks <i class="fas fa-book-open"></i></a>
+                <a href="https://github.com/SaiSampathKedari/MonteCarlo-Statistical-Methods/tree/master/reports" target="_blank" rel="noopener noreferrer" aria-label="Reports">Reports <i class="fas fa-file-alt"></i></a>
               </div>
             </div>
-            <p class="repo-card-subtitle repo-card-desc"><strong>State estimation</strong>, <strong>parameter learning</strong>, <strong>sensor fusion</strong>, <strong>policy evaluation</strong>, and <strong>uncertainty-aware planning</strong> — across the robot learning stack, many core problems reduce to computing expectations over complex, high-dimensional, nonlinear distributions. Exact analytical solutions are intractable.</p>
+            <p class="repo-card-subtitle repo-card-desc">State estimation, parameter learning, sensor fusion, policy evaluation, and uncertainty-aware planning — across the robot learning stack, many core problems reduce to computing expectations over complex, high-dimensional, nonlinear distributions. Exact analytical solutions are intractable.</p>
             <p class="repo-card-subtitle repo-card-desc">Monte Carlo methods address this by replacing integration with sampling, approximating distributions with empirical ones and enabling expectation estimates when closed-form inference is not possible.</p>
-            <p class="repo-card-subtitle repo-card-desc">This project is a full mathematical reconstruction of <em>Robert &amp; Casella’s Monte Carlo Statistical Methods</em>, including <strong>importance sampling</strong>, <strong>MCMC</strong>, <strong>control variates</strong>, <strong>variance reduction</strong>, and more. Every algorithm is implemented from first principles, with a focus on <strong>statistical rigor</strong>, <strong>numerical reliability</strong>, and deep understanding of probabilistic inference.</p>
+            <p class="repo-card-subtitle repo-card-desc">This project is a full mathematical reconstruction of <em>Robert &amp; Casella's Monte Carlo Statistical Methods</em>, including importance sampling, MCMC, control variates, variance reduction, and more. Every algorithm is implemented from first principles, with a focus on statistical rigor, numerical reliability, and deep understanding of probabilistic inference.</p>
           </div>
         </div>
 
@@ -132,9 +134,6 @@ permalink: /
             <div class="monte-carlo-card-content">
               <h3>DRAM: Delayed Rejection Adaptive Metropolis on a Banana Distribution</h3>
               <p class="monte-carlo-caption">A two-stage DRAM sampler combining delayed rejection with adaptive covariance updates to efficiently explore the curved banana distribution, showing how refined secondary proposals and empirical covariance learning improve acceptance and mixing on difficult target geometries.</p>
-              <div class="monte-carlo-card-links">
-                <a href="#">visualization</a><a href="#">notebook</a><a href="#">code</a><a href="#">github</a><a href="#">report</a>
-              </div>
             </div>
           </div>
 
@@ -148,9 +147,6 @@ permalink: /
             <div class="monte-carlo-card-content">
               <h3>Inverse Transform Sampling for Beta Distribution</h3>
               <p class="monte-carlo-caption">Uniform samples \( U \sim \mathrm{Unif}(0,1) \) are passed through the inverse Beta CDF \( F^{-1}(U) \) to produce exact \( \mathrm{Beta}(10,3) \) draws. This demonstrates the core idea of inverse transform sampling: shaping uniform randomness into a target distribution and visualizing the empirical convergence to its true density.</p>
-              <div class="monte-carlo-card-links">
-                <a href="#">visualization</a><a href="#">notebook</a><a href="#">code</a><a href="#">github</a><a href="#">report</a>
-              </div>
             </div>
           </div>
 
@@ -164,8 +160,37 @@ permalink: /
             <div class="monte-carlo-card-content">
               <h3>Accept–Reject Sampling: Gaussian Target with Laplace Proposal</h3>
               <p class="monte-carlo-caption">Samples are drawn from a Laplace proposal and accepted with probability \( \frac{f(x)}{M g(x)} \), where \( M g(x) \) envelopes the Gaussian target. The plot highlights how the shape differences between the Gaussian and Laplace distributions determine acceptance rates and sampling efficiency.</p>
-              <div class="monte-carlo-card-links">
-                <a href="#">visualization</a><a href="#">notebook</a><a href="#">code</a><a href="#">github</a><a href="#">report</a>
+            </div>
+          </div>
+
+          <div class="monte-carlo-card inference-viz-card repo-tree-card">
+            <div class="repo-tree-header">
+              <i class="fas fa-sitemap"></i> Repository Architecture
+            </div>
+            <div class="repo-tree-content">
+              <div class="repo-tree">
+                <div class="tree-section">
+                  <div class="tree-section-label"><i class="fas fa-flask"></i> src/</div>
+                  <div class="tree-item">sampling/ <span class="tree-tag">inverse-transform, accept-reject, general transforms</span></div>
+                  <div class="tree-item">importance_sampling/ <span class="tree-tag">IS, SNIS, rare-event estimation</span></div>
+                  <div class="tree-item">variance_reduction/ <span class="tree-tag">control variates</span></div>
+                  <div class="tree-item">mcmc/algorithms/ <span class="tree-tag">MH, AM, DR, DRAM</span></div>
+                  <div class="tree-item">mcmc/diagnostics/ <span class="tree-tag">autocorrelation, IAC, ESS</span></div>
+                  <div class="tree-item">mcmc/distributions/ <span class="tree-tag">banana, gaussian</span></div>
+                  <div class="tree-item">stochastic_processes/ <span class="tree-tag">Brownian motion</span></div>
+                </div>
+                <div class="tree-section">
+                  <div class="tree-section-label"><i class="fas fa-book"></i> notebooks/</div>
+                  <div class="tree-item">ch02_sampling/ <span class="tree-tag tree-tag--count">4 notebooks</span></div>
+                  <div class="tree-item">ch03_importance_sampling/ <span class="tree-tag tree-tag--count">3 notebooks</span></div>
+                  <div class="tree-item">ch04_variance_reduction/ <span class="tree-tag tree-tag--count">1 notebook</span></div>
+                  <div class="tree-item">ch05_mcmc/ <span class="tree-tag tree-tag--count">7 notebooks</span></div>
+                  <div class="tree-item">ch06_stochastic_processes/ <span class="tree-tag tree-tag--count">1 notebook</span></div>
+                </div>
+                <div class="tree-section">
+                  <div class="tree-section-label"><i class="fas fa-file-pdf"></i> reports/</div>
+                  <div class="tree-item"><span class="tree-tag tree-tag--count">13 derivation PDFs</span> covering sampling, IS, control variates, MCMC theory, and Brownian motion</div>
+                </div>
               </div>
             </div>
           </div>
@@ -178,12 +203,14 @@ permalink: /
               <h3 class="repo-card-title">Bayesian Filtering &amp; Smoothing</h3>
               <div class="repo-card-actions project-buttons">
                 <a href="https://github.com/SaiSampathKedari/Bayesian-Filtering-and-Smoothing" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub <i class="fab fa-github"></i></a>
+                <a href="https://github.com/SaiSampathKedari/Bayesian-Filtering-and-Smoothing/tree/master/notebooks" target="_blank" rel="noopener noreferrer" aria-label="Notebooks">Notebooks <i class="fas fa-book-open"></i></a>
+                <a href="https://github.com/SaiSampathKedari/Bayesian-Filtering-and-Smoothing/tree/master/reports" target="_blank" rel="noopener noreferrer" aria-label="Reports">Reports <i class="fas fa-file-alt"></i></a>
               </div>
             </div>
-            <p class="repo-card-subtitle repo-card-desc">Robotic systems must operate with <strong>noisy sensors</strong>, <strong>partial observability</strong>, <strong>uncertain dynamics</strong>, and <strong>unmodeled disturbances</strong>. In problems such as localization, state estimation, sensor fusion, contact estimation, and disturbance rejection, the true system state is never directly observed and errors compound over time. Reliable operation therefore requires tracking <strong>belief over the robot’s state</strong>, not just a single best estimate.</p>
-            <p class="repo-card-subtitle repo-card-desc"><strong>Bayesian filtering and smoothing</strong> address this by formulating state estimation as <strong>recursive probabilistic inference</strong> in dynamical systems. Instead of estimating states independently at each time step, these methods <strong>propagate uncertainty through system dynamics</strong> and <strong>update beliefs using incoming measurements</strong>, explicitly accounting for sensor noise, modeling error, and partial observability.</p>
-            <p class="repo-card-subtitle repo-card-desc">This repository implements Bayesian filtering and smoothing methods used across robotics, including <strong>Kalman and Gaussian filters</strong> for linear and locally linear systems, and <strong>sampling-based filters built on Sequential Importance Sampling with resampling</strong> for nonlinear, non-Gaussian settings. Applications include <strong>localization</strong>, <strong>sensor fusion</strong>, <strong>contact and force estimation</strong>, <strong>parameter learning</strong>, and <strong>uncertainty-aware control</strong>, with emphasis on how uncertainty is propagated and updated over time.</p>
-            <p class="repo-card-subtitle repo-card-desc">From a <strong>mathematical perspective</strong>, the project follows <strong>Särkkä’s <em>Bayesian Filtering and Smoothing</em></strong>, deriving the filtering and smoothing equations from the <strong>underlying joint distributions</strong> and implementing them <strong>from scratch</strong>. The focus is on <strong>statistical correctness</strong>, <strong>approximation assumptions</strong>, <strong>weight degeneracy</strong>, and understanding the <strong>limits of Gaussian and sampling-based estimators</strong>.</p>
+            <p class="repo-card-subtitle repo-card-desc">Robotic systems must operate with noisy sensors, partial observability, uncertain dynamics, and unmodeled disturbances. In problems such as localization, state estimation, sensor fusion, contact estimation, and disturbance rejection, the true system state is never directly observed and errors compound over time. Reliable operation therefore requires tracking belief over the robot's state, not just a single best estimate.</p>
+            <p class="repo-card-subtitle repo-card-desc">Bayesian filtering and smoothing address this by formulating state estimation as recursive probabilistic inference in dynamical systems. Instead of estimating states independently at each time step, these methods propagate uncertainty through system dynamics and update beliefs using incoming measurements, explicitly accounting for sensor noise, modeling error, and partial observability.</p>
+            <p class="repo-card-subtitle repo-card-desc">This repository implements Bayesian filtering and smoothing methods used across robotics, including Kalman and Gaussian filters for linear and locally linear systems, and sampling-based filters built on Sequential Importance Sampling with resampling for nonlinear, non-Gaussian settings. Applications include localization, sensor fusion, contact and force estimation, parameter learning, and uncertainty-aware control, with emphasis on how uncertainty is propagated and updated over time.</p>
+            <p class="repo-card-subtitle repo-card-desc">From a mathematical perspective, the project follows Särkkä's <em>Bayesian Filtering and Smoothing</em>, deriving the filtering and smoothing equations from the underlying joint distributions and implementing them from scratch. The focus is on statistical correctness, approximation assumptions, weight degeneracy, and understanding the limits of Gaussian and sampling-based estimators.</p>
           </div>
         </div>
         <div class="inference-viz-grid">
@@ -197,9 +224,6 @@ permalink: /
             <div class="monte-carlo-card-content">
               <h3>Batch vs Recursive Bayesian Linear Regression</h3>
               <p class="monte-carlo-caption">Sequential Bayesian updates converge to the batch posterior, showing uncertainty contraction as data accumulates.</p>
-              <div class="monte-carlo-card-links">
-                <a href="#">visualization</a><a href="#">notebook</a><a href="#">code</a><a href="#">github</a><a href="#">report</a>
-              </div>
             </div>
           </div>
 
@@ -213,9 +237,6 @@ permalink: /
             <div class="monte-carlo-card-content">
               <h3>Extended Kalman Filter for State Estimation of a Nonlinear Pendulum</h3>
               <p class="monte-carlo-caption">Local Gaussian filtering via linearization tracks nonlinear dynamics while exposing approximation error and covariance evolution.</p>
-              <div class="monte-carlo-card-links">
-                <a href="#">visualization</a><a href="#">notebook</a><a href="#">code</a><a href="#">github</a><a href="#">report</a>
-              </div>
             </div>
           </div>
 
@@ -229,8 +250,31 @@ permalink: /
             <div class="monte-carlo-card-content">
               <h3>Bootstrap Particle Filter (Sequential Importance Sampling with Resampling)</h3>
               <p class="monte-carlo-caption">Non-Gaussian belief propagation using particles highlights weight degeneracy and the role of resampling under nonlinear dynamics.</p>
-              <div class="monte-carlo-card-links">
-                <a href="#">visualization</a><a href="#">notebook</a><a href="#">code</a><a href="#">github</a><a href="#">report</a>
+            </div>
+          </div>
+
+          <div class="monte-carlo-card inference-viz-card repo-tree-card">
+            <div class="repo-tree-header">
+              <i class="fas fa-sitemap"></i> Repository Architecture
+            </div>
+            <div class="repo-tree-content">
+              <div class="repo-tree">
+                <div class="tree-section">
+                  <div class="tree-section-label"><i class="fas fa-flask"></i> src/</div>
+                  <div class="tree-item">filters/ <span class="tree-tag">KF, EKF, GHKF, UKF, Bootstrap PF, EKF-PF, UKF-PF</span></div>
+                  <div class="tree-item">models/ <span class="tree-tag">nonlinear pendulum dynamics</span></div>
+                  <div class="tree-item">regression/ <span class="tree-tag">batch &amp; recursive Bayesian linear regression</span></div>
+                  <div class="tree-item">utils/ <span class="tree-tag">Gaussian utilities</span></div>
+                </div>
+                <div class="tree-section">
+                  <div class="tree-section-label"><i class="fas fa-book"></i> notebooks/</div>
+                  <div class="tree-item">ch01_regression/ <span class="tree-tag tree-tag--count">1 notebook</span></div>
+                  <div class="tree-item">ch02_filtering/ <span class="tree-tag tree-tag--count">6 notebooks</span></div>
+                </div>
+                <div class="tree-section">
+                  <div class="tree-section-label"><i class="fas fa-file-pdf"></i> reports/</div>
+                  <div class="tree-item"><span class="tree-tag tree-tag--count">14 derivation PDFs</span> covering Gaussian estimation, regression, dynamical systems, filtering equations, Kalman variants, and particle filtering foundations</div>
+                </div>
               </div>
             </div>
           </div>
@@ -242,7 +286,9 @@ permalink: /
             <div class="repo-card-title-row">
               <h3 class="repo-card-title">Bayesian Inference</h3>
               <div class="repo-card-actions project-buttons">
-                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub <i class="fab fa-github"></i></a>
+                <a href="https://github.com/SaiSampathKedari/Bayesian-Inference" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub <i class="fab fa-github"></i></a>
+                <a href="https://github.com/SaiSampathKedari/Bayesian-Inference/tree/master/notebooks" target="_blank" rel="noopener noreferrer" aria-label="Notebooks">Notebooks <i class="fas fa-book-open"></i></a>
+                <a href="https://github.com/SaiSampathKedari/Bayesian-Inference/tree/master/reports" target="_blank" rel="noopener noreferrer" aria-label="Reports">Reports <i class="fas fa-file-alt"></i></a>
               </div>
             </div>
             <p class="repo-card-subtitle repo-card-desc">This repository studies Bayesian parameter estimation for nonlinear dynamical systems where posterior distributions are analytically intractable. Markov Chain Monte Carlo methods are used to approximate posterior expectations, enabling posterior mean estimation and uncertainty-aware predictive dynamics.</p>
@@ -262,8 +308,34 @@ permalink: /
             <div class="monte-carlo-card-content">
               <h3>MCMC-Based Bayesian Inference for Nonlinear Dynamical Models</h3>
               <p class="monte-carlo-caption">MCMC-based parameter estimation and posterior predictive analysis under nonlinear, non-Gaussian models.</p>
-              <div class="monte-carlo-card-links">
-                <a href="#">visualization</a><a href="#">notebook</a><a href="#">code</a><a href="#">github</a><a href="#">report</a>
+            </div>
+          </div>
+
+          <div class="monte-carlo-card inference-viz-card repo-tree-card">
+            <div class="repo-tree-header">
+              <i class="fas fa-sitemap"></i> Repository Architecture
+            </div>
+            <div class="repo-tree-content">
+              <div class="repo-tree">
+                <div class="tree-section">
+                  <div class="tree-section-label"><i class="fas fa-flask"></i> src/</div>
+                  <div class="tree-item">dynamical_systems/ <span class="tree-tag">SIR compartmental models (identifiable &amp; non-identifiable)</span></div>
+                  <div class="tree-item">utils/ <span class="tree-tag">MCMC run helpers</span></div>
+                </div>
+                <div class="tree-section">
+                  <div class="tree-section-label"><i class="fas fa-book"></i> notebooks/</div>
+                  <div class="tree-item">ch01_dynamical_systems/ <span class="tree-tag tree-tag--count">2 notebooks</span></div>
+                  <div class="tree-sub-item">SIR_Identifiable.ipynb</div>
+                  <div class="tree-sub-item">SIR_nonIdentifiable.ipynb</div>
+                </div>
+                <div class="tree-section">
+                  <div class="tree-section-label"><i class="fas fa-file-pdf"></i> reports/</div>
+                  <div class="tree-item"><span class="tree-tag tree-tag--count">1 derivation PDF</span> Bayesian modeling for dynamical systems</div>
+                </div>
+                <div class="tree-section">
+                  <div class="tree-section-label"><i class="fas fa-chart-line"></i> images/</div>
+                  <div class="tree-item">Dynamical_systems/ <span class="tree-tag">Bayesian network, prior/posterior predictive, mixing, autocorrelation, posterior samples</span></div>
+                </div>
               </div>
             </div>
           </div>

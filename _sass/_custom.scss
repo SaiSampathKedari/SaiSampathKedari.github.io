@@ -639,19 +639,21 @@ section {
 }
 
 .inference-viz-card {
-  border-radius: 16px;
-  border: 1px solid #d7e0ec;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 18px 32px rgba(0, 0, 0, 0.15);
   }
 
   .monte-carlo-demo-media {
-    padding: 10px;
-    background: #f8fafd;
-    border-radius: 16px 16px 0 0;
+    padding: 0;
+    background: #fff;
+    border-radius: 0;
     aspect-ratio: 16 / 10;
     display: flex;
     align-items: center;
@@ -662,7 +664,13 @@ section {
       width: 100%;
       height: 100%;
       object-fit: contain;
+      background: #fff;
     }
+  }
+
+  .monte-carlo-image-grid img {
+    background: #fff;
+    border: none;
   }
 
   .monte-carlo-image-strip {
@@ -671,43 +679,33 @@ section {
   }
 
   .monte-carlo-card-content {
-    padding: 12px 16px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
     gap: 0.3rem;
 
     h3 {
-      font-size: 1rem;
+      margin: 0;
+      font-size: 1.1rem;
+      color: #2b6cb0;
+      font-family: 'Inter', sans-serif;
       line-height: 1.3;
     }
 
     .monte-carlo-caption {
-      font-size: 0.82rem;
-      line-height: 1.45;
+      font-size: 0.8rem;
+      color: #555;
+      line-height: 1.5;
+      margin: 0.4rem 0 0.6rem;
+      font-family: 'Inter', sans-serif;
     }
   }
 
   .monte-carlo-card-links {
-    margin-top: 0.4rem;
-    font-size: 0.75rem;
-
-    a {
-      font-family: 'Inter', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      font-weight: 600;
-      padding: 0.25rem 0.6rem;
-      background: #2b6cb0;
-      color: #fff;
-      border-radius: 6px;
-      font-size: 0.7rem;
-      text-decoration: none;
-      display: inline-block;
-      transition: background 0.2s, transform 0.15s;
-
-      &:hover {
-        background: #1a416f;
-        transform: translateY(-1px);
-      }
-    }
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: auto;
   }
 
   .carousel {
@@ -718,6 +716,139 @@ section {
       object-fit: contain;
     }
   }
+}
+
+/* ---------- Repository tree card ---------- */
+.repo-tree-card {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.repo-tree-header {
+  padding: 14px 18px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1e3a5f;
+  border-bottom: 1px solid #e8ecf2;
+  letter-spacing: 0.02em;
+
+  i {
+    color: #3b82f6;
+    margin-right: 6px;
+  }
+}
+
+.repo-tree-content {
+  flex: 1;
+  padding: 14px 18px;
+  overflow-y: auto;
+}
+
+.repo-tree {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.72rem;
+  line-height: 1.65;
+  color: #334155;
+}
+
+.tree-section {
+  margin-bottom: 12px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.tree-section-label {
+  font-weight: 700;
+  color: #1e3a5f;
+  margin-bottom: 4px;
+  font-size: 0.78rem;
+
+  i {
+    width: 16px;
+    text-align: center;
+    margin-right: 4px;
+    font-size: 0.7rem;
+  }
+
+  .fa-flask { color: #8b5cf6; }
+  .fa-book { color: #f59e0b; }
+  .fa-file-pdf { color: #ef4444; }
+  .fa-chart-line { color: #10b981; }
+}
+
+.tree-item {
+  padding-left: 20px;
+  position: relative;
+  color: #475569;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: #e2e8f0;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    width: 8px;
+    height: 1px;
+    background: #e2e8f0;
+  }
+}
+
+.tree-sub-item {
+  padding-left: 36px;
+  position: relative;
+  color: #64748b;
+  font-size: 0.68rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: #e2e8f0;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: 50%;
+    width: 8px;
+    height: 1px;
+    background: #e2e8f0;
+  }
+}
+
+.tree-tag {
+  display: inline;
+  font-size: 0.62rem;
+  color: #6b7280;
+  font-style: italic;
+  font-family: 'Inter', sans-serif;
+}
+
+.tree-tag--count {
+  background: #eff6ff;
+  color: #2563eb;
+  padding: 1px 6px;
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.62rem;
 }
 
 .repo-card-title {
