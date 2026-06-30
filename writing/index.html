@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Writing · Sai Sampath Kedari</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#FCFCFB;--ink-90:#13181C;--ink-70:#3A444C;--ink-60:#566069;--ink-45:#5C656E;--ink-08:#E7E9EA;--teal:#0E7C86;--maize:#FFCB05;--mono:'JetBrains Mono',monospace;--sans:'Inter',system-ui,sans-serif;--serif:'Newsreader',Georgia,serif;}
+*{box-sizing:border-box;} body{margin:0;background:var(--bg);color:var(--ink-70);font-family:var(--sans);line-height:1.6;}
+.wrap{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 5rem;}
+.back{font-family:var(--mono);font-size:.8rem;color:var(--ink-45);}
+.kicker{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-45);margin:2rem 0 .4rem;}
+.kicker::before{content:"";display:block;width:32px;height:2px;background:var(--maize);margin-bottom:.7rem;}
+h1{font-family:var(--serif);font-weight:500;font-size:2.2rem;color:var(--ink-90);margin:0 0 .4rem;}
+.lead{color:var(--ink-60);margin:0 0 2.5rem;}
+.wrow{display:block;padding:1.6rem 0;border-bottom:1px solid var(--ink-08);}
+.wrow:hover .wtitle{color:var(--teal);}
+.wdate{font-family:var(--mono);font-size:.76rem;color:var(--ink-45);margin-bottom:.3rem;}
+.wtitle{font-family:var(--serif);font-size:1.4rem;font-weight:500;color:var(--ink-90);line-height:1.25;margin-bottom:.3rem;}
+.wdek{font-size:1rem;color:var(--ink-60);margin-bottom:.4rem;}
+.wmeta{font-family:var(--mono);font-size:.76rem;color:var(--ink-45);}
+.coming{padding:1.6rem 0;border-top:1px dashed var(--ink-08);margin-top:.5rem;}
+.coming .ct{font-family:var(--serif);font-size:1.2rem;color:var(--ink-60);margin:.3rem 0;}
+.coming .cd{font-size:.95rem;color:var(--ink-60);}
+a{text-decoration:none;color:inherit;}
+.proto-ribbon{position:fixed;bottom:13px;right:13px;background:var(--ink-90);color:#fff;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:.38rem .75rem;border-radius:100px;opacity:.72;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="/">&larr; Sai Sampath Kedari</a>
+  <div class="kicker">Writing</div>
+  <h1>Notes &amp; essays</h1>
+  <p class="lead">Roughly my report content, re-explained from scratch with intuition. Independent of the projects.</p>
+    <a class="wrow" href="markov-decision-processes-formal-object.html">
+      <div class="wdate">Jun 2026</div>
+      <div class="wtitle">Markov Decision Processes: The Formal Object</div>
+      <div class="wdek">A careful, ground-up tour of the MDP as a mathematical object: states, actions, transitions, rewards, the Markov property, and the full hierarchy of decision rules and policies, from history-dependent randomized down to stationary deterministic.</div>
+      <div class="wmeta">16 min read · mdp, foundations</div>
+    </a>
+    <a class="wrow" href="banach-fixed-point-value-iteration.html">
+      <div class="wdate">Jun 2026</div>
+      <div class="wtitle">The Banach Fixed-Point Theorem and Why Value Iteration Converges</div>
+      <div class="wdek">A from-scratch walkthrough of why iterative policy evaluation converges: the Bellman operator is a contraction on a Banach space, and the Banach fixed-point theorem turns that single fact into existence, uniqueness, and a convergent algorithm.</div>
+      <div class="wmeta">11 min read · dynamic-programming, convergence</div>
+    </a>
+    <div class="coming">
+      <div class="wdate">Coming soon</div>
+      <div class="ct">More notes on the way</div>
+      <div class="cd">I am converting my derivation reports across reinforcement learning, sequential decision making, Bayesian filtering, and Monte Carlo into posts.</div>
+    </div>
+
+</div>
+</body>
+</html>

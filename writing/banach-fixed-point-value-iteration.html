@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Banach Fixed-Point Theorem and Why Value Iteration Converges · Sai Sampath Kedari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+<script>function __reveal(){document.documentElement.classList.add('katex-ready');}setTimeout(__reveal,2500);</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" onerror="__reveal()"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onerror="__reveal()"
+  onload="try{renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});}catch(e){}__reveal();"></script>
+<style>
+:root{
+  --bg:#FCFCFB;--ink-90:#13181C;--ink-80:#222A30;--ink-70:#3A444C;--ink-60:#566069;
+  --ink-50:#616B74;--ink-45:#5C656E;--ink-08:#E7E9EA;--teal:#0E7C86;--teal-tint:#EAF4F5;--maize:#FFCB05;
+  --mono:'JetBrains Mono',ui-monospace,monospace;--sans:'Inter',system-ui,sans-serif;--serif:'Newsreader',Georgia,serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink-80);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased;}
+a{color:var(--teal);text-decoration:none;}
+a:hover{text-decoration:underline;text-underline-offset:3px;}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:3px;}
+.top{max-width:760px;margin:0 auto;padding:1.6rem 1.5rem 0;}
+.top a.back{font-family:var(--mono);font-size:.8rem;color:var(--ink-50);}
+.wrap{max-width:760px;margin:0 auto;padding:1.5rem 1.5rem 5rem;}
+.post-head{margin:1rem 0 2rem;}
+.post-head h1{font-family:var(--serif);font-size:clamp(2rem,4vw,2.7rem);line-height:1.15;color:var(--ink-90);font-weight:500;letter-spacing:-.01em;margin:0 0 .8rem;}
+.post-head .dek{font-size:1.1rem;color:var(--ink-60);margin:0 0 1rem;}
+.post-head .meta{font-family:var(--mono);font-size:.78rem;color:var(--ink-45);border-top:1px solid var(--ink-08);padding-top:.8rem;}
+.toc{background:#fff;border:1px solid var(--ink-08);border-radius:8px;padding:1rem 1.2rem;margin:0 0 2.5rem;}
+.toc .toc-h{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-45);margin-bottom:.5rem;}
+.toc ol{margin:0;padding-left:1.1rem;}
+.toc li{margin:.2rem 0;font-size:.9rem;}
+.toc a{color:var(--ink-70);}
+article{font-size:1.13rem;color:var(--ink-80);}
+article h2{font-family:var(--serif);font-weight:500;font-size:1.6rem;color:var(--ink-90);margin:2.4rem 0 .8rem;line-height:1.25;letter-spacing:-.01em;}
+article h3{font-family:var(--sans);font-weight:600;font-size:1.2rem;color:var(--ink-90);margin:1.8rem 0 .6rem;}
+article p{margin:0 0 1.1rem;}
+article ul,article ol{margin:0 0 1.1rem;padding-left:1.4rem;}
+article li{margin:.3rem 0;}
+article strong{color:var(--ink-90);font-weight:600;}
+article code{font-family:var(--mono);font-size:.88em;background:#f1f3f4;padding:.1em .35em;border-radius:4px;}
+.katex-display{margin:1.5em 0;overflow-x:auto;overflow-y:hidden;padding:.2rem 0;}
+.eqn-hidden .katex-display,.eqn-hidden{}
+.katex-display{visibility:hidden;}
+html.katex-ready .katex-display{visibility:visible;}
+.post-foot{margin-top:3.5rem;border-top:1px solid var(--ink-08);padding-top:1.2rem;font-family:var(--mono);font-size:.8rem;color:var(--ink-45);}
+.proto-ribbon{position:fixed;bottom:13px;right:13px;z-index:50;background:var(--ink-90);color:#fff;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:.38rem .75rem;border-radius:100px;opacity:.72;}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+<div class="top"><a class="back" href="/#writing">&larr; Sai Sampath Kedari · Writing</a></div>
+<div class="wrap">
+  <header class="post-head">
+    <h1>The Banach Fixed-Point Theorem and Why Value Iteration Converges</h1>
+    <p class="dek">A from-scratch walkthrough of why iterative policy evaluation converges: the Bellman operator is a contraction on a Banach space, and the Banach fixed-point theorem turns that single fact into existence, uniqueness, and a convergent algorithm.</p>
+    <div class="meta">Jun 2026 · 11 min read · dynamic-programming, convergence</div>
+  </header>
+  <nav class="toc" id="toc"><div class="toc-h">Contents</div><ol id="toc-list"></ol></nav>
+  <article id="article">
+<p>If you have ever run iterative policy evaluation and watched the value estimates settle down to a fixed answer no matter how you initialized them, you have seen the Banach fixed-point theorem at work. The whole story rests on one structural fact: the Bellman policy-evaluation operator <em>shrinks distances</em>. Apply it, and any two value functions move strictly closer together. Apply it forever, and everything collapses onto a single point: the true value function.</p>
+
+<p>This post builds that argument carefully, the way I worked through it from scratch. We start with the right norm to measure value functions, show the Bellman operator stays inside our space and contracts, prove the Banach fixed-point theorem in full, and then collect the payoff as a corollary that justifies the policy-evaluation algorithm line by line.</p>
+
+<h2>The right way to measure value functions: the sup norm</h2>
+
+<p>Before we can say "the iterates get closer," we need a notion of distance. For value functions the natural choice is the worst-case-over-states norm.</p>
+
+<p>Let $x = (x_1,\dots,x_n) \in \mathbb{R}^n$. The <strong>infinity norm</strong> (or sup norm) is</p>
+
+$$\|x\|_\infty := \sup_{1 \le j \le n} |x_j|.$$
+
+<p>Intuitively:</p>
+
+<ul>
+<li>It measures the largest absolute component of the vector.</li>
+<li>Its unit ball is a cube in $\mathbb{R}^n$, not a sphere.</li>
+<li>It captures worst-case coordinate magnitude, which is exactly what we care about when we want a value estimate to be good at <em>every</em> state, not just on average.</li>
+</ul>
+
+<h3>The operator norm it induces</h3>
+
+<p>A linear map $A : \mathbb{R}^n \to \mathbb{R}^m$ is represented by a matrix $A = (a_{ij}) \in \mathbb{R}^{m \times n}$. The operator norm induced by the infinity vector norm asks: how much can $A$ amplify a vector, in the worst case?</p>
+
+$$\|A\|_\infty := \sup_{x \neq 0} \frac{\|Ax\|_\infty}{\|x\|_\infty} = \sup_{\|x\|_\infty = 1} \|Ax\|_\infty.$$
+
+<p>This is the largest possible blow-up factor. The reason it matters here is that the Bellman operator involves a transition matrix, and we will need to know that transition matrices never amplify the sup norm. That fact follows from a clean formula.</p>
+
+<h3>Theorem: the induced infinity norm is the max absolute row sum</h3>
+
+<p>Let $A \in \mathbb{R}^{m\times n}$. Then</p>
+
+$$\|A\|_\infty = \sup_{1 \le i \le m} \sum_{j=1}^{n} |a_{ij}|.$$
+
+<p>In words, the induced infinity operator norm equals the largest absolute row sum. Here is why.</p>
+
+<p><strong>Step 1: Upper bound.</strong> For any $x \neq 0$, each output coordinate is</p>
+
+$$(Ax)_i = \sum_{j=1}^n a_{ij}x_j,$$
+
+<p>so by the triangle inequality and the definition of the sup norm,</p>
+
+$$|(Ax)_i| \le \sum_{j=1}^n |a_{ij}|\,|x_j| \le \left(\sum_{j=1}^n |a_{ij}|\right)\|x\|_\infty.$$
+
+<p>Taking the supremum over $i$,</p>
+
+$$\|Ax\|_\infty = \sup_i |(Ax)_i| \le \left(\sup_i \sum_{j=1}^n |a_{ij}|\right)\|x\|_\infty.$$
+
+<p>Dividing by $\|x\|_\infty$ and taking the supremum over $x$ gives $\|A\|_\infty \le \sup_i \sum_j |a_{ij}|$. So the row-sum quantity is at least the operator norm.</p>
+
+<p><strong>Step 2: Lower bound.</strong> We show the bound is actually achieved by exhibiting a vector that nearly saturates it. Let</p>
+
+$$R(A) := \sup_{1 \le i \le m} \sum_{j=1}^n |a_{ij}|.$$
+
+<p>For any $\varepsilon > 0$ pick a row $i_\varepsilon$ whose absolute sum almost realizes the supremum,</p>
+
+$$\sum_{j=1}^n |a_{i_\varepsilon j}| > R(A) - \varepsilon.$$
+
+<p>The trick is to choose the input that aligns perfectly with the signs of that row, turning every term positive:</p>
+
+$$x^{(\varepsilon)}_j := \begin{cases} \operatorname{sign}(a_{i_\varepsilon j}) & \text{if } a_{i_\varepsilon j}\neq 0,\\ 1 & \text{otherwise}. \end{cases}$$
+
+<p>Then $\|x^{(\varepsilon)}\|_\infty = 1$, and in coordinate $i_\varepsilon$ the products $a_{i_\varepsilon j}\,x^{(\varepsilon)}_j = |a_{i_\varepsilon j}|$, so</p>
+
+$$(Ax^{(\varepsilon)})_{i_\varepsilon} = \sum_{j=1}^n |a_{i_\varepsilon j}|, \qquad \|A x^{(\varepsilon)}\|_\infty \ge R(A) - \varepsilon.$$
+
+<p>Since $\varepsilon$ was arbitrary, $\|A\|_\infty \ge R(A)$. Combining the two inequalities gives $\|A\|_\infty = R(A)$. $\blacksquare$</p>
+
+<p>The immediate consequence we will use: a <em>row-stochastic</em> matrix (each row a probability distribution, nonnegative entries summing to one) has every absolute row sum equal to exactly $1$, so its induced infinity norm is $1$. It can rotate and average a vector, but it can never make the worst-case coordinate larger.</p>
+
+<h2>The Bellman policy-evaluation operator</h2>
+
+<h3>The space $V$ of bounded value functions</h3>
+
+<p>Let $S$ be the state space, finite or countable, and define</p>
+
+$$V := \left\{ v:S\to\mathbb{R} \;:\; \|v\|_\infty := \sup_{s\in S} |v(s)| < \infty \right\}.$$
+
+<p>This is the space of bounded value functions, and under the sup norm it is a <strong>Banach space</strong>: a complete normed space, meaning every Cauchy sequence has its limit sitting inside $V$. Completeness is the unsung hero of the whole argument; it is what guarantees the limit of our iterates is itself a legitimate value function.</p>
+
+<h3>Induced reward and transition kernel</h3>
+
+<p>Fix a stationary randomized decision rule $d$, which assigns to each state $s$ a distribution $q_d(s,\cdot)$ over actions. Averaging the reward and the transition kernel over that action distribution collapses the MDP into a Markov reward process:</p>
+
+$$r_d(s) := \sum_{a\in A_s} q_d(s,a)\, r(s,a), \qquad p_d(j|s) := \sum_{a\in A_s} q_d(s,a)\, p(j|s,a).$$
+
+<p>Let $P_d$ be the corresponding transition operator. Because each $p_d(\cdot|s)$ is a probability distribution, $P_d$ is row-stochastic, and by the row-sum formula above, $\|P_d\|_\infty = 1$.</p>
+
+<h3>Lemma: the Bellman map stays inside $V$</h3>
+
+<p>Before we can talk about contraction or fixed points, we must check the operator does not throw us out of our space. Assume rewards are bounded, $|r(s,a)| \le M$, and the discount satisfies $0 \le \lambda < 1$. Define</p>
+
+$$(L_d v)(s) := r_d(s) + \lambda (P_d v)(s).$$
+
+<p>Then $L_d : V \to V$. Here is the proof in three small steps.</p>
+
+<p><strong>Step 1: $r_d \in V$.</strong> Since $q_d(s,\cdot)$ is a probability distribution,</p>
+
+$$|r_d(s)| \le \sum_{a\in A_s} q_d(s,a)\,|r(s,a)| \le M,$$
+
+<p>so $\|r_d\|_\infty \le M$.</p>
+
+<p><strong>Step 2: $P_d$ does not increase the norm.</strong> Because $p_d(\cdot|s)$ is a probability distribution, the next-state value is an average of values, and an average never exceeds the worst case:</p>
+
+$$|(P_d v)(s)| \le \sum_j p_d(j|s)\,|v(j)| \le \|v\|_\infty.$$
+
+<p>Equivalently, $\|P_d\|_\infty = 1$, so $\|P_d v\|_\infty \le \|P_d\|_\infty \|v\|_\infty = \|v\|_\infty$.</p>
+
+<p><strong>Step 3: Combine.</strong></p>
+
+$$\|L_d v\|_\infty \le \|r_d\|_\infty + \lambda \|P_d v\|_\infty \le M + \lambda \|v\|_\infty < \infty.$$
+
+<p>Therefore $L_d v \in V$. $\blacksquare$</p>
+
+<p><strong>Remark.</strong> $L_d$ is <em>affine</em>, not linear, because $L_d(0) = r_d \neq 0$ unless rewards vanish everywhere. That additive reward term is why the fixed point is not simply zero; it pins the value function to a nontrivial location. Closure $L_d : V \to V$ is the prerequisite for everything that follows: only a map that sends $V$ into itself can be iterated and can have a fixed point in $V$.</p>
+
+<h2>The Banach fixed-point theorem</h2>
+
+<p>Now the centerpiece. This is the abstract engine; in the next section we just plug $L_d$ into it.</p>
+
+<p><strong>Theorem (Banach Fixed-Point Theorem).</strong> Suppose $V$ is a Banach space and $T:V \to V$ is a contraction mapping, meaning there exists $\lambda$ with $0 \le \lambda < 1$ such that</p>
+
+$$\|Tv - Tu\| \le \lambda \|v-u\| \quad \text{for all } u,v\in V.$$
+
+<p>Then:</p>
+
+<ul>
+<li><strong>(a)</strong> There exists a unique $v^* \in V$ with $Tv^* = v^*$.</li>
+<li><strong>(b)</strong> For any starting point $v^0 \in V$, the iteration $v^{n+1} = Tv^n = T^{\,n+1} v^0$ converges to $v^*$.</li>
+</ul>
+
+<h3>Why the proof has the shape it does</h3>
+
+<p>A Banach space is complete: every Cauchy sequence converges to a limit <em>inside</em> $V$. That dictates the entire strategy. We cannot point at the fixed point directly, so instead we manufacture it as the limit of the iteration. The argument has four forced moves:</p>
+
+<ul>
+<li>Show the iteration $\{v^n\}$ is Cauchy.</li>
+<li>Use completeness to conclude it converges to some $v^* \in V$.</li>
+<li>Show that limit satisfies $Tv^* = v^*$.</li>
+<li>Show there cannot be two distinct fixed points.</li>
+</ul>
+
+<p>A contraction is precisely the property that makes successive iterates close the gap by a uniform factor $\lambda < 1$. That uniform factor is what powers the geometric series in the Cauchy estimate.</p>
+
+<h3>Step 1: the iterates form a Cauchy sequence</h3>
+
+<p><strong>Step 1(a): consecutive steps shrink geometrically.</strong> From $v^{n+1} = T v^n$ and the contraction property applied to the previous step,</p>
+
+$$\|v^{n+1} - v^n\| = \|Tv^n - Tv^{n-1}\| \le \lambda \|v^n - v^{n-1}\|.$$
+
+<p>Peeling this off repeatedly all the way down to the first step,</p>
+
+$$\|v^{n+1} - v^n\| \le \lambda^n \|v^1 - v^0\| \quad \text{for all } n\ge 0.$$
+
+<p>Each application of $T$ shrinks distances by at least $\lambda$, so the step sizes decay geometrically like $\lambda^n$. The iteration brakes hard.</p>
+
+<p><strong>Step 1(b): control any gap, not just consecutive ones.</strong> Being Cauchy requires that <em>distant</em> iterates also be close, so fix $m \ge 1$ and chain the steps with the triangle inequality:</p>
+
+$$\|v^{n+m} - v^n\| \le \sum_{k=n}^{n+m-1} \|v^{k+1} - v^k\| \le \sum_{k=n}^{n+m-1} \lambda^k \|v^1 - v^0\|.$$
+
+<p>The geometric sum is bounded uniformly in $m$ by its infinite tail:</p>
+
+$$\sum_{k=n}^{n+m-1} \lambda^k = \lambda^n \frac{1-\lambda^m}{1-\lambda} \le \frac{\lambda^n}{1-\lambda}.$$
+
+<p>Hence</p>
+
+$$\|v^{n+m} - v^n\| \le \frac{\lambda^n}{1-\lambda}\,\|v^1 - v^0\|.$$
+
+<p>Since $0 \le \lambda < 1$ we have $\lambda^n \to 0$, so for any $\varepsilon > 0$ there is an $N$ with $\|v^{n+m} - v^n\| < \varepsilon$ for all $n \ge N$ and all $m \ge 1$. The sequence is Cauchy. The intuition: far out in the sequence, the total remaining travel is bounded by the tail of a geometric series, which is arbitrarily small.</p>
+
+<h3>Step 2: completeness hands us a limit</h3>
+
+<p>Because $V$ is Banach, every Cauchy sequence converges in $V$. So there exists $v^* \in V$ with</p>
+
+$$\lim_{n\to\infty} v^n = v^*.$$
+
+<p>The contraction makes the iterates bunch up ever tighter; completeness guarantees there is an actual point in $V$ where they land. Without completeness they could "converge" toward a hole not in the space, and the theorem would fail.</p>
+
+<h3>Step 3: the limit is a fixed point</h3>
+
+<p>Two routes to $Tv^* = v^*$; pick whichever you find cleaner.</p>
+
+<p><strong>Step 3(a): limit interchange via continuity.</strong> A contraction is Lipschitz, hence continuous, so it commutes with limits:</p>
+
+$$\lim_{n\to\infty} T v^n = T\!\left(\lim_{n\to\infty} v^n\right) = Tv^*.$$
+
+<p>But $T v^n = v^{n+1}$, and the shifted sequence has the same limit,</p>
+
+$$\lim_{n\to\infty} T v^n = \lim_{n\to\infty} v^{n+1} = v^*.$$
+
+<p>Therefore $Tv^* = v^*$.</p>
+
+<p><strong>Step 3(b): the norm trick, no interchange needed.</strong> Estimate the residual directly by inserting $Tv^n$:</p>
+
+$$\|Tv^* - v^*\| \le \|Tv^* - Tv^n\| + \|Tv^n - v^*\|.$$
+
+<p>Apply contraction to the first term and use $Tv^n = v^{n+1}$ on the second:</p>
+
+$$\|Tv^* - v^*\| \le \lambda \|v^* - v^n\| + \|v^{n+1} - v^*\|.$$
+
+<p>Let $n \to \infty$. Both terms vanish since $v^n \to v^*$, so $\|Tv^* - v^*\| = 0$ and thus $Tv^* = v^*$. Intuitively: once $v^n$ is near $v^*$, applying $T$ cannot pull them apart (contraction), and $Tv^n = v^{n+1}$ is itself near $v^*$, so $Tv^*$ is squeezed onto $v^*$.</p>
+
+<h3>Step 4: the fixed point is unique</h3>
+
+<p>Suppose $u^* \in V$ is another fixed point, $Tu^* = u^*$. Then</p>
+
+$$\|v^* - u^*\| = \|Tv^* - Tu^*\| \le \lambda \|v^* - u^*\|.$$
+
+<p>Rearranging,</p>
+
+$$(1-\lambda)\|v^* - u^*\| \le 0.$$
+
+<p>Since $1 - \lambda > 0$ and norms are nonnegative, this forces $\|v^* - u^*\| = 0$, so $v^* = u^*$. A contraction must strictly shrink the distance between two distinct points, but two fixed points do not move at all, so their distance cannot shrink unless it is already zero. This completes the proof. $\blacksquare$</p>
+
+<h2>Iterative policy evaluation as a fixed-point method</h2>
+
+<p>We have shown that for a stationary Markov decision rule $d \in D^{MR}$, the discounted value function $v_\lambda^{d^\infty}$ satisfies the fixed-point equation</p>
+
+$$v = L_d v, \qquad (L_d v)(s) := r_d(s) + \lambda (P_d v)(s).$$
+
+<p>Everything is now in place to compute that fixed point by simple iteration, because $L_d$ is a contraction on the Banach space $(V, \|\cdot\|_\infty)$.</p>
+
+<h3>Lemma: the Bellman operator is a contraction</h3>
+
+<p>Let $0 \le \lambda < 1$. Then for all $v, w \in V$,</p>
+
+$$\|L_d v - L_d w\|_\infty \le \lambda \|v-w\|_\infty,$$
+
+<p>so $L_d$ is a contraction with modulus $\lambda$. The proof is short because the affine reward term cancels. For any $s \in S$,</p>
+
+$$\begin{aligned} (L_d v)(s) - (L_d w)(s) &= \big(r_d(s) + \lambda (P_d v)(s)\big) - \big(r_d(s) + \lambda (P_d w)(s)\big) \\ &= \lambda (P_d (v-w))(s). \end{aligned}$$
+
+<p>The shared $r_d(s)$ disappears, which is exactly why an affine map can still contract. Taking the sup norm,</p>
+
+$$\|L_d v - L_d w\|_\infty = \lambda \|P_d (v-w)\|_\infty.$$
+
+<p>Since $P_d$ is row-stochastic it does not increase the infinity norm, $\|P_d u\|_\infty \le \|u\|_\infty$, so</p>
+
+$$\|L_d v - L_d w\|_\infty \le \lambda \|v-w\|_\infty. \qquad \blacksquare$$
+
+<p>The discount factor $\lambda$ <em>is</em> the contraction modulus. This is the deep reason discounting matters: it is not just a modeling convenience for valuing the future, it is the mathematical lever that makes the infinite-horizon problem well-posed and solvable by iteration. As $\lambda \to 1$ the contraction weakens and convergence slows, which you feel directly in practice as longer-running evaluation.</p>
+
+<h3>Corollary: existence, uniqueness, and convergence</h3>
+
+<p>Because $(V, \|\cdot\|_\infty)$ is Banach and $L_d$ is a contraction, the Banach fixed-point theorem immediately gives:</p>
+
+<ul>
+<li>there exists a unique $v^* \in V$ with $L_d v^* = v^*$;</li>
+<li>for any initialization $v^{(0)} \in V$, the iteration
+$$v^{(k+1)} = L_d v^{(k)} = r_d + \lambda P_d v^{(k)}$$
+converges to $v^*$.</li>
+</ul>
+
+<p>Moreover, that unique fixed point is exactly the policy value function,</p>
+
+$$v^* = v_\lambda^{d^\infty}.$$
+
+<p>Read that twice: the answer does not depend on $v^{(0)}$. You can start from all zeros, from random noise, from a wild guess, and the iteration funnels you to the same value function. The Banach theorem promised exactly that.</p>
+
+<h3>The algorithm</h3>
+
+<p>The corollary is a recipe. Iterate the operator until consecutive estimates stop moving, and the sup-norm gap between them upper-bounds how far you are from the true fixed point.</p>
+
+<ul>
+<li><strong>Inputs:</strong> stationary rule $d$, induced reward $r_d$, induced transition matrix $P_d$, discount $\lambda \in (0,1)$, tolerance $\varepsilon > 0$.</li>
+<li><strong>Output:</strong> an approximation $v$ to $v_\lambda^{d^\infty}$.</li>
+</ul>
+
+<ol>
+<li>Initialize $v^{(0)} \in V$, for example $v^{(0)} \equiv 0$.</li>
+<li>For $k = 0, 1, 2, \dots$:
+<ul>
+<li>Update $v^{(k+1)} \leftarrow r_d + \lambda P_d v^{(k)}$.</li>
+<li>If $\|v^{(k+1)} - v^{(k)}\|_\infty < \varepsilon$, return $v^{(k+1)}$.</li>
+</ul>
+</li>
+</ol>
+
+<p>That single update line is the contraction in code. Every pass closes the remaining gap by at least a factor of $\lambda$, so the number of iterations to reach tolerance scales like $\log \varepsilon / \log \lambda$. The same skeleton, with the policy-evaluation operator swapped for the optimality operator $\max_a$, is what makes value iteration converge to the optimal value function. The structure you just proved is the backbone of nearly every dynamic-programming method in reinforcement learning.</p>
+  </article>
+  <div class="post-foot">Adapted and expanded from my own notes.</div>
+</div>
+<script>
+// build TOC from h2
+(function(){
+  var art=document.getElementById('article'), list=document.getElementById('toc-list');
+  var hs=art.querySelectorAll('h2,h3'); if(!hs.length){document.getElementById('toc').style.display='none';return;}
+  hs.forEach(function(h,i){
+    if(!h.id) h.id='s'+i;
+    var li=document.createElement('li'); var a=document.createElement('a');
+    a.href='#'+h.id; a.textContent=h.textContent; li.appendChild(a); if(h.tagName==='H3'){li.style.marginLeft='1rem';li.style.fontSize='.92em';} list.appendChild(li);
+  });
+})();
+</script>
+</body>
+</html>

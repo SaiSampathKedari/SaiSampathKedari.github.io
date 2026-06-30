@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Markov Decision Processes: The Formal Object · Sai Sampath Kedari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+<script>function __reveal(){document.documentElement.classList.add('katex-ready');}setTimeout(__reveal,2500);</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" onerror="__reveal()"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onerror="__reveal()"
+  onload="try{renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});}catch(e){}__reveal();"></script>
+<style>
+:root{
+  --bg:#FCFCFB;--ink-90:#13181C;--ink-80:#222A30;--ink-70:#3A444C;--ink-60:#566069;
+  --ink-50:#616B74;--ink-45:#5C656E;--ink-08:#E7E9EA;--teal:#0E7C86;--teal-tint:#EAF4F5;--maize:#FFCB05;
+  --mono:'JetBrains Mono',ui-monospace,monospace;--sans:'Inter',system-ui,sans-serif;--serif:'Newsreader',Georgia,serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink-80);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased;}
+a{color:var(--teal);text-decoration:none;}
+a:hover{text-decoration:underline;text-underline-offset:3px;}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:3px;}
+.top{max-width:760px;margin:0 auto;padding:1.6rem 1.5rem 0;}
+.top a.back{font-family:var(--mono);font-size:.8rem;color:var(--ink-50);}
+.wrap{max-width:760px;margin:0 auto;padding:1.5rem 1.5rem 5rem;}
+.post-head{margin:1rem 0 2rem;}
+.post-head h1{font-family:var(--serif);font-size:clamp(2rem,4vw,2.7rem);line-height:1.15;color:var(--ink-90);font-weight:500;letter-spacing:-.01em;margin:0 0 .8rem;}
+.post-head .dek{font-size:1.1rem;color:var(--ink-60);margin:0 0 1rem;}
+.post-head .meta{font-family:var(--mono);font-size:.78rem;color:var(--ink-45);border-top:1px solid var(--ink-08);padding-top:.8rem;}
+.toc{background:#fff;border:1px solid var(--ink-08);border-radius:8px;padding:1rem 1.2rem;margin:0 0 2.5rem;}
+.toc .toc-h{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-45);margin-bottom:.5rem;}
+.toc ol{margin:0;padding-left:1.1rem;}
+.toc li{margin:.2rem 0;font-size:.9rem;}
+.toc a{color:var(--ink-70);}
+article{font-size:1.13rem;color:var(--ink-80);}
+article h2{font-family:var(--serif);font-weight:500;font-size:1.6rem;color:var(--ink-90);margin:2.4rem 0 .8rem;line-height:1.25;letter-spacing:-.01em;}
+article h3{font-family:var(--sans);font-weight:600;font-size:1.2rem;color:var(--ink-90);margin:1.8rem 0 .6rem;}
+article p{margin:0 0 1.1rem;}
+article ul,article ol{margin:0 0 1.1rem;padding-left:1.4rem;}
+article li{margin:.3rem 0;}
+article strong{color:var(--ink-90);font-weight:600;}
+article code{font-family:var(--mono);font-size:.88em;background:#f1f3f4;padding:.1em .35em;border-radius:4px;}
+.katex-display{margin:1.5em 0;overflow-x:auto;overflow-y:hidden;padding:.2rem 0;}
+.eqn-hidden .katex-display,.eqn-hidden{}
+.katex-display{visibility:hidden;}
+html.katex-ready .katex-display{visibility:visible;}
+.post-foot{margin-top:3.5rem;border-top:1px solid var(--ink-08);padding-top:1.2rem;font-family:var(--mono);font-size:.8rem;color:var(--ink-45);}
+.proto-ribbon{position:fixed;bottom:13px;right:13px;z-index:50;background:var(--ink-90);color:#fff;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:.38rem .75rem;border-radius:100px;opacity:.72;}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+<div class="top"><a class="back" href="/#writing">&larr; Sai Sampath Kedari · Writing</a></div>
+<div class="wrap">
+  <header class="post-head">
+    <h1>Markov Decision Processes: The Formal Object</h1>
+    <p class="dek">A careful, ground-up tour of the MDP as a mathematical object: states, actions, transitions, rewards, the Markov property, and the full hierarchy of decision rules and policies, from history-dependent randomized down to stationary deterministic.</p>
+    <div class="meta">Jun 2026 · 16 min read · mdp, foundations</div>
+  </header>
+  <nav class="toc" id="toc"><div class="toc-h">Contents</div><ol id="toc-list"></ol></nav>
+  <article id="article">
+<p>Before we can talk about <em>solving</em> a sequential decision problem, learning value functions, running policy gradients, or proving a Bellman operator is a contraction, we need to be precise about the object we are reasoning over. That object is the <strong>Markov Decision Process</strong> (MDP). Most reinforcement learning courses introduce it in half a slide and rush to the algorithms. This post does the opposite: it slows down and treats the MDP as a mathematical structure, the way Puterman or a controls textbook would, because almost every subtlety in RL theory (why stationary deterministic policies are enough, why off-policy correction looks the way it does, why the discount factor must be less than one) is already implicit in this formulation.</p>
+
+<p>The payoff for being careful here is large. Once the formal object is nailed down, the rest of RL reads as a sequence of questions <em>about</em> this object: how good is a given policy, which policy is best, and how do we find it without knowing the dynamics.</p>
+
+<h2>What an MDP Models</h2>
+
+<p>A Markov Decision Process is a mathematical model for <strong>sequential decision making under uncertainty</strong>. It describes a system that evolves over time, where the evolution depends not only on random effects but also on deliberate actions chosen by a decision maker.</p>
+
+<p>The cleanest way to place the MDP is to compare it to a Markov chain. A Markov chain evolves on its own; you watch it. An MDP <strong>generalizes a Markov chain by letting the transition probabilities between states depend on the action selected at each decision epoch</strong>. You are no longer a spectator. You steer.</p>
+
+<p>The interaction loop, at each decision epoch, is:</p>
+<ul>
+<li>the system occupies a <strong>state</strong>;</li>
+<li>an <strong>action</strong> is selected;</li>
+<li>an immediate <strong>reward</strong> (or cost) is incurred;</li>
+<li>the system <strong>transitions</strong> to a new state according to a controlled probability law.</li>
+</ul>
+
+<p>As the process unfolds, the decision maker observes a sequence of rewards. The objective of a sequential decision problem is to choose actions over time so as to optimize a prescribed function of this reward sequence. That single sentence is the whole game; everything below is the apparatus needed to make it precise.</p>
+
+<h2>Decision Epochs and Time</h2>
+
+<p>Decisions are made at discrete points in time called <em>decision epochs</em>. We index time by</p>
+
+$$ t = 1, 2, \dots, N. $$
+
+<p>A small but important modeling distinction depends on how much real time elapses between epochs:</p>
+<ul>
+<li>If the time between decision epochs is <strong>constant</strong>, the model is a <em>Markov Decision Process</em>.</li>
+<li>If the time between decision epochs is <strong>random</strong>, the model is a <em>Semi-Markov Decision Process</em>.</li>
+</ul>
+
+<p>Here we restrict attention to discrete decision epochs with constant spacing. Continuous-time decision problems exist, but they are typically treated within control theory (think Hamilton-Jacobi-Bellman rather than the discrete Bellman equation). Keeping time discrete is what makes the sums and the dynamic-programming recursions in later posts well behaved.</p>
+
+<h2>The State Space</h2>
+
+<p>At each decision epoch the system occupies a <strong>state</strong> that summarizes all relevant information needed for future decision making. We denote the state space by $S$ and, throughout, assume it is finite with cardinality</p>
+
+$$ |S| = N. $$
+
+<p>The defining feature of a state is worth stating carefully because it is the whole reason the model is tractable: <strong>given the current state and the action chosen, the future evolution of the system is conditionally independent of the past.</strong> In other words, the state is a sufficient statistic for the future. If your candidate "state" leaks information about the future that is not captured by its current value, it is not really a state, and you have not finished modeling.</p>
+
+<h2>Action Sets</h2>
+
+<p>When the system is in state $s \in S$, the decision maker chooses an action from a set of feasible actions. We denote the available actions in state $s$ by $A_s$, and the set of all actions in the model by</p>
+
+$$ A = \bigcup_{s \in S} A_s. $$
+
+<p>The key design choice here is that the action set is <strong>indexed by the state</strong>. This is not just notational tidiness: letting $A_s$ depend on $s$ is how the model encodes physical, logical, or operational constraints. A robot at a joint limit cannot command motion past it; a queue that is empty cannot serve a customer. Those constraints live in $A_s$, not in some external penalty.</p>
+
+<h2>Immediate Rewards</h2>
+
+<p>If action $a \in A_s$ is chosen when the system is in state $s$ at decision epoch $t$, an immediate reward is received, denoted</p>
+
+$$ r_t(s, a). $$
+
+<p>The reward depends only on:</p>
+<ul>
+<li>the decision epoch $t$,</li>
+<li>the current state $s$,</li>
+<li>the chosen action $a$,</li>
+</ul>
+<p>and <strong>not</strong> on the past history of the process. This memorylessness mirrors the Markov property on the dynamics: just as the next state depends on the past only through $(s, a)$, so does the reward. Depending on the application, $r_t(s,a)$ may represent profits, utilities, or negative costs; the sign convention is yours to pick, and "maximize reward" and "minimize cost" are the same problem with a flipped sign.</p>
+
+<h2>Transition Probabilities and the Markov Property</h2>
+
+<p>After choosing action $a \in A_s$ in state $s$ at time $t$, the system transitions to a new state at the next decision epoch. The transition law is the conditional distribution of the next state given the current state and action:</p>
+
+$$ P_t(s' \mid s, a), \qquad s' \in S. $$
+
+<p>This is the controlled probability law: it is what makes the MDP a chain you <em>drive</em> rather than merely observe. The defining <strong>Markov property</strong> states that the full conditional collapses to this controlled one-step kernel:</p>
+
+$$ \mathbb{P}\bigl(X_{t+1} = s' \mid X_1, \dots, X_t,\, Y_1, \dots, Y_t\bigr) = P_t(s' \mid X_t, Y_t). $$
+
+<p>Here $X_u$ denotes the random state and $Y_u$ the random action at epoch $u$. Read this from left to right: even though you condition on the entire trajectory of states and actions so far, the only things that survive on the right are the <em>current</em> state $X_t$ and the <em>current</em> action $Y_t$. The future depends on the past only through where you are now and what you do now. This is precisely the property that will let dynamic programming work: it justifies replacing "reason about all of history" with "reason about the current state," which is the difference between an intractable problem and a tractable one.</p>
+
+<h2>The Planning Horizon</h2>
+
+<p>The number of decision epochs is called the <strong>planning horizon</strong>.</p>
+<ul>
+<li>If the horizon $T < \infty$, the model is a <em>finite-horizon MDP</em>.</li>
+<li>If $T = \infty$, the model is an <em>infinite-horizon MDP</em>.</li>
+</ul>
+
+<p>The finite-horizon case has one wrinkle. At the terminal epoch $T$ no action is chosen, because there is no "next" state to influence. Instead, a <strong>terminal reward</strong> depending only on the final state is received, denoted</p>
+
+$$ r_N(s_N). $$
+
+<p>This terminal reward is what anchors the backward recursion in finite-horizon dynamic programming: you know the value at the last epoch outright, and you sweep backward from there. Infinite-horizon problems lose this anchor, which is exactly why discounting and fixed-point arguments (the subject of later posts) become necessary.</p>
+
+<h2>Assembling the MDP</h2>
+
+<p>Collecting the pieces, a finite-horizon Markov Decision Process is completely specified by the tuple</p>
+
+$$ \left( S,\ \{A_s\}_{s \in S},\ \{P_t(\cdot \mid s, a)\},\ \{r_t(s, a)\},\ r_N \right). $$
+
+<p>These five objects, the state space, the per-state action sets, the transition kernels, the running rewards, and the terminal reward, define the dynamics, the rewards, and the admissible decisions of the system. Everything else in MDP theory is derived from this tuple. Notice what is <em>not</em> in it: there is no policy yet, and no notion of "optimal." The MDP is the environment; the agent's behavior is a separate object, which we build next.</p>
+
+<h2>Decision Rules and Policies</h2>
+
+<p>At each decision epoch $t$, the system occupies a state $s_t \in S$, and an action must be selected from the feasible set $A_{s_t}$.</p>
+
+<p>A <strong>decision rule</strong> specifies how that action is determined at a single epoch $t$. It is the agent's local behavior, designed by the decision maker, governing action selection at that one decision epoch.</p>
+
+<p>A <strong>policy</strong> stitches these together into a behavior for the whole horizon:</p>
+
+$$ \pi = (d_1, d_2, \dots, d_{N-1}), $$
+
+<p>where $d_t$ is the decision rule used at epoch $t$. A policy is the complete prescription; a decision rule is one frame of it. Most of the subtlety in MDP theory is hiding inside the question of <em>what kind</em> of decision rule we allow, so we now classify them carefully.</p>
+
+<h3>Two Independent Axes</h3>
+
+<p>There are two independent aspects that characterize how a decision rule specifies actions:</p>
+<ol>
+<li><strong>Information:</strong> what does the rule look at? Just the current state, or the entire past?</li>
+<li><strong>Action specification:</strong> does the rule output a single action, or a probability distribution over feasible actions?</li>
+</ol>
+
+<p>The first axis distinguishes <em>Markovian</em> from <em>history-dependent</em> rules. The second distinguishes <em>deterministic</em> from <em>randomized</em> rules. Two binary choices give four classes, and crucially these axes are orthogonal: you can mix and match. Keeping them separate is what makes the later inclusion theorem clean.</p>
+
+<h3>Histories and Available Information</h3>
+
+<p>To make the "information" axis precise we need the notion of <strong>history</strong>. The history of the system up to time $t$ is the full record of states and actions seen so far, ending at the current state:</p>
+
+$$ h_t = (s_1, a_1, s_2, a_2, \dots, s_{t-1}, a_{t-1}, s_t), $$
+
+<p>where $s_u$ and $a_u$ are the state and action at epoch $u$. It is often convenient to write the history recursively, by appending the latest action and state:</p>
+
+$$ h_t = (h_{t-1}, a_{t-1}, s_t). $$
+
+<p>Let $H_t$ denote the set of all possible histories up to time $t$. It is built up the same way:</p>
+
+$$
+\begin{aligned}
+H_1 &= S, \\
+H_t &= H_{t-1} \times A \times S \quad (t \ge 2).
+\end{aligned}
+$$
+
+<p>Unrolling the recursion gives the explicit product form,</p>
+
+$$ H_t = (S \times A)^{t-1} \times S, $$
+
+<p>which makes the combinatorial blowup obvious: the space of histories grows like $(|S|\,|A|)^{t-1}$. This explosion is exactly why we hope, eventually, to get away with only looking at the current state. With the history defined, the information axis is simply:</p>
+<ul>
+<li>a rule is <strong>Markovian</strong> if it depends only on the current state $s_t$;</li>
+<li>a rule is <strong>history-dependent</strong> if it may depend on the entire history $h_t$.</li>
+</ul>
+
+<h2>The Four Classes of Decision Rules</h2>
+
+<p>Crossing the two axes gives four classes. We go from the most restrictive to the most general.</p>
+
+<h3>Deterministic Markovian (MD)</h3>
+
+<p>A deterministic Markovian rule looks only at the current state and returns a single action with certainty:</p>
+
+$$ d_t : S \to A, \qquad d_t(s) \in A_s \text{ for all } s \in S. $$
+
+<p>It is <em>Markovian</em> because it uses only the current state, and <em>deterministic</em> because the action is pinned down once the state is known. Note that the rule may still depend on time through its subscript $t$: the same state can map to different actions at different epochs. This is the class that almost all of practical RL ultimately cares about, a lookup from state to action, and a recurring theme of the theory is showing that this humble class is, under the right criteria, good enough.</p>
+
+<h3>Deterministic History-Dependent (HD)</h3>
+
+<p>A deterministic history-dependent rule uses the entire history but still commits to a single action:</p>
+
+$$ d_t : H_t \to A, \qquad d_t(h_t) \in A_{s_t}, $$
+
+<p>where $s_t$ is the current state contained in $h_t$. The rule is free to use any aspect of the past, but the action it outputs must be feasible <em>now</em>, i.e. in $A_{s_t}$. The feasibility constraint always attaches to the current state, no matter how much history the rule consumed to reach its decision.</p>
+
+<h3>Randomized Markovian (MR)</h3>
+
+<p>A randomized Markovian rule looks only at the current state, but outputs a <em>probability distribution</em> over feasible actions:</p>
+
+$$ d_t : S \to \mathcal{P}(A), \qquad d_t(s) \in \mathcal{P}(A_s). $$
+
+<p>At state $s_t$ the rule produces a distribution over $A_{s_t}$, and the realized action is sampled from it. Here $\mathcal{P}(A_s)$ is the set of all probability distributions on the finite set $A_s$:</p>
+
+$$ \mathcal{P}(A_s) = \Bigl\{ q : A_s \to [0,1] \,\Bigm|\, \sum_{a \in A_s} q(a) = 1 \Bigr\}. $$
+
+<p>The randomness here is a feature of the <em>rule</em>, deliberately injected by the decision maker, and is conceptually distinct from the randomness already living in the transition kernel $P_t$. This is the same stochastic policy you sample from in policy-gradient methods; it is also what makes exploration and certain game-theoretic equilibria possible, since a deterministic player can sometimes be exploited.</p>
+
+<h3>Randomized History-Dependent (HR)</h3>
+
+<p>The most general class uses the full history and outputs a distribution over feasible actions:</p>
+
+$$ d_t : H_t \to \mathcal{P}(A), \qquad d_t(h_t) \in \mathcal{P}(A_{s_t}). $$
+
+<p>This is the broadest class of decision rules considered in finite-state, discrete-time MDP theory. Everything else is a special case. If a good policy exists at all, it exists somewhere inside HR; the entire art is then showing you never actually need this much generality.</p>
+
+<h3>Deterministic Rules as a Special Case of Randomized</h3>
+
+<p>The two axes are not fully symmetric: <strong>deterministic is a degenerate special case of randomized.</strong> A deterministic Markovian rule $d_t$ corresponds to the point-mass distribution</p>
+
+$$
+q_t(a \mid s) =
+\begin{cases}
+1, & a = d_t(s), \\
+0, & \text{otherwise},
+\end{cases}
+$$
+
+<p>and an analogous representation holds in the history-dependent case. This is why we can write inclusions among the classes rather than treating them as four disjoint boxes: collapsing a distribution onto a single point recovers determinism.</p>
+
+<h3>Classification Summary</h3>
+
+<p>The four classes, by their two-letter codes:</p>
+<ul>
+<li><strong>MD</strong>: Markovian and deterministic,</li>
+<li><strong>MR</strong>: Markovian and randomized,</li>
+<li><strong>HD</strong>: history-dependent and deterministic,</li>
+<li><strong>HR</strong>: history-dependent and randomized.</li>
+</ul>
+
+<p>Let $D_t^{(K)}$ denote the set of all decision rules at epoch $t$ in class $K \in \{\mathrm{MD}, \mathrm{MR}, \mathrm{HD}, \mathrm{HR}\}$. We call $D_t^{(K)}$ a <em>decision rule set</em>. This sets up the question that organizes the entire theory.</p>
+
+<h2>The Fundamental Question of MDP Theory</h2>
+
+<p>With four classes of decision rules ranging from a simple state-to-action lookup (MD) to a randomized function of the entire past (HR), the natural question is whether all that generality is ever needed:</p>
+
+<blockquote><p>For a given optimality criterion, under what conditions is it sufficient to restrict attention to deterministic Markovian decision rules?</p></blockquote>
+
+<p>This is not idle. The HR class is astronomically large, the history space $H_t$ grows exponentially in $t$, while the MD class is a finite lookup table. If we can prove that an optimal MD rule always exists, we have reduced an intractable search over policies-that-remember-everything to a tractable search over policies-that-look-at-the-current-state. A large fraction of classical MDP theory exists to answer exactly this question, and for the standard expected-total-reward and discounted criteria the answer is a reassuring "yes, MD suffices."</p>
+
+<h2>Policies, Formally</h2>
+
+<p>A <strong>policy</strong> (also called a contingency plan, plan, or strategy) specifies which decision rule is used at <em>every</em> decision epoch. Intuitively, a policy is a complete prescription for action selection under all possible future evolutions of the system, whether those evolutions are described by states alone (Markovian rules) or by full histories (history-dependent rules). It tells you what to do in every contingency before the process even starts.</p>
+
+<p>Formally,</p>
+
+$$ \pi = (d_1, d_2, \dots, d_{N-1}), $$
+
+<p>where $d_t \in D_t^{(K)}$ for each epoch $t$ and $K \in \{\mathrm{MD}, \mathrm{MR}, \mathrm{HD}, \mathrm{HR}\}$ is the class of decision rules being used. The set of all policies of class $K$ is the product of the per-epoch decision rule sets:</p>
+
+$$ \Pi^{(K)} = D_1^{(K)} \times D_2^{(K)} \times \cdots \times D_{N-1}^{(K)}. $$
+
+<p>The key observation is that <strong>the class of a policy is entirely inherited from the class of its decision rules.</strong> There is nothing more to a policy's classification than the kind of rules it is made of.</p>
+
+<h2>Stationary Policies</h2>
+
+<p>A policy is <strong>stationary</strong> if the same decision rule is used at every epoch:</p>
+
+$$ d_t = d \quad \text{for all } t, $$
+
+<p>so that</p>
+
+$$ \pi = (d, d, d, \dots), $$
+
+<p>often abbreviated $d^\infty$, or just $d$ when context is clear. Stationarity means the action-selection mechanism does not explicitly depend on time: the same rule is applied whenever the system visits a given state, regardless of <em>when</em> that visit happens. Intuitively, this makes sense in the infinite-horizon setting, where there is no special "end" to steer toward; the problem looks the same from every epoch, so an optimal response should too. Stationary policies accordingly play a fundamental role in infinite-horizon MDP theory.</p>
+
+<h3>Stationary Markovian Randomized Policies as Matrices</h3>
+
+<p>Consider a stationary Markovian randomized rule</p>
+
+$$ d : S \to \mathcal{P}(A), \qquad d(s) \in \mathcal{P}(A_s), $$
+
+<p>which assigns to each state a distribution over its feasible actions. Because both $S$ and $A$ are finite, this rule has a clean linear-algebraic representation as a matrix</p>
+
+$$ D = \bigl[ d(s, a) \bigr]_{s \in S,\, a \in A}, \qquad d(s, a) = \mathbb{P}(a \mid s). $$
+
+<p>The matrix satisfies three properties:</p>
+<ul>
+<li>$d(s, a) \ge 0$ for all $s \in S$ and $a \in A$;</li>
+<li>$d(s, a) = 0$ for all $a \notin A_s$ (you cannot put mass on an infeasible action);</li>
+<li>for each $s \in S$, $\displaystyle \sum_{a \in A_s} d(s, a) = 1$.</li>
+</ul>
+
+<p>Each row of $D$ is a state, and that row is a probability distribution over the actions feasible in that state. Hence $D$ is <strong>row-stochastic</strong>; we call it the <em>decision matrix</em> of the policy. This representation is more than bookkeeping: composing $D$ with the transition kernel collapses the controlled MDP into an ordinary Markov chain over states, which is precisely the move that makes policy evaluation a linear-algebra problem in later posts.</p>
+
+<h3>Stationary Markovian Deterministic Policies</h3>
+
+<p>A stationary Markovian deterministic policy is the degenerate special case where each state's distribution is a point mass. For each $s \in S$ the policy selects a single action $a = d(s) \in A_s$ with certainty, so the decision matrix satisfies</p>
+
+$$
+d(s, a) =
+\begin{cases}
+1, & a = d(s), \\
+0, & \text{otherwise}.
+\end{cases}
+$$
+
+<p>Each row of $D$ then has exactly one entry equal to $1$ and the rest equal to $0$: $D$ is a $0/1$ row-stochastic matrix, one chosen action per state. Such policies are sometimes called <strong>pure policies</strong>. We write $\Pi^{\mathrm{SD}}$ for the set of stationary deterministic policies and $\Pi^{\mathrm{SR}}$ for the stationary randomized ones.</p>
+
+<h2>The Hierarchy of Policy Classes</h2>
+
+<p>All these classes are related by inclusion, and laying them out makes the structure of the whole theory visible. Adding generality, time-dependence, history, or randomization, only ever enlarges the set of policies:</p>
+
+$$ \Pi^{\mathrm{SD}} \subset \Pi^{\mathrm{SR}} \subset \Pi^{\mathrm{MR}} \subset \Pi^{\mathrm{HR}}, $$
+
+<p>and along the deterministic branch,</p>
+
+$$ \Pi^{\mathrm{SD}} \subset \Pi^{\mathrm{MD}} \subset \Pi^{\mathrm{MR}} \subset \Pi^{\mathrm{HR}}. $$
+
+<p>Read the chains outward: randomized history-dependent policies ($\Pi^{\mathrm{HR}}$) are the most general, sitting at the top of both, while stationary deterministic policies ($\Pi^{\mathrm{SD}}$) are the most restrictive, sitting at the bottom of both. Every other class lives in between.</p>
+
+<p>This picture frames the central theme we keep returning to. The optimum, if it exists, certainly lives in the big set $\Pi^{\mathrm{HR}}$. The deep and useful results of MDP theory show that, for the standard optimality criteria, the optimum can already be found in the small, structured set $\Pi^{\mathrm{SD}}$, a single fixed lookup table from states to actions. That collapse from "remember everything and randomize" down to "a fixed deterministic map" is what makes dynamic programming, value iteration, and ultimately reinforcement learning possible. The next posts make "optimality criterion" precise and prove the collapse.</p>
+  </article>
+  <div class="post-foot">Adapted and expanded from my own notes.</div>
+</div>
+<script>
+// build TOC from h2
+(function(){
+  var art=document.getElementById('article'), list=document.getElementById('toc-list');
+  var hs=art.querySelectorAll('h2,h3'); if(!hs.length){document.getElementById('toc').style.display='none';return;}
+  hs.forEach(function(h,i){
+    if(!h.id) h.id='s'+i;
+    var li=document.createElement('li'); var a=document.createElement('a');
+    a.href='#'+h.id; a.textContent=h.textContent; li.appendChild(a); if(h.tagName==='H3'){li.style.marginLeft='1rem';li.style.fontSize='.92em';} list.appendChild(li);
+  });
+})();
+</script>
+</body>
+</html>
