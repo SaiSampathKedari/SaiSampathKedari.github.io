@@ -2,8 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<script>document.documentElement.classList.add('js');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>The Banach Fixed-Point Theorem and Why Value Iteration Converges · Sai Sampath Kedari</title>
+<meta name="description" content="The Bellman operator is a contraction on a Banach space, and the Banach fixed-point theorem turns that single fact into existence, uniqueness, and a convergent algorithm." />
+<link rel="canonical" href="https://saisampathkedari.github.io/writing/banach-fixed-point-value-iteration.html" />
+<meta property="og:title" content="The Banach Fixed-Point Theorem and Why Value Iteration Converges" />
+<meta property="og:description" content="The Bellman operator is a contraction, and one fixed-point theorem turns that into existence, uniqueness, and a convergent algorithm." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://saisampathkedari.github.io/writing/banach-fixed-point-value-iteration.html" />
+<meta property="og:image" content="https://saisampathkedari.github.io/images/Profile_Pic.png" />
+<meta name="twitter:card" content="summary" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2313181C'/><text x='29' y='45' font-family='Inter,-apple-system,Arial,sans-serif' font-size='36' font-weight='700' text-anchor='middle' fill='%23FCFCFB'>S</text><circle cx='47' cy='42' r='4.5' fill='%23FFCB05'/></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet" />
@@ -45,11 +55,12 @@ article li{margin:.3rem 0;}
 article strong{color:var(--ink-90);font-weight:600;}
 article code{font-family:var(--mono);font-size:.88em;background:#f1f3f4;padding:.1em .35em;border-radius:4px;}
 .katex-display{margin:1.5em 0;overflow-x:auto;overflow-y:hidden;padding:.2rem 0;}
-.eqn-hidden .katex-display,.eqn-hidden{}
-.katex-display{visibility:hidden;}
-html.katex-ready .katex-display{visibility:visible;}
+html.js #article{visibility:hidden;}
+html.katex-ready #article{visibility:visible;}
 .post-foot{margin-top:3.5rem;border-top:1px solid var(--ink-08);padding-top:1.2rem;font-family:var(--mono);font-size:.8rem;color:var(--ink-45);}
-.proto-ribbon{position:fixed;bottom:13px;right:13px;z-index:50;background:var(--ink-90);color:#fff;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:.38rem .75rem;border-radius:100px;opacity:.72;}
+.post-foot-links{margin-top:.5rem;font-family:var(--mono);font-size:.8rem;color:var(--ink-45);}
+.toc ol ul{list-style:none;margin:.15rem 0;padding-left:1rem;font-size:.92em;}
+@media(max-width:560px){.katex-display{font-size:.85em;}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
 </style>
 </head>
@@ -58,8 +69,8 @@ html.katex-ready .katex-display{visibility:visible;}
 <div class="wrap">
   <header class="post-head">
     <h1>The Banach Fixed-Point Theorem and Why Value Iteration Converges</h1>
-    <p class="dek">A from-scratch walkthrough of why iterative policy evaluation converges: the Bellman operator is a contraction on a Banach space, and the Banach fixed-point theorem turns that single fact into existence, uniqueness, and a convergent algorithm.</p>
-    <div class="meta">Jun 2026 · 11 min read · dynamic-programming, convergence</div>
+    <p class="dek">Why iterative policy evaluation converges: the Bellman operator is a contraction on a Banach space, and the Banach fixed-point theorem turns that single fact into existence, uniqueness, and a convergent algorithm.</p>
+    <div class="meta">Jun 2026 · 12 min read · dynamic-programming, convergence</div>
   </header>
   <nav class="toc" id="toc"><div class="toc-h">Contents</div><ol id="toc-list"></ol></nav>
   <article id="article">
@@ -341,19 +352,39 @@ $$v^* = v_\lambda^{d^\infty}.$$
 </li>
 </ol>
 
-<p>That single update line is the contraction in code. Every pass closes the remaining gap by at least a factor of $\lambda$, so the number of iterations to reach tolerance scales like $\log \varepsilon / \log \lambda$. The same skeleton, with the policy-evaluation operator swapped for the optimality operator $\max_a$, is what makes value iteration converge to the optimal value function. The structure you just proved is the backbone of nearly every dynamic-programming method in reinforcement learning.</p>
+<p>That single update line is the contraction in code. Every pass closes the remaining gap by at least a factor of $\lambda$, so the number of iterations to reach tolerance scales like $\log \varepsilon / \log \lambda$.</p>
+
+<h2>From policy evaluation to value iteration</h2>
+
+<p>Everything so far was for a fixed decision rule $d$. The optimality operator replaces that fixed rule with a maximization over actions,</p>
+
+$$(T^\star v)(s) := \max_{a \in A_s}\Big[\, r(s,a) + \lambda \sum_{j} p(j \mid s,a)\, v(j) \,\Big],$$
+
+<p>and both structural facts survive the max. Closure holds by the same bounded-reward argument. Contraction holds because a maximum can never amplify a difference: using $|\max_a f(a) - \max_a g(a)| \le \max_a |f(a)-g(a)|$, for any $v, w$ and any state $s$,</p>
+
+$$\begin{aligned} |(T^\star v)(s) - (T^\star w)(s)| &\le \max_{a \in A_s} \lambda \Big|\sum_j p(j \mid s,a)\,\big(v(j)-w(j)\big)\Big| \\ &\le \lambda\,\|v-w\|_\infty, \end{aligned}$$
+
+<p>where the last step is the row-stochastic bound once more. Taking the supremum over states gives $\|T^\star v - T^\star w\|_\infty \le \lambda \|v-w\|_\infty$, so $T^\star$ is a contraction on the same Banach space $(V, \|\cdot\|_\infty)$.</p>
+
+<p>The Banach fixed-point theorem then delivers the same three gifts: a unique $v^\star$ with $T^\star v^\star = v^\star$, which the Bellman optimality equation identifies as the optimal value function; convergence of $v^{(k+1)} = T^\star v^{(k)}$ from any initialization; and the same geometric rate $\lambda$. That iteration is exactly <strong>value iteration</strong>. One theorem, two operators, and the two workhorse algorithms of dynamic programming both come out convergent. This structure is the backbone of nearly every dynamic-programming method in reinforcement learning.</p>
   </article>
   <div class="post-foot">Adapted and expanded from my own notes.</div>
+  <div class="post-foot-links"><a href="/">Home</a> &middot; <a href="https://github.com/SaiSampathKedari">GitHub</a> &middot; <a href="https://www.linkedin.com/in/sai-sampath-kedari">LinkedIn</a> &middot; <a href="https://x.com/SSampathKedari">X</a> &middot; <a href="mailto:sampath@umich.edu">sampath@umich.edu</a> &middot; <a href="/files/Resume_SaiSampathKedari.pdf">CV</a></div>
 </div>
 <script>
 // build TOC from h2
 (function(){
   var art=document.getElementById('article'), list=document.getElementById('toc-list');
   var hs=art.querySelectorAll('h2,h3'); if(!hs.length){document.getElementById('toc').style.display='none';return;}
+  var lastLi=null, sub=null;
   hs.forEach(function(h,i){
     if(!h.id) h.id='s'+i;
     var li=document.createElement('li'); var a=document.createElement('a');
-    a.href='#'+h.id; a.textContent=h.textContent; li.appendChild(a); if(h.tagName==='H3'){li.style.marginLeft='1rem';li.style.fontSize='.92em';} list.appendChild(li);
+    a.href='#'+h.id; a.textContent=h.textContent; li.appendChild(a);
+    if(h.tagName==='H3' && lastLi){
+      if(!sub){sub=document.createElement('ul');lastLi.appendChild(sub);}
+      sub.appendChild(li);
+    } else { list.appendChild(li); lastLi=li; sub=null; }
   });
 })();
 </script>

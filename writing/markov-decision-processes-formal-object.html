@@ -2,8 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<script>document.documentElement.classList.add('js');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Markov Decision Processes: The Formal Object · Sai Sampath Kedari</title>
+<meta name="description" content="A ground-up tour of the MDP as a mathematical object: states, actions, transitions, rewards, the Markov property, and the hierarchy of decision rules and policies." />
+<link rel="canonical" href="https://saisampathkedari.github.io/writing/markov-decision-processes-formal-object.html" />
+<meta property="og:title" content="Markov Decision Processes: The Formal Object" />
+<meta property="og:description" content="A ground-up tour of the MDP: states, actions, transitions, rewards, the Markov property, and the hierarchy of policies." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://saisampathkedari.github.io/writing/markov-decision-processes-formal-object.html" />
+<meta property="og:image" content="https://saisampathkedari.github.io/images/Profile_Pic.png" />
+<meta name="twitter:card" content="summary" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2313181C'/><text x='29' y='45' font-family='Inter,-apple-system,Arial,sans-serif' font-size='36' font-weight='700' text-anchor='middle' fill='%23FCFCFB'>S</text><circle cx='47' cy='42' r='4.5' fill='%23FFCB05'/></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet" />
@@ -45,11 +55,12 @@ article li{margin:.3rem 0;}
 article strong{color:var(--ink-90);font-weight:600;}
 article code{font-family:var(--mono);font-size:.88em;background:#f1f3f4;padding:.1em .35em;border-radius:4px;}
 .katex-display{margin:1.5em 0;overflow-x:auto;overflow-y:hidden;padding:.2rem 0;}
-.eqn-hidden .katex-display,.eqn-hidden{}
-.katex-display{visibility:hidden;}
-html.katex-ready .katex-display{visibility:visible;}
+html.js #article{visibility:hidden;}
+html.katex-ready #article{visibility:visible;}
 .post-foot{margin-top:3.5rem;border-top:1px solid var(--ink-08);padding-top:1.2rem;font-family:var(--mono);font-size:.8rem;color:var(--ink-45);}
-.proto-ribbon{position:fixed;bottom:13px;right:13px;z-index:50;background:var(--ink-90);color:#fff;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:.38rem .75rem;border-radius:100px;opacity:.72;}
+.post-foot-links{margin-top:.5rem;font-family:var(--mono);font-size:.8rem;color:var(--ink-45);}
+.toc ol ul{list-style:none;margin:.15rem 0;padding-left:1rem;font-size:.92em;}
+@media(max-width:560px){.katex-display{font-size:.85em;}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
 </style>
 </head>
@@ -63,7 +74,7 @@ html.katex-ready .katex-display{visibility:visible;}
   </header>
   <nav class="toc" id="toc"><div class="toc-h">Contents</div><ol id="toc-list"></ol></nav>
   <article id="article">
-<p>Before we can talk about <em>solving</em> a sequential decision problem, learning value functions, running policy gradients, or proving a Bellman operator is a contraction, we need to be precise about the object we are reasoning over. That object is the <strong>Markov Decision Process</strong> (MDP). Most reinforcement learning courses introduce it in half a slide and rush to the algorithms. This post does the opposite: it slows down and treats the MDP as a mathematical structure, the way Puterman or a controls textbook would, because almost every subtlety in RL theory (why stationary deterministic policies are enough, why off-policy correction looks the way it does, why the discount factor must be less than one) is already implicit in this formulation.</p>
+<p>Before we can talk about <em>solving</em> a sequential decision problem, learning value functions, running policy gradients, or proving a Bellman operator is a contraction, we need to be precise about the object we are reasoning over. That object is the <strong>Markov Decision Process</strong> (MDP). It is usually introduced quickly, on the way to the algorithms. This post slows down instead and treats the MDP as a mathematical structure, the way Puterman or a controls textbook would, because almost every subtlety in RL theory (why stationary deterministic policies are enough, why off-policy correction looks the way it does, why the discount factor must be less than one) is already implicit in this formulation.</p>
 
 <p>The payoff for being careful here is large. Once the formal object is nailed down, the rest of RL reads as a sequence of questions <em>about</em> this object: how good is a given policy, which policy is best, and how do we find it without knowing the dynamics.</p>
 
@@ -99,9 +110,7 @@ $$ t = 1, 2, \dots, N. $$
 
 <h2>The State Space</h2>
 
-<p>At each decision epoch the system occupies a <strong>state</strong> that summarizes all relevant information needed for future decision making. We denote the state space by $S$ and, throughout, assume it is finite with cardinality</p>
-
-$$ |S| = N. $$
+<p>At each decision epoch the system occupies a <strong>state</strong> that summarizes all relevant information needed for future decision making. We denote the state space by $S$ and, throughout, assume it is finite, $|S| < \infty$. (We reserve $N$ for the horizon, the number of decision epochs.)</p>
 
 <p>The defining feature of a state is worth stating carefully because it is the whole reason the model is tractable: <strong>given the current state and the action chosen, the future evolution of the system is conditionally independent of the past.</strong> In other words, the state is a sufficient statistic for the future. If your candidate "state" leaks information about the future that is not captured by its current value, it is not really a state, and you have not finished modeling.</p>
 
@@ -143,11 +152,11 @@ $$ \mathbb{P}\bigl(X_{t+1} = s' \mid X_1, \dots, X_t,\, Y_1, \dots, Y_t\bigr) = 
 
 <p>The number of decision epochs is called the <strong>planning horizon</strong>.</p>
 <ul>
-<li>If the horizon $T < \infty$, the model is a <em>finite-horizon MDP</em>.</li>
-<li>If $T = \infty$, the model is an <em>infinite-horizon MDP</em>.</li>
+<li>If the horizon $N < \infty$, the model is a <em>finite-horizon MDP</em>.</li>
+<li>If $N = \infty$, the model is an <em>infinite-horizon MDP</em>.</li>
 </ul>
 
-<p>The finite-horizon case has one wrinkle. At the terminal epoch $T$ no action is chosen, because there is no "next" state to influence. Instead, a <strong>terminal reward</strong> depending only on the final state is received, denoted</p>
+<p>The finite-horizon case has one wrinkle. At the terminal epoch $N$ no action is chosen, because there is no "next" state to influence. Instead, a <strong>terminal reward</strong> depending only on the final state is received, denoted</p>
 
 $$ r_N(s_N). $$
 
@@ -360,16 +369,22 @@ $$ \Pi^{\mathrm{SD}} \subset \Pi^{\mathrm{MD}} \subset \Pi^{\mathrm{MR}} \subset
 <p>This picture frames the central theme we keep returning to. The optimum, if it exists, certainly lives in the big set $\Pi^{\mathrm{HR}}$. The deep and useful results of MDP theory show that, for the standard optimality criteria, the optimum can already be found in the small, structured set $\Pi^{\mathrm{SD}}$, a single fixed lookup table from states to actions. That collapse from "remember everything and randomize" down to "a fixed deterministic map" is what makes dynamic programming, value iteration, and ultimately reinforcement learning possible. The next posts make "optimality criterion" precise and prove the collapse.</p>
   </article>
   <div class="post-foot">Adapted and expanded from my own notes.</div>
+  <div class="post-foot-links"><a href="/">Home</a> &middot; <a href="https://github.com/SaiSampathKedari">GitHub</a> &middot; <a href="https://www.linkedin.com/in/sai-sampath-kedari">LinkedIn</a> &middot; <a href="https://x.com/SSampathKedari">X</a> &middot; <a href="mailto:sampath@umich.edu">sampath@umich.edu</a> &middot; <a href="/files/Resume_SaiSampathKedari.pdf">CV</a></div>
 </div>
 <script>
 // build TOC from h2
 (function(){
   var art=document.getElementById('article'), list=document.getElementById('toc-list');
   var hs=art.querySelectorAll('h2,h3'); if(!hs.length){document.getElementById('toc').style.display='none';return;}
+  var lastLi=null, sub=null;
   hs.forEach(function(h,i){
     if(!h.id) h.id='s'+i;
     var li=document.createElement('li'); var a=document.createElement('a');
-    a.href='#'+h.id; a.textContent=h.textContent; li.appendChild(a); if(h.tagName==='H3'){li.style.marginLeft='1rem';li.style.fontSize='.92em';} list.appendChild(li);
+    a.href='#'+h.id; a.textContent=h.textContent; li.appendChild(a);
+    if(h.tagName==='H3' && lastLi){
+      if(!sub){sub=document.createElement('ul');lastLi.appendChild(sub);}
+      sub.appendChild(li);
+    } else { list.appendChild(li); lastLi=li; sub=null; }
   });
 })();
 </script>

@@ -6,6 +6,14 @@
 <script>document.documentElement.classList.add('js');</script>
 <title>Sai Sampath Kedari</title>
 <meta name="description" content="Sai Sampath Kedari is a Robotics and AI researcher working on reinforcement learning, robot learning, probabilistic state estimation, and optimal control." />
+<link rel="canonical" href="https://saisampathkedari.github.io/" />
+<meta property="og:title" content="Sai Sampath Kedari" />
+<meta property="og:description" content="Robotics and AI researcher working on reinforcement learning, robot learning, probabilistic state estimation, and optimal control." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://saisampathkedari.github.io/" />
+<meta property="og:image" content="https://saisampathkedari.github.io/images/Profile_Pic.png" />
+<meta name="twitter:card" content="summary" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2313181C'/><text x='29' y='45' font-family='Inter,-apple-system,Arial,sans-serif' font-size='36' font-weight='700' text-anchor='middle' fill='%23FCFCFB'>S</text><circle cx='47' cy='42' r='4.5' fill='%23FFCB05'/></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
@@ -42,7 +50,6 @@ a:hover{color:#0a5a62;}
 :focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:3px;}
 .skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--ink-90);color:#fff;padding:.6rem 1rem;font-family:var(--mono);font-size:.8rem;border-radius:0 0 8px 0;}
 .skip:focus{left:0;color:#fff;}
-.proto-ribbon{position:fixed;bottom:13px;right:13px;z-index:120;background:var(--ink-90);color:#fff;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:.38rem .75rem;border-radius:100px;opacity:.7;}
 
 .container{max-width:var(--maxw);margin:0 auto;padding:0 1.6rem;}
 
@@ -64,7 +71,7 @@ a:hover{color:#0a5a62;}
 .shead .kick{font-family:var(--mono);font-size:.75rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-50);margin-bottom:.55rem;}
 .shead .rule{height:1px;background:var(--maize);width:100%;}
 .shead .sub{color:var(--ink-60);margin-top:.9rem;max-width:64ch;}
-.subkick{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-45);margin:2.2rem 0 1rem;}
+.subkick{font-family:var(--mono);font-size:.72rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-45);margin:2.2rem 0 1rem;}
 
 section{padding:4rem 0;}
 
@@ -78,7 +85,7 @@ section{padding:4rem 0;}
 .hero .pos{font-size:1.02rem;color:var(--teal);line-height:1.55;margin-bottom:1.15rem;max-width:66ch;font-weight:500;}
 .hero .bio{color:var(--ink-80);max-width:62ch;margin-bottom:.9rem;}
 .icons{display:flex;align-items:center;gap:1.15rem;font-size:1.3rem;margin-top:1.4rem;}
-.icons a{color:var(--ink-60);}
+.icons a{color:var(--ink-60);display:inline-flex;transition:color var(--t),transform var(--t);}
 .icons a:hover{color:var(--teal);transform:translateY(-2px);}
 .icons .cv{font-family:var(--mono);font-size:.8rem;font-weight:500;border-left:1px solid var(--ink-08);padding-left:1.1rem;}
 .hero-photo{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:7px;box-shadow:0 6px 22px rgba(17,24,28,.14);}
@@ -100,7 +107,8 @@ section{padding:4rem 0;}
 .proj:hover{border-color:var(--teal-30);transform:translateY(-2px);box-shadow:var(--shadow-lift);}
 .proj.planned{background:#fcfdfd;border-style:dashed;padding:1.3rem 1.6rem;margin-bottom:1rem;}
 .proj-head{display:flex;justify-content:space-between;align-items:center;gap:.5rem .9rem;flex-wrap:wrap;}
-.proj-head h3{font-size:1.25rem;font-weight:700;}
+.proj-head h4{font-size:1.25rem;font-weight:700;}
+@media(max-width:560px){.proj-head{flex-direction:column;align-items:flex-start;gap:.4rem;}}
 .lead2{color:var(--ink-80);font-size:1rem;margin:.5rem 0 1rem;max-width:64ch;}
 .proj-main{display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:1.7rem;align-items:start;}
 .proj-main.nomedia{grid-template-columns:1fr;}
@@ -129,14 +137,15 @@ section{padding:4rem 0;}
 .chip.planned{border-style:dashed;border-color:var(--ink-30);color:var(--ink-50);}
 
 /* math well */
-.mathwell{background:var(--teal-tint);border-left:3px solid var(--teal);border-radius:6px;padding:.3rem 1rem;margin:1.1rem 0 .2rem;overflow-x:auto;color:var(--ink-90);visibility:hidden;}
+.mathwell{background:var(--teal-tint);border-left:3px solid var(--teal);border-radius:6px;padding:.3rem 1rem;margin:1.1rem 0 .2rem;overflow-x:auto;color:var(--ink-90);}
+html.js .mathwell{visibility:hidden;}
 html.katex-ready .mathwell{visibility:visible;}
 .mathwell .katex-display{margin:.6em 0;}
-@media(max-width:560px){.mathwell{padding:.3rem .7rem;}.mathwell .katex-display{font-size:.8em;}}
+@media(max-width:560px){.mathwell{padding:.3rem .7rem;}.mathwell .katex-display{font-size:.75em;}}
 
 /* links + disclosure */
 .proj-links{display:flex;flex-wrap:wrap;gap:1.1rem;margin-top:1rem;font-family:var(--mono);font-size:.82rem;}
-.proj-links a.muted{color:var(--ink-45);}
+.proj-links .muted{color:var(--ink-45);}
 details.reports{margin:.8rem 0 0;}
 details.reports summary{font-family:var(--mono);font-size:.8rem;color:var(--teal);cursor:pointer;list-style:none;}
 details.reports summary::-webkit-details-marker{display:none;}
@@ -152,7 +161,7 @@ details.reports li{font-size:.82rem;margin:.25rem 0;break-inside:avoid;}
 .thumbs .t span{display:block;font-size:.68rem;color:var(--ink-50);padding:.35rem .5rem;border-top:1px solid var(--ink-08);}
 
 /* foundations with covers */
-.fgrid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,360px));justify-content:start;gap:1.1rem;}
+.fgrid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(290px,100%),1fr));gap:1.1rem;}
 .fbook{display:flex;gap:1rem;align-items:flex-start;background:var(--surface);border:1px solid var(--ink-08);border-radius:8px;padding:1rem;box-shadow:var(--shadow);transition:border-color var(--t),transform var(--t);}
 .fbook:hover{border-color:var(--teal-30);transform:translateY(-2px);}
 .fcover{flex:0 0 86px;width:86px;aspect-ratio:3/4;border-radius:4px;overflow:hidden;background:#eef0f2;box-shadow:0 3px 10px rgba(17,24,28,.16);}
@@ -164,7 +173,7 @@ details.reports li{font-size:.82rem;margin:.25rem 0;break-inside:avoid;}
 
 /* about */
 .about-intro{color:var(--ink-80);max-width:62ch;margin-bottom:1.6rem;}
-.about-sub{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-45);margin:1.8rem 0 .9rem;}
+.about-sub{font-family:var(--mono);font-size:.72rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-45);margin:1.8rem 0 .9rem;}
 .xrow{display:grid;grid-template-columns:46px 1fr auto;gap:1rem;align-items:start;background:var(--surface);border:1px solid var(--ink-08);border-radius:8px;padding:.85rem 1.1rem;margin-bottom:.7rem;box-shadow:var(--shadow);transition:border-color var(--t),transform var(--t);}
 .xrow:hover{border-color:var(--teal-30);transform:translateY(-2px);}
 .xlogo{width:46px;height:46px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--ink-08);}
@@ -184,7 +193,7 @@ footer .small{font-family:var(--mono);font-size:.74rem;color:var(--ink-45);}
 /* reveal */
 html.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s var(--easing),transform .6s var(--easing);}
 html.js .reveal.in{opacity:1;transform:none;}
-@media(max-width:560px){.nav-links{gap:.9rem;font-size:.72rem;-webkit-mask-image:linear-gradient(90deg,#000 90%,transparent);mask-image:linear-gradient(90deg,#000 90%,transparent);}.brand{font-size:.85rem;}}
+@media(max-width:560px){.nav-in{flex-wrap:wrap;row-gap:.15rem;padding:.6rem 1.2rem;}.brand{font-size:.85rem;}.nav-links{width:100%;gap:.9rem;}.nav-links a{font-size:.72rem;}}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto;}
   .reveal{opacity:1 !important;transform:none !important;transition:none;}
@@ -217,13 +226,13 @@ html.js .reveal.in{opacity:1;transform:none;}
     <div>
       <div class="otw"><span class="gdot"></span> Open to Robotics &amp; AI roles</div>
       <h1>Sai Sampath Kedari</h1>
-      <p class="pos">Robotics and AI researcher, working on reinforcement learning and robot learning, with a foundation in probabilistic state estimation and optimal control.</p>
+      <p class="pos">Robotics and AI researcher, working on reinforcement learning and moving toward robot learning, with a foundation in probabilistic state estimation and optimal control.</p>
       <p class="bio">I like to learn things from the ground up, so I build everything from scratch: I derive the math, write it up, implement the algorithms, and test them on small problems. I care about understanding why a method works, not just getting it to run.</p>
       <div class="icons">
-        <a href="https://github.com/SaiSampathKedari" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/sai-sampath-kedari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://x.com/SSampathKedari" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-        <a href="mailto:sampath@umich.edu" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/SaiSampathKedari" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/sai-sampath-kedari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+        <a href="https://x.com/SSampathKedari" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+        <a href="mailto:sampath@umich.edu" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
         <a class="cv" href="/files/Resume_SaiSampathKedari.pdf" target="_blank" rel="noopener noreferrer">CV</a>
       </div>
     </div>
@@ -240,33 +249,33 @@ html.js .reveal.in{opacity:1;transform:none;}
       <p class="sub">I build the stack from scratch: probability and Monte Carlo, state estimation, the theory of decisions, and reinforcement learning, with deep RL and robot learning next.</p>
     </div>
 
-    <div class="subkick reveal">Up next</div>
+    <h3 class="subkick reveal">Up next</h3>
 
     <!-- Robot Learning (planned, minimal) -->
     <article class="proj planned reveal">
-      <div class="proj-head"><h3>Robot Learning</h3><span class="chip planned">Planned</span></div>
+      <div class="proj-head"><h4>Robot Learning</h4><span class="chip planned">Planned</span></div>
       <p class="lead2">Next up: manipulation-first robot learning from scratch, following the ETH Robot Learning course, toward a physical OpenARM arm.</p>
       <div class="ptags"><span>Imitation Learning</span><span>Action Chunking Transformer</span><span>Diffusion Policy</span><span>Decision Transformer</span><span>Sim-to-Real</span><span>OpenARM</span></div>
-      <div class="proj-links"><a class="muted" href="https://github.com/SaiSampathKedari/Robot-Learning" target="_blank" rel="noopener noreferrer">Repo coming soon</a></div>
+      <div class="proj-links"><span class="muted">Repo coming soon</span></div>
     </article>
 
     <!-- Deep RL (planned, minimal) -->
     <article class="proj planned reveal">
-      <div class="proj-head"><h3>Deep Reinforcement Learning</h3><span class="chip planned">Planned</span></div>
+      <div class="proj-head"><h4>Deep Reinforcement Learning</h4><span class="chip planned">Planned</span></div>
       <p class="lead2">Next up: deep reinforcement learning from scratch, following Finn (CS224R) and Levine (CS285), toward MuJoCo continuous control and a manipulation milestone.</p>
       <div class="ptags"><span>REINFORCE</span><span>GAE</span><span>PPO</span><span>TRPO</span><span>DQN</span><span>DDPG</span><span>TD3</span><span>SAC</span><span>MuJoCo</span></div>
-      <div class="proj-links"><a class="muted" href="https://github.com/SaiSampathKedari/Deep-Reinforcement-Learning" target="_blank" rel="noopener noreferrer">Repo coming soon</a></div>
+      <div class="proj-links"><span class="muted">Repo coming soon</span></div>
     </article>
 
-    <div class="subkick reveal">Built from scratch</div>
+    <h3 class="subkick reveal">Built from scratch</h3>
 
     <!-- Reinforcement Learning -->
     <article class="proj reveal">
-      <div class="proj-head"><h3>Reinforcement Learning</h3><span class="chip progress">In progress</span></div>
+      <div class="proj-head"><h4>Reinforcement Learning</h4><span class="chip progress">In progress</span></div>
       <p class="lead2">A from-scratch walk through reinforcement learning, built method by method from Sutton and Barto.</p>
       <div class="proj-main">
         <div class="media">
-          <div class="fr"><video autoplay muted loop playsinline preload="none" poster="/images/portfolio/posters/rl_mountain_car_policy.jpg" aria-label="Learned Mountain Car policy reaching the goal"><source src="/images/portfolio/rl_mountain_car_policy.mp4" type="video/mp4"></video></div>
+          <div class="fr" style="aspect-ratio:1000/740"><video muted loop playsinline preload="none" poster="/images/portfolio/posters/rl_mountain_car_policy.jpg" aria-label="Learned Mountain Car policy reaching the goal"><source src="/images/portfolio/rl_mountain_car_policy.mp4" type="video/mp4"></video></div>
           <div class="cap">Mountain Car: a learned semi-gradient Sarsa policy with tile coding, building momentum to reach the goal.</div>
         </div>
         <div class="proj-body">
@@ -277,14 +286,14 @@ html.js .reveal.in{opacity:1;transform:none;}
           </ul></div>
           <div class="blk"><div class="blk-l">In progress</div><p>Chapter 13 policy gradients next, then model-based planning, off-policy with approximation, and eligibility traces.</p></div>
           <div class="blk"><div class="blk-l">Reproduced</div><p>Blackjack (Fig 5.2), Windy Gridworld (15-step optimal path), 1000-state Random Walk (Figs 9.1, 9.2), Mountain Car (Fig 10.1 cost-to-go).</p></div>
-          <div class="artifacts">11 derivation reports · learned-policy animation</div>
+          <div class="artifacts">12 derivation reports · learned-policy animation</div>
         </div>
       </div>
       <div class="mathwell">
         $$ \nabla_\theta J(\theta) = \mathbb{E}_{\pi_\theta}\!\big[\, \nabla_\theta \log \pi_\theta(a\mid s)\, q_{\pi_\theta}(s,a) \,\big] $$
       </div>
       <details class="reports">
-        <summary>The 11 derivation reports</summary>
+        <summary>The 12 derivation reports</summary>
         <ol>
           <li><a href="https://github.com/SaiSampathKedari/Reinforcement-Learning/blob/master/reports/01_Monte-Carlo-Control-with-Exploring-Starts.pdf" target="_blank" rel="noopener noreferrer">Monte Carlo Control with Exploring Starts</a></li>
           <li><a href="https://github.com/SaiSampathKedari/Reinforcement-Learning/blob/master/reports/02_Monte-Carlo-Control-without-Exploring-Starts.pdf" target="_blank" rel="noopener noreferrer">Monte Carlo Control without Exploring Starts</a></li>
@@ -297,6 +306,7 @@ html.js .reveal.in{opacity:1;transform:none;}
           <li><a href="https://github.com/SaiSampathKedari/Reinforcement-Learning/blob/master/reports/10_Policy-Gradient-Theorem.pdf" target="_blank" rel="noopener noreferrer">Policy Gradient Theorem</a></li>
           <li><a href="https://github.com/SaiSampathKedari/Reinforcement-Learning/blob/master/reports/11_Average-Reward-Policy-Gradient-Theorem.pdf" target="_blank" rel="noopener noreferrer">Average-Reward Policy Gradient Theorem</a></li>
           <li><a href="https://github.com/SaiSampathKedari/Reinforcement-Learning/blob/master/reports/12_Policy-Gradient-Theorem_Episodic-Trajectory-Route.pdf" target="_blank" rel="noopener noreferrer">Policy Gradient Theorem: Episodic Trajectory Route</a></li>
+          <li><a href="https://github.com/SaiSampathKedari/Reinforcement-Learning/blob/master/reports/13_Policy-Gradient-Preliminaries.pdf" target="_blank" rel="noopener noreferrer">Policy Gradient Preliminaries</a></li>
         </ol>
       </details>
       <div class="proj-links">
@@ -307,11 +317,11 @@ html.js .reveal.in{opacity:1;transform:none;}
 
     <!-- Bayesian Filtering & Smoothing -->
     <article class="proj reveal">
-      <div class="proj-head"><h3>Bayesian Filtering and Smoothing</h3><span class="chip done">Done</span></div>
-      <p class="lead2">A from-scratch study of how a robot tracks its hidden state under noisy sensors, built from Sarkka.</p>
+      <div class="proj-head"><h4>Bayesian Filtering and Smoothing</h4><span class="chip done">Done</span></div>
+      <p class="lead2">How a robot tracks its hidden state under noisy sensors, derived and implemented filter by filter from Sarkka.</p>
       <div class="proj-main">
         <div class="media">
-          <div class="fr"><video autoplay muted loop playsinline preload="none" poster="/images/portfolio/posters/bf_pendulum_ekf.jpg" aria-label="Extended Kalman Filter tracking a nonlinear pendulum"><source src="/images/portfolio/bf_pendulum_ekf.mp4" type="video/mp4"></video></div>
+          <div class="fr" style="aspect-ratio:16/9"><video muted loop playsinline preload="none" poster="/images/portfolio/posters/bf_pendulum_ekf.jpg" aria-label="Extended Kalman Filter tracking a nonlinear pendulum"><source src="/images/portfolio/bf_pendulum_ekf.mp4" type="video/mp4"></video></div>
           <div class="cap">Extended Kalman Filter tracking a nonlinear pendulum: true state versus estimate, with the covariance evolving over time.</div>
         </div>
         <div class="proj-body">
@@ -322,18 +332,18 @@ html.js .reveal.in{opacity:1;transform:none;}
           </ul></div>
           <div class="blk"><div class="blk-l">Failure modes characterized</div><p>EKF linearization breakdown, particle weight degeneracy, UKF sigma-point collapse.</p></div>
           <div class="blk"><div class="blk-l">Companion · Bayesian Inference</div><p>System identification as parameter inference, on an SIR model, with identifiability, Laplace approximation, and DRAM-MCMC.</p></div>
-          <div class="artifacts">~13 reports · pendulum filtering animations</div>
+          <div class="artifacts">14 reports · pendulum filtering animations</div>
         </div>
       </div>
       <details class="reports">
         <summary>More filters: unscented and Gauss-Hermite</summary>
         <div class="thumbs">
-          <div class="t"><div class="fr"><video autoplay muted loop playsinline preload="none" poster="/images/portfolio/posters/bf_pendulum_ukf.jpg" aria-label="Unscented Kalman Filter on a pendulum"><source src="/images/portfolio/bf_pendulum_ukf.mp4" type="video/mp4"></video></div><span>Unscented KF</span></div>
-          <div class="t"><div class="fr"><video autoplay muted loop playsinline preload="none" poster="/images/portfolio/posters/bf_pendulum_ghkf3.jpg" aria-label="Gauss-Hermite Kalman Filter on a pendulum"><source src="/images/portfolio/bf_pendulum_ghkf3.mp4" type="video/mp4"></video></div><span>Gauss-Hermite KF</span></div>
+          <div class="t"><div class="fr" style="aspect-ratio:16/9"><video muted loop playsinline preload="none" poster="/images/portfolio/posters/bf_pendulum_ukf.jpg" aria-label="Unscented Kalman Filter on a pendulum"><source src="/images/portfolio/bf_pendulum_ukf.mp4" type="video/mp4"></video></div><span>Unscented KF</span></div>
+          <div class="t"><div class="fr" style="aspect-ratio:16/9"><video muted loop playsinline preload="none" poster="/images/portfolio/posters/bf_pendulum_ghkf3.jpg" aria-label="Gauss-Hermite Kalman Filter on a pendulum"><source src="/images/portfolio/bf_pendulum_ghkf3.mp4" type="video/mp4"></video></div><span>Gauss-Hermite KF</span></div>
         </div>
       </details>
       <div class="mathwell">
-        $$ p(\mathbf{x}_k \mid \mathbf{y}_{1:k}) = \frac{p(\mathbf{y}_k \mid \mathbf{x}_k)\, p(\mathbf{x}_k \mid \mathbf{y}_{1:k-1})}{\displaystyle\int p(\mathbf{y}_k \mid \mathbf{x}_k)\, p(\mathbf{x}_k \mid \mathbf{y}_{1:k-1})\, d\mathbf{x}_k} $$
+        $$ p(\mathbf{x}_k \mid \mathbf{y}_{1:k}) \propto p(\mathbf{y}_k \mid \mathbf{x}_k)\, p(\mathbf{x}_k \mid \mathbf{y}_{1:k-1}) $$
       </div>
       <div class="proj-links">
         <a href="https://github.com/SaiSampathKedari/Bayesian-Filtering-and-Smoothing" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -344,11 +354,11 @@ html.js .reveal.in{opacity:1;transform:none;}
 
     <!-- Monte Carlo -->
     <article class="proj reveal">
-      <div class="proj-head"><h3>Monte Carlo Statistical Methods</h3><span class="chip done">Done</span></div>
+      <div class="proj-head"><h4>Monte Carlo Statistical Methods</h4><span class="chip done">Done</span></div>
       <p class="lead2">Sampling from hard distributions and estimating what you cannot compute by hand, built from Casella and Robert.</p>
       <div class="proj-main">
         <div class="media">
-          <div class="fr"><video autoplay muted loop playsinline preload="none" poster="/images/portfolio/posters/dram_banana.jpg" aria-label="DRAM adaptive MCMC exploring a banana-shaped target"><source src="/images/montecarlo/animations/dram_banana.mp4" type="video/mp4"></video></div>
+          <div class="fr" style="aspect-ratio:1650/1350"><video muted loop playsinline preload="none" poster="/images/portfolio/posters/dram_banana.jpg" aria-label="DRAM adaptive MCMC exploring a banana-shaped target"><source src="/images/montecarlo/animations/dram_banana.mp4" type="video/mp4"></video></div>
           <div class="cap">DRAM (delayed-rejection adaptive Metropolis) exploring a curved banana target, learning its covariance as it goes.</div>
         </div>
         <div class="proj-body">
@@ -363,7 +373,7 @@ html.js .reveal.in{opacity:1;transform:none;}
         </div>
       </div>
       <div class="mathwell">
-        $$ \mathbb{E}_p[f(\mathbf{x})] \approx \sum_{i=1}^{N} \tilde{w}^{(i)} f(\mathbf{x}^{(i)}), \qquad \tilde{w}^{(i)} = \frac{w^{(i)}}{\sum_{j} w^{(j)}}, \quad w^{(i)} = \frac{p(\mathbf{x}^{(i)})}{q(\mathbf{x}^{(i)})} $$
+        $$ \alpha(\mathbf{x},\mathbf{x}') = \min\!\left(1,\; \frac{p(\mathbf{x}')\, q(\mathbf{x} \mid \mathbf{x}')}{p(\mathbf{x})\, q(\mathbf{x}' \mid \mathbf{x})}\right) $$
       </div>
       <div class="proj-links">
         <a href="https://github.com/SaiSampathKedari/MonteCarlo-Statistical-Methods" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -374,7 +384,7 @@ html.js .reveal.in{opacity:1;transform:none;}
 
     <!-- Sequential Decision Making -->
     <article class="proj reveal">
-      <div class="proj-head"><h3>Sequential Decision Making</h3><span class="chip progress">In progress</span></div>
+      <div class="proj-head"><h4>Sequential Decision Making</h4><span class="chip progress">In progress</span></div>
       <p class="lead2">The theory under reinforcement learning, worked out from the ground up before any code.</p>
       <div class="proj-main nomedia">
         <div class="proj-body">
@@ -388,7 +398,7 @@ html.js .reveal.in{opacity:1;transform:none;}
         </div>
       </div>
       <div class="mathwell">
-        $$ (T^\star v)(s) = \max_{a\in\mathcal{A}}\Big[\, r(s,a) + \gamma \sum_{s'} p(s'\mid s,a)\, v(s') \,\Big] $$
+        $$ T^\star v = \max_{d}\big[\, r_d + \lambda P_d v \,\big] $$
       </div>
       <div class="proj-links">
         <a href="https://github.com/SaiSampathKedari/Sequential-Decision-Making" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -418,7 +428,7 @@ html.js .reveal.in{opacity:1;transform:none;}
         <div class="wd">Jun 2026</div>
         <div class="wt">The Banach Fixed-Point Theorem and Why Value Iteration Converges</div>
         <div class="we">The Bellman operator is a contraction, and one fixed-point theorem turns that into existence, uniqueness, and a convergent algorithm.</div>
-        <div class="wm">11 min read · dynamic-programming, convergence</div>
+        <div class="wm">12 min read · dynamic-programming, convergence</div>
       </a>
       <a class="wmore" href="/writing/index.html">All notes, more coming soon →</a>
     </div>
@@ -431,7 +441,7 @@ html.js .reveal.in{opacity:1;transform:none;}
     <div class="shead reveal">
       <h2 class="kick">Mathematical Foundations</h2>
       <div class="rule"></div>
-      <p class="sub">Textbooks I have solved end to end, the foundation everything above sits on.</p>
+      <p class="sub">Textbooks I have worked through, problem by problem, the foundation everything above sits on.</p>
     </div>
     <div class="fgrid2">
       <div class="fbook reveal">
@@ -468,23 +478,23 @@ html.js .reveal.in{opacity:1;transform:none;}
     </div>
 
     <div class="reveal">
-      <div class="about-sub">Education</div>
-      <div class="xrow"><div class="xlogo"><img src="/images/um_logo.png" alt="University of Michigan"></div><div><div class="xt">M.S. Mechanical Engineering, Robotics</div><div class="xo">University of Michigan, Ann Arbor</div><div class="xd">Focused on statistics and AI, with inference, estimation, and convex optimization.</div></div><div class="xdate">Jan 2023 to Aug 2024</div></div>
-      <div class="xrow"><div class="xlogo"><img src="/images/um_logo.png" alt="University of Michigan"></div><div><div class="xt">M.Eng. Automotive Engineering</div><div class="xo">University of Michigan, Ann Arbor</div><div class="xd">Focused on control and machine learning.</div></div><div class="xdate">Aug 2021 to Dec 2022</div></div>
-      <div class="xrow"><div class="xlogo"><img src="/images/nit_logo.png" alt="NIT Rourkela"></div><div><div class="xt">B.Tech. Mechanical Engineering</div><div class="xo">National Institute of Technology, Rourkela</div></div><div class="xdate">2015 to 2019</div></div>
+      <h3 class="about-sub">Education</h3>
+      <div class="xrow"><div class="xlogo"><img src="/images/um_logo.png" alt=""></div><div><div class="xt">M.S. Mechanical Engineering, Robotics</div><div class="xo">University of Michigan, Ann Arbor</div><div class="xd">Focused on statistics and AI, with inference, estimation, and convex optimization.</div></div><div class="xdate">Jan 2023 to Apr 2024</div></div>
+      <div class="xrow"><div class="xlogo"><img src="/images/um_logo.png" alt=""></div><div><div class="xt">M.Eng. Automotive Engineering</div><div class="xo">University of Michigan, Ann Arbor</div><div class="xd">Focused on control and machine learning.</div></div><div class="xdate">Aug 2021 to Dec 2022</div></div>
+      <div class="xrow"><div class="xlogo"><img src="/images/nit_logo.png" alt=""></div><div><div class="xt">B.Tech. Mechanical Engineering</div><div class="xo">National Institute of Technology, Rourkela</div></div><div class="xdate">2015 to 2019</div></div>
     </div>
 
     <div class="reveal">
-      <div class="about-sub">Teaching</div>
-      <div class="xrow"><div class="xlogo"><img src="/images/um_logo.png" alt="University of Michigan"></div><div><div class="xt">Graduate Student Instructor</div><div class="xo">University of Michigan, Ann Arbor</div><div class="xd">PHYSICS 241, PHYSICS/BIOPHYS 151, and PHYSICS 360.</div></div><div class="xdate">Sep 2022 to May 2024</div></div>
+      <h3 class="about-sub">Teaching</h3>
+      <div class="xrow"><div class="xlogo"><img src="/images/um_logo.png" alt=""></div><div><div class="xt">Graduate Student Instructor</div><div class="xo">University of Michigan, Ann Arbor</div><div class="xd">PHYSICS 241, PHYSICS/BIOPHYS 151, and PHYSICS 360.</div></div><div class="xdate">Sep 2022 to May 2024</div></div>
     </div>
 
     <div class="reveal">
-      <div class="about-sub">Work Experience</div>
-      <div class="xrow"><div class="xlogo"><i class="fas fa-robot"></i></div><div><div class="xt">Founding Researcher</div><div class="xo">Stealth AI startup, San Francisco Bay Area</div></div><div class="xdate">Feb 2026 to Present</div></div>
-      <div class="xrow"><div class="xlogo"><img src="/images/um_logo.png" alt="University of Michigan"></div><div><div class="xt">Research Assistant</div><div class="xo">University of Michigan, College of Engineering</div><div class="xd">Robust estimation and perception for robotics, iRaL Lab (Prof. Vasileios Tzoumas).</div></div><div class="xdate">Aug 2024 to Jun 2025</div></div>
-      <div class="xrow"><div class="xlogo"><img src="/images/Dassault.png" alt="Dassault Systèmes"></div><div><div class="xt">CATIA R&amp;D Software Development</div><div class="xo">Dassault Systèmes, Pune, India</div><div class="xd">C++.</div></div><div class="xdate">Sep 2020 to Aug 2021</div></div>
-      <div class="xrow"><div class="xlogo"><img src="/images/altair.png" alt="Altair"></div><div><div class="xt">Software Engineer</div><div class="xo">Altair, Bengaluru, India</div><div class="xd">Solver and modeling tools, in C++.</div></div><div class="xdate">Sep 2019 to Aug 2020</div></div>
+      <h3 class="about-sub">Work Experience</h3>
+      <div class="xrow"><div class="xlogo"><i class="fas fa-robot" aria-hidden="true"></i></div><div><div class="xt">Founding Researcher</div><div class="xo">Stealth AI startup, San Francisco Bay Area</div></div><div class="xdate">Feb 2026 to Present</div></div>
+      <div class="xrow"><div class="xlogo"><img src="/images/um_logo.png" alt=""></div><div><div class="xt">Research Assistant</div><div class="xo">University of Michigan, College of Engineering</div><div class="xd">Robust estimation and perception for robotics, iRaL Lab (Prof. Vasileios Tzoumas).</div></div><div class="xdate">Aug 2024 to Jun 2025</div></div>
+      <div class="xrow"><div class="xlogo"><img src="/images/Dassault.png" alt=""></div><div><div class="xt">R&amp;D Software Developer</div><div class="xo">Dassault Systèmes, Pune, India</div><div class="xd">CATIA, in C++.</div></div><div class="xdate">Sep 2020 to Aug 2021</div></div>
+      <div class="xrow"><div class="xlogo"><img src="/images/altair.png" alt=""></div><div><div class="xt">Software Engineer</div><div class="xo">Altair, Bengaluru, India</div><div class="xd">Solver and modeling tools, in C++.</div></div><div class="xdate">Sep 2019 to Aug 2020</div></div>
     </div>
   </div>
 </section>
@@ -494,13 +504,13 @@ html.js .reveal.in{opacity:1;transform:none;}
 <footer>
   <div class="container ft">
     <div class="icons">
-      <a href="https://github.com/SaiSampathKedari" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/sai-sampath-kedari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://x.com/SSampathKedari" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-      <a href="mailto:sampath@umich.edu" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/SaiSampathKedari" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/sai-sampath-kedari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+      <a href="https://x.com/SSampathKedari" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+      <a href="mailto:sampath@umich.edu" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
       <a class="cv" href="/files/Resume_SaiSampathKedari.pdf" target="_blank" rel="noopener noreferrer">CV</a>
     </div>
-    <div class="small">sampath@umich.edu · built from scratch, no framework</div>
+    <div class="small">sampath@umich.edu · hand-built, no framework</div>
   </div>
 </footer>
 
