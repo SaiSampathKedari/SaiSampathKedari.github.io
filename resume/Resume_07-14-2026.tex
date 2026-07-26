@@ -1,0 +1,208 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\begin{center}
+    {\LARGE \textbf{SAI SAMPATH KEDARI}}\\[0.5ex]
+    \small
+    \faEnvelope~\href{mailto:sampath@umich.edu}{sampath@umich.edu} \quad
+    \faPhone~734-510-1994 \quad
+    \faGlobe~\href{https://saisampathkedari.github.io}{SaiSampath} \quad
+    \faLinkedin~\href{https://linkedin.com/in/sai-sampath-kedari}{sai-sampath-kedari} \quad
+    \faGithub~\href{https://github.com/SaiSampathKedari}{sampath} \quad
+    \faTwitter~\href{https://x.com/SSampathKedari}{sampath}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+ \resumeSubheading
+      {University of Michigan, Ann Arbor}{Jan 2023 -- Apr 2024}
+      {M.S. in Mechanical Engineering -- Robotics} {GPA: 3.66/4.0}
+ \resumeSubheading
+      {University of Michigan, Ann Arbor}{Aug 2021 -- Dec 2022}
+      {M.S. in Automotive Engineering -- Dynamics \& Control} {GPA: 3.64/4.0}
+ \resumeSubheading
+      {National Institute of Technology Rourkela, India}{Jul 2015 -- May 2019}
+      {B.Tech. in Mechanical Engineering} {GPA: 8.22/10.0}
+  \resumeSubHeadingListEnd
+
+
+
+\section{Work Experience}
+\resumeSubHeadingListStart
+  \resumeProjectHeading
+    {\textbf{Abundance Intelligence}: Founding Researcher}{Mar. 2026 -- Present}
+  \resumeProjectHeading
+    {\textbf{Syracuse University}: Theoretical Computer Scientist}{Oct. 2025 -- Dec. 2025}
+  \resumeProjectHeading
+    {\textbf{Peer Robotics}: Motion and Controls Engineer}{Jul. 2025 -- Sep. 2025}
+  \resumeProjectHeading
+    {\textbf{iRaL, UMich}: Research Assistant under Prof. Vasileios Tzoumas}{Aug. 2024 -- Jun. 2025}
+  % \resumeProjectHeading
+  %   {\textbf{ROAHM Lab, UMich}: Research Intern under Prof. Ram Vasudevan}{May 2022 -- Aug. 2022}
+  \resumeProjectHeading
+    {\textbf{Dassault Systèmes \& Altair Engineering}: R\&D Software Developer (C++)}{Aug. 2019 -- Aug. 2021}
+\resumeSubHeadingListEnd
+
+
+%-----------ACTIVE PROJECTS-----------
+\section{Active Projects}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+{\textbf{Bayesian Sim-to-Real Transfer for Locomotion Policy Learning} $|$
+\emph{MuJoCo, PyTorch, Python}}{}
+\resumeItemListStart
+\resumeItem{Training PPO locomotion policies in MuJoCo and characterizing performance degradation under physics parameter shifts (friction, mass, damping), establishing baselines for transfer failure before adaptation.}
+\resumeItem{Developing a Bayesian system identification pipeline using DRAM/MCMC to infer posteriors over target-domain physics parameters from deployment rollouts, replacing uniform domain randomization with posterior ensembles.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{\textbf{Bayesian State \& Parameter Estimation for Legged Robots} $|$
+\emph{ROS2, MuJoCo, Python}}{}
+\resumeItemListStart
+\resumeItem{Building a Particle MCMC (PMMH) pipeline for simultaneous contact-state estimation and online identification of physical parameters (mass, CoM, terrain friction/stiffness) on a Unitree quadruped, producing full posteriors over uncertain parameters rather than point estimates.}
+\resumeItem{Benchmarking against dual-UKF baseline across estimation accuracy, computational cost, and robustness to contact uncertainty and sensor dropout.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------SELECTED PROJECTS-----------
+\section{Selected Projects}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+{\textbf{Monte Carlo Statistical Methods (Casella \& Robert)} $|$
+ \href{https://github.com/SaiSampathKedari/MonteCarlo-Statistical-Methods}{GitHub} $|$
+ \href{https://github.com/SaiSampathKedari/MonteCarlo-Statistical-Methods/tree/master/reports}{13 Reports} $|$
+ \href{https://github.com/SaiSampathKedari/MonteCarlo-Statistical-Methods/tree/master/notebooks}{16 Notebooks}}{}
+\resumeItemListStart
+\resumeItem{Built a complete Monte Carlo inference toolkit from scratch: importance sampling (standard and self-normalized), variance reduction (control variates, stratified sampling), and advanced MCMC samplers (MH, Adaptive Metropolis, Delayed Rejection, DRAM) with adaptive covariance learning for high-dimensional parameter spaces.}
+\resumeItem{Implemented convergence diagnostics (ESS, autocorrelation time, trace analysis) to validate sampler mixing and detect non-identifiability; applied to posterior inference over robot physics parameters, uncertainty quantification for model-based control, and policy evaluation under partial observability.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{\textbf{Bayesian Filtering \& Smoothing (S\"{a}rkk\"{a})} $|$
+ \href{https://github.com/SaiSampathKedari/Bayesian-Filtering-and-Smoothing}{GitHub} $|$
+ \href{https://github.com/SaiSampathKedari/Bayesian-Filtering-and-Smoothing/tree/master/reports}{13 Reports} $|$
+ \href{https://github.com/SaiSampathKedari/Bayesian-Filtering-and-Smoothing/tree/master/notebooks}{7 Notebooks}}{}
+\resumeItemListStart
+\resumeItem{Derived and implemented 7 recursive Bayesian estimators from first principles: Kalman Filter family (KF, EKF, UKF, Gauss-Hermite) and Particle Filters (Bootstrap PF, EKF/UKF-proposal PF), validated on a nonlinear pendulum with explicit uncertainty propagation and belief tracking.}
+\resumeItem{Characterized filter failure modes (EKF linearization breakdown, particle weight degeneracy, UKF sigma-point collapse); architected a modular \texttt{src/filters/} library portable to robot contact estimation, 6-DOF pose tracking, and legged robot localization.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{\textbf{Bayesian Inference for Dynamical Systems} $|$
+ \href{https://github.com/SaiSampathKedari/Bayesian-Inference}{GitHub} $|$
+ \href{https://github.com/SaiSampathKedari/Bayesian-Inference/tree/master/reports}{1 Report} $|$
+ \href{https://github.com/SaiSampathKedari/Bayesian-Inference/tree/master/notebooks}{2 Notebooks}}{}
+\resumeItemListStart
+\resumeItem{Built an MCMC-based pipeline inferring posteriors over nonlinear dynamical system parameters from noisy trajectory observations, with identifiability analysis, posterior predictive checks, and prior sensitivity analysis establishing when physics parameter recovery is feasible from limited data.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \item \textbf{Languages \& Tools:} Python, C++, ROS2, PyTorch, MuJoCo, NumPy, SciPy, MATLAB
+\end{itemize}
+
+%-------------------------------------------
+\end{document}
