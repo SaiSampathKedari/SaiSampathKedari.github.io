@@ -116,13 +116,20 @@ a.t:hover { color: var(--link); }
 
 /* Education, experience, teaching: logo, role, place, dates */
 .org { list-style: none; margin: 0; padding: 0; }
-.org li { display: grid; grid-template-columns: 104px 40px minmax(0, 1fr); column-gap: 16px; align-items: start; margin-bottom: 18px; }
-.org li:last-child { margin-bottom: 0; }
+/* Timeline: years on the left, a thin vertical line with a hollow dot for each entry, then logo and text */
+.org li { position: relative; display: grid; grid-template-columns: 92px 24px 40px minmax(0, 1fr); column-gap: 12px; align-items: start; padding-bottom: 22px; }
+.org li > img, .org li > .mono { grid-column: 3; grid-row: 1; }
+.org li > span:not(.when):not(.mono) { grid-column: 4; grid-row: 1; }
+.org li::before { content: ""; position: absolute; left: 115.5px; top: 0; bottom: 0; width: 1px; background: #d6d9de; }
+.org li:first-child::before { top: 13px; }
+.org li:last-child::before { bottom: auto; height: 13px; }
+.org li:only-child::before { display: none; }
+.org li::after { content: ""; position: absolute; left: 111px; top: 9px; width: 10px; height: 10px; border-radius: 50%; background: #fff; border: 2px solid #8a9099; box-sizing: border-box; }
+.org li:last-child { padding-bottom: 0; }
 .org img, .org .mono { width: 40px; height: 40px; margin-top: 6px; border-radius: 8px; border: 1px solid var(--rule); display: block; object-fit: contain; background: #fff; }
 .org .mono { display: flex; align-items: center; justify-content: center; color: #5b606a; }
 .org .mono .ic { width: 20px; height: 20px; }
-/* Years sit in a column on the left */
-.org .when { order: -1; align-self: start; text-align: left; padding-top: 2px; }
+.org .when { grid-column: 1; grid-row: 1; text-align: right; padding-top: 2px; }
 .org .role-t { color: var(--ink); }
 
 /* Footer */
@@ -143,8 +150,12 @@ footer .updated { margin-top: 14px; color: var(--faint); font-size: 13px; }
   .feature figure { max-width: 320px; }
   .tile video.media { max-width: 320px; }
   .rows li { flex-direction: column; gap: 0; }
-  .org li { grid-template-columns: 40px minmax(0, 1fr); }
-  .org .when { order: 0; grid-column: 2; padding-top: 0; }
+  .org li { grid-template-columns: 12px 40px minmax(0, 1fr); }
+  .org li > img, .org li > .mono { grid-column: 2; }
+  .org li > span:not(.when):not(.mono) { grid-column: 3; }
+  .org .when { grid-column: 3; grid-row: 2; text-align: left; padding-top: 0; }
+  .org li::before { left: 4.5px; }
+  .org li::after { left: 0; }
 }
 </style>
 <script type="application/ld+json">
@@ -235,17 +246,11 @@ footer .updated { margin-top: 14px; color: var(--faint); font-size: 13px; }
       </div>
     </div>
     <ul class="rows">
-      <li><span><span class="t">Deep Reinforcement Learning</span><span class="links"><a href="https://github.com/SaiSampathKedari/Deep-Reinforcement-Learning">Code</a></span><span class="ctx">A2C, PPO, NPG, TRPO, and DQN in PyTorch</span></span><span class="when">In progress</span></li>
-      <li><span><span class="t">Sequential Decision Making</span><span class="links"><a href="https://github.com/SaiSampathKedari/Sequential-Decision-Making">Notes</a></span><span class="ctx">MDPs, dynamic programming, and Bellman operators</span></span><span class="when">In progress</span></li>
+      <li><span><span class="t">Deep Reinforcement Learning</span><span class="links"><a href="https://github.com/SaiSampathKedari/Deep-Reinforcement-Learning">Code</a></span><span class="ctx">A2C, PPO, NPG, TRPO, and DQN in PyTorch</span></span></li>
+      <li><span><span class="t">Sequential Decision Making</span><span class="links"><a href="https://github.com/SaiSampathKedari/Sequential-Decision-Making">Notes</a><a href="writing/markov-decision-processes-formal-object.html">Write-up</a></span><span class="ctx">MDPs, dynamic programming, and Bellman operators</span></span></li>
     </ul>
   </section>
 
-  <section id="writing">
-    <h2>Writing</h2>
-    <ul class="rows">
-      <li><a class="t" href="writing/markov-decision-processes-formal-object.html">Markov Decision Processes: The Formal Object</a><span class="when">Jun 2026</span></li>
-    </ul>
-  </section>
 
   <section id="education">
     <h2>Education</h2>
