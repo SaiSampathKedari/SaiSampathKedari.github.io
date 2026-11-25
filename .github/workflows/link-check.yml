@@ -1,0 +1,42 @@
+# Checks every link on the site once a month and opens an issue if any are broken.
+# Run it by hand from the Actions tab with "Run workflow".
+name: Link check
+
+on:
+  schedule:
+    - cron: "0 9 1 * *"   # 09:00 UTC on the 1st of each month
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check links
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --root-dir ${{ github.workspace }}
+            --max-concurrency 4
+            --retry-wait-time 5
+            --accept 200,206,429
+            --exclude linkedin\.com
+            --exclude x\.com
+            --exclude twitter\.com
+            --exclude ^https://fonts\.(googleapis|gstatic)\.com/?$
+            './**/*.html'
+          fail: false
+
+      - name: Open an issue if links are broken
+        if: steps.lychee.outputs.exit_code != 0
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: Broken links found
+          content-filepath: ./lychee/out.md
+          labels: links
