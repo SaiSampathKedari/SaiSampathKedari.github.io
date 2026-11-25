@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When More Data Cannot Separate Two Parameters · Sai Sampath Kedari</title>
+<meta name="description" content="Identifiability in an SIR epidemic model: why the Fisher information for (gamma, kappa) has rank one, what a Laplace approximation and an adaptive sampler each report, and what is still open.">
+<link rel="canonical" href="https://saisampathkedari.github.io/writing/sir-identifiability.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://saisampathkedari.github.io/writing/sir-identifiability.html">
+<meta property="og:title" content="When More Data Cannot Separate Two Parameters">
+<meta property="og:description" content="Identifiability in an SIR epidemic model: why the Fisher information for (gamma, kappa) has rank one, what a Laplace approximation and an adaptive sampler each report, and what is still open.">
+<meta property="og:image" content="https://saisampathkedari.github.io/static/pic2-sq.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%232458b3%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-family=%22Helvetica,Arial%22 font-size=%2217%22 fill=%22white%22 text-anchor=%22middle%22%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});window.__wideEq()"></script>
+<script>
+// Display equations wider than the column scroll sideways. Make those reachable by keyboard.
+window.__wideEq = function () {
+  var mark = function () {
+    document.querySelectorAll('.katex-display').forEach(function (e) {
+      if (e.scrollWidth > e.clientWidth + 1) { e.tabIndex = 0; e.setAttribute('role', 'region'); e.setAttribute('aria-label', 'Equation, scroll sideways'); }
+    });
+  };
+  mark();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(mark);
+  window.addEventListener('resize', mark);
+};
+</script>
+<style>
+:root{color-scheme:light;--bg:#fff;--ink:#16181d;--text:#2d3038;--muted:#5c6169;--faint:#70757e;--rule:#ececee;--link:#2458b3;--link-line:rgba(36,88,179,.35);--well:#f7f7f8;--radius:10px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--link);outline-offset:3px;border-radius:3px}
+p a,li a,.meta a{text-decoration:underline;text-decoration-color:var(--link-line);text-decoration-thickness:1px;text-underline-offset:3px}
+p a:hover,li a:hover,.meta a:hover{text-decoration-color:currentColor}
+.top{max-width:720px;margin:0 auto;padding:28px 20px 0;font-size:15px}
+.top nav{display:flex;gap:20px;flex-wrap:wrap}
+.top nav a{color:var(--muted);text-decoration:none}
+.top nav a:hover{color:var(--link)}
+.wrap{max-width:720px;margin:0 auto;padding:28px 20px 40px}
+.post-head h1{font-size:30px;font-weight:600;line-height:1.25;letter-spacing:-.02em;color:var(--ink);margin:0 0 12px}
+.dek{color:var(--muted);font-size:18px;line-height:1.55;margin:0 0 10px}
+.meta{color:var(--faint);font-size:14px;padding-bottom:22px;border-bottom:1px solid var(--rule);margin-bottom:28px}
+.toc{margin:-6px 0 30px;font-size:15px}
+.toc-h{color:var(--faint);font-size:13px;margin-bottom:6px}
+.toc ol{margin:0;padding-left:20px}.toc ul{margin:2px 0;padding-left:18px;list-style:none}
+.toc li{margin:2px 0}.toc a{color:var(--muted);text-decoration:none}.toc a:hover{color:var(--link)}
+#article h2{font-size:22px;font-weight:500;color:var(--ink);line-height:1.3;margin:44px 0 12px}
+#article h3{font-size:18px;font-weight:500;color:var(--ink);line-height:1.35;margin:30px 0 8px}
+#article p{margin:0 0 16px;text-wrap:pretty}
+#article ol,#article ul{padding-left:24px;margin:0 0 16px}
+#article li{margin:4px 0}
+#article strong{color:var(--ink);font-weight:600}
+#article blockquote,#article pre{background:var(--well);border-left:3px solid var(--rule);margin:0 0 18px;padding:12px 16px}
+#article table{border-collapse:collapse;margin:0 0 18px;font-size:15px}
+#article th,#article td{border-bottom:1px solid var(--rule);padding:6px 10px;text-align:left}
+figure{margin:8px 0 26px}
+figure img{display:block;width:100%;max-width:420px;height:auto;border:1px solid var(--rule);border-radius:var(--radius);padding:8px;background:#fff;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+figcaption{color:var(--faint);font-size:14px;line-height:1.45;margin-top:8px;max-width:560px}
+.nowrap{white-space:nowrap}
+.katex-display{overflow-x:auto;overflow-y:hidden;padding:4px 0;margin:10px 0 18px}
+.post-note{color:var(--faint);font-size:14px;margin:40px 0 0}
+.list{list-style:none;margin:28px 0 0;padding:0}
+.list li{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:12px 0;border-top:1px solid var(--rule)}
+.list li:first-child{border-top:0;padding-top:0}
+.list a{color:var(--ink);font-weight:500;text-decoration:none}
+.list a:hover{color:var(--link);text-decoration:underline}
+.list .when{color:var(--faint);font-size:.92em;white-space:nowrap;font-variant-numeric:tabular-nums}
+.list .ctx{display:block;color:var(--muted);font-size:.94em;font-weight:400}
+footer{max-width:680px;width:calc(100% - 40px);margin:0 auto;padding:28px 0 36px;border-top:1px solid var(--rule);text-align:center}
+footer p{margin:0}
+.icons{display:flex;gap:18px;justify-content:center;align-items:center}
+.icons a{display:inline-flex;text-decoration:none;transition:opacity .15s,transform .15s}
+.icons a:hover{opacity:.75;transform:translateY(-1px)}
+.ic{width:20px;height:20px;fill:currentColor;display:block}
+.i-mail{color:#5f6368}.i-cv{color:#d93025}.i-gh{color:#181717}.i-li{color:#0a66c2}.i-x{color:#000}
+.updated{margin-top:12px!important;color:var(--faint);font-size:13px}
+@media (max-width:600px){body{font-size:16px}.post-head h1{font-size:25px}.dek{font-size:16.5px}.katex-display{font-size:.92em}.list li{flex-direction:column;gap:0}}
+</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<!-- Icons: Font Awesome Free 6.7.2 by @fontawesome, https://fontawesome.com, License CC BY 4.0 (https://fontawesome.com/license/free). -->
+<symbol id="i-mail" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></symbol>
+<symbol id="i-cv" viewBox="0 0 512 512"><path d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></symbol>
+<symbol id="i-gh" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></symbol>
+<symbol id="i-li" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></symbol>
+<symbol id="i-x" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></symbol>
+<symbol id="i-robot" viewBox="0 0 640 512"><path d="M320 0c17.7 0 32 14.3 32 32l0 64 120 0c39.8 0 72 32.2 72 72l0 272c0 39.8-32.2 72-72 72l-304 0c-39.8 0-72-32.2-72-72l0-272c0-39.8 32.2-72 72-72l120 0 0-64c0-17.7 14.3-32 32-32zM208 384c-8.8 0-16 7.2-16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0zM264 256a40 40 0 1 0 -80 0 40 40 0 1 0 80 0zm152 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80zM48 224l16 0 0 192-16 0c-26.5 0-48-21.5-48-48l0-96c0-26.5 21.5-48 48-48zm544 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-16 0 0-192 16 0z"/></symbol>
+</svg>
+<header class="top">
+  <nav aria-label="Site"><a href="/">&larr; Sai Sampath Kedari</a><a href="index.html">Writing</a></nav>
+</header>
+<main class="wrap">
+  <header class="post-head">
+    <h1>When More Data Cannot Separate Two Parameters</h1>
+    <p class="dek">Identifiability in an SIR epidemic model: why the Fisher information for (&gamma;, &kappa;) has rank one, what a Laplace approximation and an adaptive sampler each report, and what is still open.</p>
+    <div class="meta">Course project 2024 (AEROSP 567), rebuilt 2025 &middot; <a href="https://github.com/SaiSampathKedari/Bayesian-Inference">Code</a></div>
+  </header>
+  <article id="article">
+    <h2>The model</h2>
+    <p>An SIR model tracks susceptible, infected, and recovered counts in a population of <span class="nowrap">$N = 1000$</span>:</p>
+    $$\dot S = \delta N - \delta S - \gamma\kappa\, S I,\qquad \dot I = \gamma\kappa\, S I - (r+\delta) I,\qquad \dot R = r I - \delta R.$$
+    <p>We observe only the infected count $I(t)$, with Gaussian noise of standard deviation 50, and want the posterior over $\theta = (\gamma, \kappa, r, \delta)$ under a standard normal prior. The data were generated with $\beta = \gamma\kappa = 0.02$, $r = 0.6$, and $\delta = 0.15$. The pair $\gamma = 0.01$, $\kappa = 2$ serves as a reference point on the curve $\gamma\kappa = 0.02$.</p>
+
+    <h2>Why the data cannot separate $\gamma$ and $\kappa$</h2>
+    <p>The two parameters enter the dynamics only through their product $\beta = \gamma\kappa$. Any pair with the same product produces exactly the same trajectory, so the likelihood is constant along each curve $\gamma\kappa = c$. More data sharpens the estimate of $\beta$, but it cannot say how $\beta$ splits into its two factors.</p>
+    <p>The Fisher information makes this precise. By the chain rule, with $I_\beta$ the information about $\beta$,</p>
+    $$I(\gamma,\kappa) = I_\beta \begin{bmatrix}\kappa \\ \gamma\end{bmatrix}\begin{bmatrix}\kappa & \gamma\end{bmatrix}, \qquad I(\gamma,\kappa)\begin{bmatrix}\gamma \\ -\kappa\end{bmatrix} = 0.$$
+    <p>This block has rank one. Moving in the direction $(\gamma, -\kappa)$ leaves the likelihood unchanged to first order, and that direction is tangent to the curve $\gamma\kappa = c$. The full $4 \times 4$ matrix, which also covers $r$ and $\delta$, has rank three, with null vector $(\gamma, -\kappa, 0, 0)$.</p>
+
+    <h2>What the two methods report</h2>
+    <figure>
+      <img src="../static/sir-posterior-labeled.png" width="770" height="686" alt="DRAM posterior samples of gamma and kappa following the positive branch of a hyperbola">
+      <figcaption>DRAM posterior samples follow the positive branch of $\gamma\kappa \approx 0.02$. The mirror-image branch, where both parameters are negative, carries the same posterior mass but is never visited.</figcaption>
+    </figure>
+    <p><strong>Laplace approximation.</strong> It fits a single Gaussian at the posterior mode it finds, here $\gamma = \kappa \approx 0.137$. The fitted covariance has a correlation of almost exactly $-1$ between $\gamma$ and $\kappa$, so the Gaussian is a straight line tangent to the curved ridge. Its 95% interval for $\kappa$ runs from about $-0.86$ to $1.13$, but the line leaves the curve almost at once: a step of $0.1$ along it from the mode already halves $\gamma\kappa$, so most of its mass sits where the data fit badly. Its width is not even stable: across five draws of the observation noise, the reported variance of $\kappa$ ranged from $0.0003$ to $0.25$, because the curvature along the ridge is zero and the optimizer's estimate of it reflects its own path.</p>
+    <p><strong>DRAM sampling.</strong> Delayed-rejection adaptive Metropolis follows the ridge and recovers its curved shape, but only on one branch. Because the likelihood depends only on $\gamma\kappa$ and the standard normal prior is symmetric, the mirror-image branch, where both parameters are negative, carries exactly the same posterior mass. It exists only because the prior allows negative rates. Moving between the branches means passing near $\gamma\kappa = 0$, where the data fit badly, so the chain never crosses and reports half of the posterior. Mixing is also slow along the branch: after burn-in, the chain moves on about 4.5% of iterations.</p>
+    <p>Neither method reaches the reference value $\kappa = 2$. The likelihood is flat along the curve, so the prior decides where along the curve the posterior mass sits, and under the standard normal prior $\kappa = 2$ is unlikely.</p>
+
+    <h2>What remains open</h2>
+    <p><strong>Sampling the ridge.</strong> Reparameterizing in terms of $\beta = \gamma\kappa$ and one coordinate along the curve should make each branch easier to sample. Moving between the two branches needs more than local proposals, for example a move that uses the symmetry $(\gamma, \kappa) \to (-\gamma, -\kappa)$, or tempering. Comparing these with samplers that adapt to curved geometry is the next step.</p>
+    <p><strong>Prediction versus intervention.</strong> Because every pair on the curve produces the same trajectory, the posterior forecasts the epidemic well. It also answers proportional changes: halving $\gamma$ halves $\beta$, which the data determine. It cannot answer what happens if $\gamma$ is set to a new value, because the resulting rate then depends on $\kappa$, which the data never pinned down.</p>
+    <p class="post-note">Correction, November 2026: an earlier version of this page showed samples on both branches. A review then found a bug in the second-stage acceptance step of the delayed-rejection sampler, so the earlier samples did not come from the posterior. The figure and numbers here come from the corrected sampler, rerun with a fixed seed.</p>
+  </article>
+</main>
+<footer>
+  <p class="icons">
+    <a class="i-mail" href="mailto:sampath@umich.edu" aria-label="Email" title="Email"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg></a>
+    <a class="i-cv" href="/files/Resume_SaiSampathKedari.pdf" aria-label="CV" title="CV"><svg class="ic" aria-hidden="true"><use href="#i-cv"/></svg></a>
+    <a class="i-gh" href="https://github.com/SaiSampathKedari" aria-label="GitHub" title="GitHub"><svg class="ic" aria-hidden="true"><use href="#i-gh"/></svg></a>
+    <a class="i-li" href="https://www.linkedin.com/in/sai-sampath-kedari" aria-label="LinkedIn" title="LinkedIn"><svg class="ic" aria-hidden="true"><use href="#i-li"/></svg></a>
+    <a class="i-x" href="https://x.com/SSampathKedari" aria-label="X" title="X"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></a>
+  </p>
+  <p class="updated">&copy; 2026 Sai Sampath Kedari</p>
+</footer>
+
+</body>
+</html>

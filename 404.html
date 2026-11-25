@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found · Sai Sampath Kedari</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://saisampathkedari.github.io/">
+<meta property="og:title" content="Sai Sampath Kedari">
+<meta property="og:description" content="Sai Sampath Kedari. Adaptive learning, probabilistic inference, and reinforcement learning. Applying to PhD programs for Fall 2027.">
+<meta property="og:image" content="https://saisampathkedari.github.io/static/pic2-sq.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="description" content="Sai Sampath Kedari. Adaptive learning, probabilistic inference, and reinforcement learning. Applying to PhD programs for Fall 2027.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%232458b3%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-family=%22Helvetica,Arial%22 font-size=%2217%22 fill=%22white%22 text-anchor=%22middle%22%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --ink: #16181d;
+  --text: #2d3038;
+  --muted: #5c6169;
+  --faint: #70757e;
+  --rule: #ececee;
+  --link: #2458b3;
+  --link-line: rgba(36, 88, 179, .35);
+  --radius: 10px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 3px; }
+p { margin: 0 0 14px; text-wrap: pretty; }
+/* Links inside running text carry a quiet underline, so they do not rely on color alone. */
+p a { text-decoration: underline; text-decoration-color: var(--link-line); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+p a:hover { text-decoration-color: currentColor; }
+
+.page { width: clamp(760px, 66.67%, 1280px); margin: 0 auto; padding: 64px 16px 40px; }
+
+/* Intro: text on the left, photo on the right */
+.top { display: flex; justify-content: space-between; align-items: flex-start; gap: 48px; margin-bottom: 64px; }
+.top .text { flex: 0 1 60%; min-width: 0; }
+.top .photo { flex: 0 0 32%; max-width: 320px; }
+.top .photo img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; display: block; border-radius: 14px; }
+h1 { font-size: 30px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; margin: 0 0 6px; color: var(--ink); }
+.role { color: var(--muted); margin: 0 0 22px; }
+.chat { margin: 20px 0 0; }
+.chat + .icons { margin-top: 10px; }
+
+/* Icons: inline SVG in each brand's own color */
+.icons { display: flex; gap: 18px; align-items: center; margin: 22px 0 0; }
+.icons a { display: inline-flex; text-decoration: none; transition: opacity .15s, transform .15s; }
+.icons a:hover { opacity: .75; transform: translateY(-1px); }
+.ic { width: 21px; height: 21px; fill: currentColor; display: block; }
+.i-mail { color: #5f6368; }
+.i-cv { color: #d93025; }
+.i-gh { color: #181717; }
+.i-li { color: #0a66c2; }
+.i-x { color: #000000; }
+
+/* Sections */
+section { margin-bottom: 56px; }
+h2 { font-size: 20px; font-weight: 500; color: var(--ink); line-height: 1.3; margin: 0 0 22px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+
+/* Shared text roles */
+.t { color: var(--ink); font-weight: 500; }
+a.t { color: var(--ink); }
+a.t:hover { color: var(--link); }
+.ctx { display: block; color: var(--muted); font-size: 0.94em; }
+.when { color: var(--faint); font-size: 0.92em; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.links { display: block; margin-top: 8px; font-size: 0.92em; }
+.links a + a::before { content: "\00b7"; color: var(--faint); margin: 0 8px; display: inline-block; }
+
+/* Media: the figure and the videos share one frame */
+.media { width: 100%; height: auto; display: block; border: 1px solid var(--rule); border-radius: var(--radius); box-shadow: 0 1px 2px rgba(16, 24, 40, .04); }
+
+/* Featured research item and project rows: media beside text */
+.feature, .tile { display: grid; grid-template-columns: 260px minmax(0, 1fr); column-gap: 32px; align-items: start; }
+.feature figure { margin: 0; }
+.feature img.media { padding: 8px; background: #fff; }
+.feature figcaption { font-size: 13px; color: var(--faint); line-height: 1.45; margin-top: 8px; }
+.feature p { margin: 10px 0 0; }
+.grid { display: grid; gap: 32px; }
+.tile video.media { aspect-ratio: 4 / 3; object-fit: cover; background: #f3f3f4; }
+.tile .desc { display: block; margin-top: 8px; }
+
+/* Plain rows: one left edge, dates on the right */
+.rows { list-style: none; margin: 0; padding: 0; }
+.rows li { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 12px 0; border-top: 1px solid var(--rule); }
+.rows li:first-child { border-top: 0; padding-top: 0; }
+.grid + .rows { margin-top: 28px; }
+.grid + .rows li:first-child { border-top: 1px solid var(--rule); padding-top: 12px; }
+.rows .links { display: inline; margin: 0 0 0 10px; }
+
+/* Education, experience, teaching: logo, role, place, dates */
+.org { list-style: none; margin: 0; padding: 0; }
+.org li { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; column-gap: 16px; align-items: start; margin-bottom: 18px; }
+.org li:last-child { margin-bottom: 0; }
+.org img, .org .mono { width: 40px; height: 40px; margin-top: 6px; border-radius: 8px; border: 1px solid var(--rule); display: block; object-fit: contain; background: #fff; }
+.org .mono { display: flex; align-items: center; justify-content: center; color: #5b606a; }
+.org .mono .ic { width: 20px; height: 20px; }
+.org .when { align-self: start; padding-top: 1.5px; }
+.org .role-t { color: var(--ink); }
+
+/* Footer */
+footer { margin-top: 8px; padding: 32px 0 8px; border-top: 1px solid var(--rule); text-align: center; }
+footer p { margin: 0; color: var(--muted); }
+footer .icons { justify-content: center; margin: 0; }
+footer .updated { margin-top: 14px; color: var(--faint); font-size: 13px; }
+
+@media (max-width: 991px) { .page { width: 100%; max-width: 760px; padding-left: 24px; padding-right: 24px; } }
+@media (max-width: 700px) {
+  .page { padding: 36px 18px 28px; }
+  .top { flex-direction: column-reverse; gap: 22px; margin-bottom: 48px; }
+  .top .photo { width: 62%; max-width: 260px; }
+  section { margin-bottom: 44px; }
+  .feature, .tile { grid-template-columns: 1fr; row-gap: 12px; }
+  .feature figure { max-width: 320px; }
+  .tile video.media { max-width: 320px; }
+  .rows li { flex-direction: column; gap: 0; }
+  .org li { grid-template-columns: 40px minmax(0, 1fr); }
+  .org .when { grid-column: 2; padding-top: 0; }
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Sai Sampath Kedari",
+ "url":"https://saisampathkedari.github.io/",
+ "image":"https://saisampathkedari.github.io/static/pic2-sq.jpg",
+ "alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Michigan"},
+             {"@type":"CollegeOrUniversity","name":"National Institute of Technology Rourkela"}],
+ "sameAs":["https://github.com/SaiSampathKedari",
+           "https://www.linkedin.com/in/sai-sampath-kedari",
+           "https://x.com/SSampathKedari"]}
+</script>
+</head>
+<body>
+<main class="page">
+  <h1>Page not found</h1>
+  <p class="role">This page does not exist, or it moved when the site was redesigned.</p>
+  <p><a href="/">Go to the homepage</a> or <a href="/writing/">see the writing</a>.</p>
+</main>
+</body>
+</html>
