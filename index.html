@@ -81,13 +81,12 @@ h1 { font-family: "LaTeX Serif", "Latin Modern Roman", "Times New Roman", serif;
 
 /* Sections */
 section { margin-bottom: 56px; }
-h2 { font-family: "LaTeX Serif", "Latin Modern Roman", "Times New Roman", serif; font-size: 20px; font-weight: 500; color: var(--ink); line-height: 1.3; margin: 0 0 22px; }
+h2 { font-size: 20px; font-weight: 500; color: var(--ink); line-height: 1.3; margin: 0 0 22px; }
 /* A short line under each section title */
 h2::after { content: ""; display: block; width: 36px; height: 2px; background: var(--ink); margin-top: 10px; }
-.t, .role-t { font-family: "LaTeX Serif", "Latin Modern Roman", "Times New Roman", serif; }
 
 /* Shared text roles */
-.t { color: var(--ink); font-weight: 500; }
+.t { color: var(--ink); font-size: 17px; font-weight: 600; }
 a.t { color: var(--ink); }
 a.t:hover { color: var(--link); }
 .ctx { display: block; color: var(--muted); font-size: 0.94em; }
@@ -110,24 +109,26 @@ a.t:hover { color: var(--link); }
 
 /* Plain rows: one left edge, dates on the right */
 .rows { list-style: none; margin: 0; padding: 0; }
-.rows li { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 12px 0; border-top: 1px solid var(--rule); }
-.rows li:first-child { border-top: 0; padding-top: 0; }
+.rows li { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 7px 0; }
+.rows li:first-child { padding-top: 0; }
 .grid + .rows { margin-top: 28px; }
-.grid + .rows li:first-child { border-top: 1px solid var(--rule); padding-top: 12px; }
 .rows .links { display: inline; margin: 0 0 0 10px; }
 
 /* Education, experience, teaching: logo, role, place, dates */
 .org { list-style: none; margin: 0; padding: 0; }
-.org li { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; column-gap: 16px; align-items: start; margin-bottom: 18px; }
+.org li { display: grid; grid-template-columns: 104px 40px minmax(0, 1fr); column-gap: 16px; align-items: start; margin-bottom: 18px; }
 .org li:last-child { margin-bottom: 0; }
 .org img, .org .mono { width: 40px; height: 40px; margin-top: 6px; border-radius: 8px; border: 1px solid var(--rule); display: block; object-fit: contain; background: #fff; }
 .org .mono { display: flex; align-items: center; justify-content: center; color: #5b606a; }
 .org .mono .ic { width: 20px; height: 20px; }
-.org .when { align-self: start; padding-top: 1.5px; }
+/* Years sit in a column on the left */
+.org .when { order: -1; align-self: start; text-align: left; padding-top: 2px; }
 .org .role-t { color: var(--ink); }
 
 /* Footer */
-footer { margin-top: 8px; padding: 32px 0 8px; border-top: 1px solid var(--rule); text-align: center; }
+footer { margin-top: 8px; padding: 32px 0 8px; text-align: center; }
+/* The same short line as under the section titles */
+footer::before { content: ""; display: block; width: 36px; height: 2px; background: var(--ink); margin: 0 auto 28px; }
 footer p { margin: 0; color: var(--muted); }
 footer .icons { justify-content: center; margin: 0; }
 footer .updated { margin-top: 14px; color: var(--faint); font-size: 13px; }
@@ -143,7 +144,7 @@ footer .updated { margin-top: 14px; color: var(--faint); font-size: 13px; }
   .tile video.media { max-width: 320px; }
   .rows li { flex-direction: column; gap: 0; }
   .org li { grid-template-columns: 40px minmax(0, 1fr); }
-  .org .when { grid-column: 2; padding-top: 0; }
+  .org .when { order: 0; grid-column: 2; padding-top: 0; }
 }
 </style>
 <script type="application/ld+json">
